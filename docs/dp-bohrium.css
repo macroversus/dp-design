@@ -63,9 +63,10 @@ html[data-dp-theme='light'] {
   /* Shape — locked 2026-08-10 */
   --dp-radius-xs: 2px;
   --dp-radius-sm: 4px;
-  --dp-radius: 8px;
+  --dp-radius: 8px;                 /* 控件：按钮 / 输入等 */
   --dp-radius-lg: 12px;
   --dp-radius-xl: 16px;
+  --dp-radius-container: 16px;      /* Product 可见大容器：卡片 / 面板（= xl） */
   --dp-radius-2xl: 20px;
   --dp-radius-pill: 100px;
 

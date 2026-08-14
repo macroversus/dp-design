@@ -847,7 +847,7 @@ html[data-reduce-motion='true'] .motion-skeleton {
 .panel-card {
   background: var(--dp-bg-white);
   border: 1px solid var(--dp-border);
-  border-radius: var(--dp-radius-lg);
+  border-radius: var(--dp-radius-container);
   box-shadow: var(--dp-shadow-xs);
 }
 
@@ -1691,7 +1691,7 @@ textarea.input { min-height: 88px; resize: vertical; }
 .card {
   padding: 20px;
   border: 1px solid var(--dp-border);
-  border-radius: var(--dp-radius-lg);
+  border-radius: var(--dp-radius-container);
   background: var(--dp-bg-white);
   transition: border-color var(--dp-transition-fast), box-shadow var(--dp-transition-fast), transform var(--dp-transition-fast);
 }
