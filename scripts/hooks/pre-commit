@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# pre-commit：提交前自动同步 styleguide → docs，并把变更加入本次提交
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+SYNC="$ROOT/scripts/sync-pages.sh"
+
+if [[ ! -x "$SYNC" ]]; then
+  chmod +x "$SYNC" 2>/dev/null || true
+fi
+
+"$SYNC"
+
+# 若 docs 有变化，纳入本次 commit
+if ! git diff --quiet -- docs/ || ! git diff --cached --quiet -- docs/; then
+  git add docs/
+  echo "已将 docs/ 变更加入暂存区"
+fi
