@@ -1,0 +1,225 @@
+/**
+ * DP Technology × Bohrium Design Tokens
+ * Baseline: https://www.dp.tech/ + https://www.bohrium.com/
+ */
+/* Theme colors: prefer [data-dp-theme]; :root kept for fallback before JS */
+:root,
+html[data-dp-theme='light'] {
+  color-scheme: light;
+
+  /* Brand */
+  --dp-color-primary: #3b45e5;
+  --dp-color-action: #3c49dd;
+  --dp-color-primary-hover: #626aea;
+  --dp-color-primary-active: #2f37b7;
+  --dp-color-primary-bg: #f7fafe;
+  --dp-color-primary-bg-hover: #e9ebf7;
+  --dp-color-action-bg-light: #e8f3ff;
+  --dp-color-action-bg-hover: #bedaff;
+  --dp-color-accent-violet: #5d26ff;
+  --dp-color-accent-blue: #264aff;
+
+  /* Neutral text */
+  --dp-text-1: #1d2129;
+  --dp-text-strong: #020c1a;
+  --dp-text-2: #4e5969;
+  --dp-text-3: #86909c;
+  --dp-text-4: #c9cdd4;
+  --dp-text-secondary-alt: #353966;
+  --dp-text-tertiary-alt: #70749e;
+  --dp-text-on-primary: #ffffff;
+
+  /* Fill / surface */
+  --dp-fill-1: #f7f8fa;
+  --dp-fill-2: #f2f3f5;
+  --dp-fill-3: #e5e6eb;
+  --dp-fill-4: #c9cdd4;
+  --dp-bg-page: #f4f5f7;
+  --dp-bg-layout: #f4f6fb;
+  --dp-bg-white: #ffffff;
+  --dp-bg-header: color-mix(in srgb, var(--dp-bg-white) 92%, transparent);
+  --dp-bg-hero-dark: #161a2e;
+
+  /* Border — locked with shape 2026-08-10 */
+  --dp-border-width: 1px;
+  --dp-border: #e5e6eb;
+  --dp-border-light: #f2f3f5;
+  --dp-border-dark: #c9cdd4;
+  --dp-border-primary-tint: #e9ebf7;
+  --dp-divider: var(--dp-border);
+  --dp-divider-width: 1px;
+  --dp-focus-ring-width: 3px;
+  --dp-focus-ring-color: color-mix(in srgb, var(--dp-color-action) 16%, transparent);
+  --dp-focus-ring: 0 0 0 var(--dp-focus-ring-width) var(--dp-focus-ring-color);
+
+  /* Semantic */
+  --dp-success: #0ab268;
+  --dp-success-alt: #00b42a;
+  --dp-warning: #ff7d00;
+  --dp-warning-bg: #fff7e8;
+  --dp-error: #ff4747;
+  --dp-info: #3b45e5;
+
+  /* Shape — locked 2026-08-10 */
+  --dp-radius-xs: 2px;
+  --dp-radius-sm: 4px;
+  --dp-radius: 8px;
+  --dp-radius-lg: 12px;
+  --dp-radius-xl: 16px;
+  --dp-radius-2xl: 20px;
+  --dp-radius-pill: 100px;
+
+  /* Elevation — locked 2026-08-10 (0 = none) */
+  --dp-shadow-none: none;
+  --dp-shadow-xs: 0 1px 2px #0000000a;
+  --dp-shadow: 0 4px 10px #9fbadc33;
+  --dp-shadow-emphasis: 0 4px 10px #9fbadc33, 0 6px 10px #3b45e526;
+  --dp-shadow-modal: 0 6px 16px #00000014, 0 3px 6px -4px #0000001f, 0 9px 28px 8px #0000000d;
+
+  /* Spacing (8px grid) */
+  --dp-space-1: 4px;
+  --dp-space-2: 8px;
+  --dp-space-3: 12px;
+  --dp-space-4: 16px;
+  --dp-space-5: 20px;
+  --dp-space-6: 24px;
+  --dp-space-8: 32px;
+  --dp-space-10: 40px;
+  --dp-space-12: 48px;
+  --dp-space-16: 64px;
+
+  /* Layout — locked 2026-08-09 */
+  --dp-grid-base: 8px;
+  --dp-grid-columns: 24;
+  --dp-grid-gutter: 24px;
+  --dp-header-height: 64px;
+  --dp-sidebar-width: 220px;
+  --dp-sidebar-collapsed: 72px;
+  --dp-page-padding: 24px;
+  --dp-page-padding-sm: 16px;
+  --dp-card-padding-tool: 16px;
+  --dp-card-padding-tool-lg: 24px;
+  --dp-card-padding-showcase: 24px;
+  --dp-card-padding-showcase-lg: 40px;
+  --dp-container-max: 1200px;
+  --dp-container-wide-max: 1280px;
+  --dp-container: min(var(--dp-container-max), calc(100vw - 48px));
+  --dp-container-wide: min(var(--dp-container-wide-max), calc(100vw - 48px));
+  --dp-bp-xs: 768px;
+  --dp-bp-md: 768px;
+  --dp-bp-lg: 1200px;
+  --dp-bp-xl: 1600px;
+
+  /* Icon — locked 2026-08-10 */
+  --dp-icon-size-xs: 12px;
+  --dp-icon-size-sm: 16px;
+  --dp-icon-size-md: 20px;
+  --dp-icon-size-lg: 24px;
+  --dp-icon-size-xl: 48px;
+  --dp-icon-size-2xl: 64px;
+  --dp-icon-stroke: 1.5;
+  --dp-icon-gap: var(--dp-space-2);
+  --dp-icon-color: var(--dp-text-2);
+  --dp-icon-color-muted: var(--dp-text-3);
+  --dp-icon-color-active: var(--dp-color-action);
+  --dp-icon-color-disabled: var(--dp-text-4);
+
+  /* Motion — landed 2026-08-10 (recommended defaults, adjustable) */
+  --dp-duration-instant: 0ms;
+  --dp-duration-fast: 160ms;
+  --dp-duration-medium: 240ms;
+  --dp-duration-slow: 360ms;
+  --dp-duration-spin: 900ms;
+  --dp-duration-skeleton: 1400ms;
+  --dp-ease-standard: ease;
+  --dp-ease-emphasize: cubic-bezier(0.22, 1, 0.36, 1);
+  --dp-ease-linear: linear;
+  --dp-transition-fast: var(--dp-duration-fast) var(--dp-ease-standard);
+  --dp-transition-medium: var(--dp-duration-medium) var(--dp-ease-emphasize);
+  --dp-transition-slow: var(--dp-duration-slow) var(--dp-ease-emphasize);
+  /* Button hover: color + soft glow (no translate) */
+  --dp-btn-hover-glow: 0 0 0 3px color-mix(in srgb, var(--dp-color-action) 18%, transparent);
+  --dp-btn-hover-glow-soft: 0 4px 14px color-mix(in srgb, var(--dp-color-action) 22%, transparent);
+  --dp-motion-enter-y: 8px;
+  --dp-motion-enter-y-showcase: 16px;
+  --dp-motion-stagger: 60ms;
+
+  /* Typography */
+  --dp-font-sans: "PingFang SC", "MiSans", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --dp-font-display: "Plus Jakarta Sans", "MiSans", var(--dp-font-sans);
+  --dp-font-serif: "Merriweather", "Source Han Serif CN", "Noto Serif SC", serif;
+  --dp-font-mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
+
+  --dp-text-hero: clamp(2.5rem, 5vw, 3.5rem);
+  --dp-text-page-title: 1.75rem;
+  --dp-text-section: 1.25rem;
+  --dp-text-body: 0.9375rem;
+  --dp-text-body-lg: 1rem;
+  --dp-text-caption: 0.75rem;
+  --dp-leading-tight: 1.25;
+  --dp-leading-body: 1.55;
+}
+
+/* Dark — locked 2026-08-11 (D1–D10 recommended defaults) */
+html[data-dp-theme='dark'] {
+  color-scheme: dark;
+
+  --dp-color-primary: #6b74f2;
+  --dp-color-action: #6b74f2;
+  --dp-color-primary-hover: #858df5;
+  --dp-color-primary-active: #545eeb;
+  --dp-color-primary-bg: #1e2448;
+  --dp-color-primary-bg-hover: #262d5c;
+  --dp-color-action-bg-light: #262d5c;
+  --dp-color-action-bg-hover: #323a72;
+  --dp-color-accent-violet: #8b5cff;
+  --dp-color-accent-blue: #5b7cff;
+
+  --dp-text-1: #f2f3f5;
+  --dp-text-strong: #ffffff;
+  --dp-text-2: #c5c7d4;
+  --dp-text-3: #8b90a5;
+  --dp-text-4: #5c637a;
+  --dp-text-secondary-alt: #a7abd3;
+  --dp-text-tertiary-alt: #8b90a5;
+  --dp-text-on-primary: #ffffff;
+
+  --dp-fill-1: #1e243c;
+  --dp-fill-2: #262d48;
+  --dp-fill-3: #323a58;
+  --dp-fill-4: #454e6e;
+  --dp-bg-page: #0c0f15;
+  --dp-bg-layout: #12162a;
+  --dp-bg-white: #1a1f36;
+  --dp-bg-header: color-mix(in srgb, var(--dp-bg-white) 92%, transparent);
+  --dp-bg-hero-dark: #0c0f15;
+
+  --dp-border: #2e3554;
+  --dp-border-light: #262d48;
+  --dp-border-dark: #454e6e;
+  --dp-border-primary-tint: #323a72;
+  --dp-divider: var(--dp-border);
+  --dp-focus-ring-color: color-mix(in srgb, var(--dp-color-action) 28%, transparent);
+  --dp-focus-ring: 0 0 0 var(--dp-focus-ring-width) var(--dp-focus-ring-color);
+
+  --dp-success: #23c343;
+  --dp-success-alt: #23c343;
+  --dp-warning: #ff9a2e;
+  --dp-warning-bg: #3a2a14;
+  --dp-error: #f76560;
+  --dp-info: #6b74f2;
+
+  --dp-shadow-none: none;
+  --dp-shadow-xs: 0 1px 2px #00000066;
+  --dp-shadow: 0 4px 16px #00000066;
+  --dp-shadow-emphasis: 0 6px 20px #00000080;
+  --dp-shadow-modal: 0 8px 28px #00000099, 0 4px 12px #00000066;
+
+  --dp-btn-hover-glow: 0 0 0 3px color-mix(in srgb, var(--dp-color-action) 28%, transparent);
+  --dp-btn-hover-glow-soft: 0 4px 16px color-mix(in srgb, var(--dp-color-action) 30%, transparent);
+
+  --dp-icon-color: var(--dp-text-2);
+  --dp-icon-color-muted: var(--dp-text-3);
+  --dp-icon-color-active: var(--dp-color-action);
+  --dp-icon-color-disabled: var(--dp-text-4);
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none">
+  <defs>
+    <linearGradient id="dpIllustHeroBg" x1="40" y1="20" x2="280" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3c49dd" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#5d26ff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#3b45e5" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" rx="16" fill="url(#dpIllustHeroBg)"/>
+  <rect x="1" y="1" width="318" height="198" rx="15" stroke="#c9d4ff" stroke-width="1"/>
+  <path d="M70 120L110 70L160 100L210 55L260 95" stroke="#3c49dd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  <path d="M110 70L130 130M160 100L190 140M210 55L230 120" stroke="#5d26ff" stroke-width="1.5" opacity="0.45"/>
+  <circle cx="70" cy="120" r="8" fill="#3c49dd"/>
+  <circle cx="110" cy="70" r="10" fill="#3b45e5"/>
+  <circle cx="160" cy="100" r="12" fill="#3c49dd"/>
+  <circle cx="210" cy="55" r="9" fill="#5d26ff" opacity="0.85"/>
+  <circle cx="260" cy="95" r="8" fill="#3c49dd" opacity="0.75"/>
+  <circle cx="130" cy="130" r="6" fill="#86909c"/>
+  <circle cx="190" cy="140" r="5" fill="#86909c" opacity="0.8"/>
+  <circle cx="230" cy="120" r="5.5" fill="#3b45e5" opacity="0.55"/>
+  <ellipse cx="160" cy="100" rx="90" ry="52" stroke="#3c49dd" stroke-width="1" opacity="0.2" stroke-dasharray="3 6"/>
+</svg>

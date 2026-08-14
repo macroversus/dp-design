@@ -1,0 +1,2620 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-dp-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DP Design System · Starter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./dp-bohrium.css?v=20260814" />
+  <link rel="stylesheet" href="./styleguide.css?v=20260814dpdesign" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+</head>
+<body>
+  <!-- Full icon set injected from ./icons-sprite.svg (~170 outlined icons) -->
+  <div id="iconSpriteHost" hidden aria-hidden="true"></div>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sider" id="sider">
+      <div class="sider__brand">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <div>
+          <strong>DP Design</strong>
+          <em>Bohrium Baseline · v0.1.5</em>
+        </div>
+      </div>
+
+      <nav class="sider__nav" aria-label="主导航">
+        <p class="sider__group">基础</p>
+        <button type="button" class="nav-item" data-page="introduce">
+          <i class="ico">◎</i><span>介绍</span>
+        </button>
+        <button type="button" class="nav-item" data-page="values">
+          <i class="ico">✧</i><span>价值观与原则</span>
+        </button>
+        <button type="button" class="nav-item is-active" data-page="dashboard">
+          <i class="ico">▣</i><span>仪表盘</span>
+        </button>
+
+        <p class="sider__group">全局样式</p>
+        <button type="button" class="nav-item" data-page="colors">
+          <i class="ico">◐</i><span>色彩系统</span>
+        </button>
+        <button type="button" class="nav-item" data-page="typography">
+          <i class="ico">Ｔ</i><span>字体排版</span>
+        </button>
+        <button type="button" class="nav-item" data-page="layout">
+          <i class="ico">▥</i><span>布局与栅格</span>
+        </button>
+        <button type="button" class="nav-item" data-page="shape">
+          <i class="ico">▢</i><span>图形细节</span>
+        </button>
+        <button type="button" class="nav-item" data-page="icons">
+          <i class="ico">◇</i><span>图标</span>
+        </button>
+        <button type="button" class="nav-item" data-page="illustrations">
+          <i class="ico">◈</i><span>插画</span>
+        </button>
+        <button type="button" class="nav-item" data-page="dark">
+          <i class="ico">☾</i><span>暗黑模式</span>
+        </button>
+        <button type="button" class="nav-item" data-page="motion">
+          <i class="ico">↻</i><span>动效</span>
+        </button>
+
+        <p class="sider__group">全局规则</p>
+        <button type="button" class="nav-item" data-page="navigation">
+          <i class="ico">☰</i><span>导航</span>
+        </button>
+        <button type="button" class="nav-item" data-page="feedback">
+          <i class="ico">💬</i><span>反馈</span>
+        </button>
+        <button type="button" class="nav-item" data-page="copywriting">
+          <i class="ico">文</i><span>文案</span>
+        </button>
+        <button type="button" class="nav-item" data-page="i18n">
+          <i class="ico">あ</i><span>无障碍 / 国际化</span>
+        </button>
+        <button type="button" class="nav-item" data-page="data-format">
+          <i class="ico">#</i><span>数据格式</span>
+        </button>
+        <button type="button" class="nav-item" data-page="components">
+          <i class="ico">⧉</i><span>组件样式</span>
+        </button>
+
+        <p class="sider__group">模板</p>
+        <button type="button" class="nav-item" data-page="page-templates">
+          <i class="ico">▦</i><span>页面模板</span>
+        </button>
+        <button type="button" class="nav-item" data-page="templates">
+          <i class="ico">▤</i><span>空态 / 结果 / 异常</span>
+        </button>
+        <button type="button" class="nav-item" data-page="scenes">
+          <i class="ico">◫</i><span>双场景</span>
+        </button>
+
+        <p class="sider__group">组件与工程</p>
+        <button type="button" class="nav-item" data-page="catalog">
+          <i class="ico">☰</i><span>组件总览清单</span>
+        </button>
+        <button type="button" class="nav-item" data-page="governance">
+          <i class="ico">▣</i><span>资源与治理</span>
+        </button>
+        <button type="button" class="nav-item" data-page="tokens">
+          <i class="ico">⚙</i><span>Token 调整</span>
+        </button>
+      </nav>
+
+      <div class="sider__foot">
+        <a href="../docs/CHANGELOG.md">Changelog</a>
+        <a href="../docs/规范目录与缺口清单.md">缺口清单 MD</a>
+        <a href="../docs/设计规范.md">设计规范 MD</a>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="header">
+        <div class="header__left">
+          <button type="button" class="icon-btn" id="toggleSider" title="折叠侧栏">☰</button>
+          <nav class="breadcrumb" id="breadcrumb">
+            <span>设计系统</span>
+            <i>/</i>
+            <strong>仪表盘</strong>
+          </nav>
+        </div>
+        <div class="header__right">
+          <div class="search">
+            <span>⌕</span>
+            <input type="search" placeholder="搜索规范 / 组件…" />
+          </div>
+          <div class="theme-switch" role="group" aria-label="主题切换">
+            <button type="button" class="theme-btn" data-theme-mode="light" title="浅色" aria-label="浅色主题">
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/>
+              </svg>
+            </button>
+            <button type="button" class="theme-btn" data-theme-mode="dark" title="深色" aria-label="深色主题">
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13.5 9.2A5.5 5.5 0 0 1 6.8 2.5 5.5 5.5 0 1 0 13.5 9.2z"/>
+              </svg>
+            </button>
+            <button type="button" class="theme-btn" data-theme-mode="system" title="跟随系统" aria-label="跟随系统主题">
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2.5" width="12" height="8.5" rx="1.5"/><path d="M5.5 14.5h5M8 11v3.5"/>
+              </svg>
+            </button>
+          </div>
+          <button type="button" class="icon-btn" title="通知">🔔<em>3</em></button>
+          <div class="user">
+            <span class="avatar">DP</span>
+            <div>
+              <strong>设计评审</strong>
+              <small>官网基准预览</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content" id="content">
+        <!-- DASHBOARD -->
+        <section class="page is-active" data-page-panel="dashboard">
+          <div class="page-head">
+            <div>
+              <h1>仪表盘</h1>
+              <p>用 DP × Bohrium 设计规范搭建设的 Starter 概览，展示真实产品密度下的色彩、字体与组件。</p>
+            </div>
+            <div class="page-head__actions">
+              <button type="button" class="btn btn--secondary">导出规范</button>
+              <button type="button" class="btn btn--primary">新建项目</button>
+            </div>
+          </div>
+
+          <div class="kpi-grid">
+            <article class="kpi-card">
+              <div class="kpi-card__top"><span>规范覆盖组件</span><i class="trend trend--up">↑ 12%</i></div>
+              <strong>48</strong>
+              <small>按钮 / 表单 / 卡片 / 表格 / 标签</small>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-card__top"><span>Token 数量</span><i class="trend trend--up">↑ 8%</i></div>
+              <strong>62</strong>
+              <small>色板 · 圆角 · 阴影 · 间距</small>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-card__top"><span>待对齐站点</span><i class="trend">4</i></div>
+              <strong>4</strong>
+              <small>SynAster · fermopt · 报价 · Macroflow</small>
+            </article>
+            <article class="kpi-card">
+              <div class="kpi-card__top"><span>验收通过率</span><i class="trend trend--down">↓ 3%</i></div>
+              <strong>86%</strong>
+              <small>对比 bohrium.com 工作台</small>
+            </article>
+          </div>
+
+          <div class="dash-grid">
+            <article class="panel-card">
+              <div class="panel-card__head">
+                <h3>规范采用趋势</h3>
+                <div class="tabs">
+                  <button type="button" class="is-active">本周</button>
+                  <button type="button">近三月</button>
+                </div>
+              </div>
+              <div id="chartTrend" class="chart"></div>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card__head">
+                <h3>色板使用占比</h3>
+                <span class="muted">Brand / Neutral / Semantic</span>
+              </div>
+              <div id="chartPie" class="chart chart--sm"></div>
+            </article>
+          </div>
+
+          <div class="dash-grid dash-grid--tables">
+            <article class="panel-card">
+              <div class="panel-card__head">
+                <h3>站点对齐排名</h3>
+                <div class="tabs">
+                  <button type="button" class="is-active">本周</button>
+                  <button type="button">近三月</button>
+                </div>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>排名</th><th>站点</th><th>较上周</th><th>对齐度</th><th>场景</th><th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>报价小助手</td><td class="up">↑ 1</td><td>92%</td><td><span class="tag tag--blue">Showcase+Tool</span></td><td><a href="#">详情</a></td></tr>
+                  <tr><td>2</td><td>SynAsterHub</td><td class="up">↑ 2</td><td>78%</td><td><span class="tag tag--blue">Showcase</span></td><td><a href="#">详情</a></td></tr>
+                  <tr><td>3</td><td>fermopt</td><td class="down">↓ 1</td><td>64%</td><td><span class="tag tag--gray">Product</span></td><td><a href="#">详情</a></td></tr>
+                  <tr><td>4</td><td>Macroflow-Web</td><td class="up">↑ 1</td><td>51%</td><td><span class="tag tag--gray">Product</span></td><td><a href="#">详情</a></td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card__head">
+                <h3>出入库式规范变更</h3>
+                <button type="button" class="btn btn--secondary btn--sm">导出数据</button>
+              </div>
+              <div class="mini-kpi">
+                <div><span>本月新增 Token</span><strong>26</strong><i class="trend trend--up">↑ 20.3%</i></div>
+                <div><span>本月废弃样式</span><strong>14</strong><i class="trend trend--down">↓ 8.1%</i></div>
+              </div>
+              <div id="chartBar" class="chart chart--sm"></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- COLORS -->
+        <section class="page" data-page-panel="colors">
+          <div class="page-head">
+            <div>
+              <h1>色彩系统</h1>
+              <p>基准提取自 dp.tech / bohrium.com。工具站只用品牌蓝；紫蓝仅用于展示装饰。</p>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>品牌与行动色</h3></div>
+            <div class="swatch-grid" id="brandSwatches"></div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>中性色 · 文本</h3></div>
+            <div class="swatch-grid" id="textSwatches"></div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>背景 / 填充 / 边框</h3></div>
+            <div class="swatch-grid" id="surfaceSwatches"></div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>语义色</h3></div>
+            <div class="swatch-grid" id="semanticSwatches"></div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>Showcase 渐变（仅展示站）</h3></div>
+            <div class="gradient-row">
+              <div class="gradient-card" style="background:linear-gradient(135deg,var(--dp-color-action),var(--dp-color-accent-violet))"><span>Action → Violet</span><code>#3c49dd → #5d26ff</code></div>
+              <div class="gradient-card" style="background:linear-gradient(135deg,var(--dp-color-accent-blue),var(--dp-color-primary))"><span>Bright → Primary</span><code>#264aff → #3b45e5</code></div>
+              <div class="gradient-card" style="background:linear-gradient(160deg,var(--dp-bg-hero-dark),#0c0f15)"><span>Hero Dark</span><code>#161a2e</code></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TYPOGRAPHY -->
+        <section class="page" data-page-panel="typography">
+          <div class="page-head">
+            <div>
+              <h1>字体排版</h1>
+              <p>PingFang SC / MiSans 为主；展示可用 Plus Jakarta；内容强调可用 Merriweather；代码用 JetBrains Mono。</p>
+            </div>
+          </div>
+          <div class="panel-card type-stack">
+            <article class="type-card"><span class="type-card__meta">Hero · 700</span><p class="type-hero">加速科学发现，释放科学价值</p><code>clamp(2.5rem, 5vw, 3.5rem)</code></article>
+            <article class="type-card"><span class="type-card__meta">Page Title · 600</span><p class="type-page">玻尔 · AI for Science 空间站</p><code>1.75rem / Text 1</code></article>
+            <article class="type-card"><span class="type-card__meta">Section · 600</span><p class="type-section">产品能力与科研工作流</p><code>1.25rem</code></article>
+            <article class="type-card"><span class="type-card__meta">Body · 400</span><p class="type-body">Bohrium 提供算力、应用与协作工具，帮助科研团队更快完成从文献到计算与实验的闭环。</p><code>15–16px / 1.55</code></article>
+            <article class="type-card"><span class="type-card__meta">Caption</span><p class="type-caption">BASELINE · DP TECHNOLOGY · BOHRIUM</p><code>12px · tracking</code></article>
+            <article class="type-card"><span class="type-card__meta">Serif</span><p class="type-serif">Molecule Simulates the Future</p><code>Merriweather</code></article>
+            <article class="type-card"><span class="type-card__meta">Mono</span><p class="type-mono">--dp-color-action: #3c49dd;</p><code>JetBrains Mono</code></article>
+          </div>
+          <div class="panel-card text-levels">
+            <p class="t1">Text 1 · 主文案 #1d2129</p>
+            <p class="t2">Text 2 · 次文案 #4e5969</p>
+            <p class="t3">Text 3 · 辅助 #86909c</p>
+            <p class="t4">Text 4 · 禁用 #c9cdd4</p>
+            <p class="t-link"><a href="#">Link · 行动蓝文字链接</a></p>
+          </div>
+        </section>
+
+        <!-- SHAPE -->
+        <section class="page" data-page-panel="shape">
+          <div class="page-head">
+            <div>
+              <h1>图形细节 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-10 决策：圆角阶梯 · 同心嵌套 · 边框 1px · 海拔 4 级 · Product 边框优先 · Focus 3px 16% · S9=A。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>圆角阶梯</h3></div>
+            <div class="radius-row" id="radiusRow"></div>
+            <ul class="checklist" style="margin-top:14px">
+              <li>Product 默认 <code>8px</code>；Showcase 大卡 <code>16–20px</code></li>
+              <li>禁止全站统一超大 pill；pill 仅营销 CTA / 少量 Chip</li>
+            </ul>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>嵌套圆角 · 同心规则（S9）</h3></div>
+            <p class="muted" style="margin:0 0 14px">公式：<code>子圆角 = max(0, 父圆角 − P)</code>，再就近下取到阶梯。</p>
+            <div class="nested-radius-demos">
+              <article class="nested-demo nested-demo--good">
+                <header><strong>正确</strong><code>父 16 · P 8 · 子 8</code></header>
+                <div class="nested-demo__outer" style="border-radius:16px;padding:8px">
+                  <div class="nested-demo__inner" style="border-radius:8px">同心 · 缝宽均匀</div>
+                </div>
+              </article>
+              <article class="nested-demo nested-demo--bad">
+                <header><strong>错误</strong><code>父 16 · P 8 · 子 16</code></header>
+                <div class="nested-demo__outer" style="border-radius:16px;padding:8px">
+                  <div class="nested-demo__inner" style="border-radius:16px">同值 · 圆角处显挤</div>
+                </div>
+              </article>
+              <article class="nested-demo nested-demo--good">
+                <header><strong>正确</strong><code>父 8 · P 8 · 子 0</code></header>
+                <div class="nested-demo__outer" style="border-radius:8px;padding:8px">
+                  <div class="nested-demo__inner" style="border-radius:0">P ≥ R → 内层直角</div>
+                </div>
+              </article>
+              <article class="nested-demo nested-demo--good">
+                <header><strong>正确</strong><code>父 8 · P 4 · 子 4</code></header>
+                <div class="nested-demo__outer" style="border-radius:8px;padding:4px">
+                  <div class="nested-demo__inner" style="border-radius:4px">紧凑嵌套</div>
+                </div>
+              </article>
+            </div>
+            <ul class="checklist" style="margin-top:14px">
+              <li>例外：pill / 媒体裁切可不套公式；1px 描边叠层可忽略</li>
+            </ul>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>阴影 / 海拔</h3></div>
+            <div class="shadow-row">
+              <div class="shadow-card" style="box-shadow:none;border:1px solid var(--dp-border)"><strong>0 None</strong><code>控件 / 表格</code></div>
+              <div class="shadow-card" style="box-shadow:var(--dp-shadow-xs)"><strong>XS</strong><code>轻抬升</code></div>
+              <div class="shadow-card" style="box-shadow:var(--dp-shadow)"><strong>Default</strong><code>蓝味卡片</code></div>
+              <div class="shadow-card" style="box-shadow:var(--dp-shadow-emphasis)"><strong>Emphasis</strong><code>Hover</code></div>
+              <div class="shadow-card" style="box-shadow:var(--dp-shadow-modal)"><strong>Modal</strong><code>弹层</code></div>
+            </div>
+            <div class="surface-strategy" style="margin-top:16px">
+              <div class="surface-strategy__card">
+                <strong>Product · 边框优先</strong>
+                <div class="surface-strategy__sample surface-strategy__sample--border">白卡 + 边框 · 无重阴影</div>
+              </div>
+              <div class="surface-strategy__card">
+                <strong>Showcase · 可用蓝味阴影</strong>
+                <div class="surface-strategy__sample surface-strategy__sample--shadow">Default / Emphasis</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>边框 · 分割 · Focus</h3></div>
+            <div class="border-demos">
+              <div class="border-demo" style="border-color:var(--dp-border)">Default<br /><code>#e5e6eb · 1px</code></div>
+              <div class="border-demo" style="border-color:var(--dp-border-light)">Light<br /><code>#f2f3f5</code></div>
+              <div class="border-demo" style="border-color:var(--dp-border-dark)">Dark<br /><code>#c9cdd4</code></div>
+              <div class="border-demo" style="border-color:var(--dp-border-primary-tint)">Primary Tint<br /><code>#e9ebf7</code></div>
+              <div class="border-demo border-demo--dashed">Dashed<br /><code>仅占位/上传</code></div>
+            </div>
+            <div class="divider-demo" aria-hidden="true"><span>分割线 1px · #e5e6eb</span></div>
+            <div class="focus-demos">
+              <input class="input" type="text" value="Focus：边框 Action + 3px 16% 环" readonly />
+              <button type="button" class="btn btn--secondary focus-demo-btn">Tab 到此看 Focus</button>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>间距对照（归属布局 §4.3）</h3></div>
+            <div class="space-row" id="spaceRow"></div>
+            <p class="muted" style="margin:12px 0 0">不在本页另定组件间距表；卡片内边距见布局锁定值（Tool 16–24 / Showcase 24–40）。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>圆角落阶梯；嵌套用同心公式后再下取</li>
+              <li>Product 边框优先；Showcase 可用蓝味阴影；禁 glow</li>
+              <li>边框 / 分割 1px；Dashed 不作常规卡片边</li>
+              <li>Focus = Action 边 + 3px 半透明环，禁粗霓虹</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- COMPONENTS -->
+        <section class="page" data-page-panel="components">
+          <div class="page-head">
+            <div>
+              <h1>组件样式 <span class="status status--done">已锁定 · B1–B3</span></h1>
+              <p>B1–B2 见上；B3：Tree / Slider / Affix / BackTop（§5.15）。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>按钮</h3></div>
+            <div class="demo-row">
+              <button type="button" class="btn btn--primary">Primary</button>
+              <button type="button" class="btn btn--secondary">Secondary</button>
+              <button type="button" class="btn btn--ghost">Ghost</button>
+              <button type="button" class="btn btn--link">Text Link</button>
+              <button type="button" class="btn btn--danger">Danger</button>
+              <button type="button" class="btn btn--primary" disabled>Disabled</button>
+              <button type="button" class="btn btn--primary btn--sm">32 sm</button>
+              <button type="button" class="btn btn--primary btn--lg">Large CTA</button>
+              <button type="button" class="btn btn--secondary btn--icon" aria-label="更多">⋯</button>
+            </div>
+            <p class="muted" style="margin:10px 0 0">Hover：颜色 + 发光，禁止位移 · 一页一个 Primary · Danger 确认仍走 Modal</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>表单</h3></div>
+            <div class="form-grid">
+              <label class="form-field"><span>项目名称 <em class="req">*</em></span><input class="input" placeholder="请输入项目名称" /></label>
+              <div class="form-field"><span>体系选择</span>
+                <div class="dp-select" data-dp-select>
+                  <button type="button" class="dp-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="dp-select__value">单智台</span>
+                    <span class="dp-select__caret" aria-hidden="true"></span>
+                  </button>
+                  <ul class="dp-select__menu" role="listbox">
+                    <li role="option" class="is-selected" aria-selected="true">单智台</li>
+                    <li role="option">多智台</li>
+                  </ul>
+                </div>
+              </div>
+              <label class="form-field"><span>补充说明</span><textarea class="input" rows="3" placeholder="可选说明…"></textarea></label>
+              <label class="form-field"><span>错误示例</span><input class="input input--error" value="非法输入" /><small class="form-error">请检查格式后重试</small></label>
+            </div>
+            <div class="demo-row" style="margin-top:14px">
+              <label class="dp-check"><input type="checkbox" checked /> 同意规范条款</label>
+              <label class="dp-check"><input type="radio" name="c-demo" checked /> 选项 A</label>
+              <label class="dp-check"><input type="radio" name="c-demo" /> 选项 B</label>
+              <label class="dp-switch"><input type="checkbox" checked /><span></span> 启用通知</label>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>标签与 Badge</h3></div>
+            <div class="demo-row">
+              <span class="tag tag--blue">进行中</span>
+              <span class="tag tag--gray">草稿</span>
+              <span class="tag tag--success">成功</span>
+              <span class="tag tag--warning">告警</span>
+              <span class="tag tag--error">失败</span>
+              <span class="dp-badge-wrap"><button type="button" class="icon-btn" aria-label="通知">🔔</button><em class="dp-badge">3</em></span>
+              <span class="dp-badge-wrap"><button type="button" class="icon-btn" aria-label="消息">✉</button><em class="dp-badge dp-badge--dot"></em></span>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>卡片</h3></div>
+            <div class="card-grid">
+              <article class="card"><div class="card__icon">◆</div><h4>边框卡（Product）</h4><p>白底 + 1px 边框 · 圆角 8 · 默认无重阴影。</p><a href="#">了解更多 →</a></article>
+              <article class="card card--shadow"><div class="card__icon">◎</div><h4>阴影卡（Showcase）</h4><p>可用蓝味 Default / Emphasis 阴影。</p><a href="#">进入控制台 →</a></article>
+              <article class="card card--border-accent"><div class="card__icon">◈</div><h4>Hover 强调</h4><p>Tint 边或轻阴影；嵌套遵守同心圆角。</p><a href="#">查看规范 →</a></article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>表格（基础）</h3></div>
+            <table class="table table--components">
+              <thead>
+                <tr><th>名称</th><th>状态</th><th>更新</th><th class="is-actions">操作</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>色彩系统</td><td><span class="tag tag--success">已锁定</span></td><td>08-08</td><td class="is-actions"><a href="#">编辑</a><a href="#">详情</a></td></tr>
+                <tr class="is-selected"><td>组件样式</td><td><span class="tag tag--success">已锁定</span></td><td>08-11</td><td class="is-actions"><a href="#">编辑</a><a href="#">详情</a></td></tr>
+                <tr><td>文案规则</td><td><span class="tag tag--success">已锁定</span></td><td>08-14</td><td class="is-actions"><a href="#">编辑</a><a href="#">详情</a></td></tr>
+              </tbody>
+            </table>
+            <p class="muted" style="margin:10px 0 0">表头 fill-2 · 行 Hover fill-1 · 选中 Action 浅底 · 操作列 Link</p>
+          </div>
+
+          <div class="panel-card b1-demo">
+            <div class="panel-card__head"><h3>B1 · Upload</h3></div>
+            <div class="b1-stage">
+              <div class="dp-upload" tabindex="0">
+                <div class="dp-upload__icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <p class="dp-upload__title">点击或拖拽文件到此处</p>
+                <p class="dp-upload__hint">支持常见结构 / 表格文件；默认单文件</p>
+              </div>
+              <ul class="dp-upload-list">
+                <li class="is-ok">
+                  <span class="dp-upload-list__name">structure.pdb</span>
+                  <span class="dp-upload-list__meta">1.2 MB</span>
+                  <span class="dp-upload-list__status">已完成</span>
+                </li>
+                <li class="is-err">
+                  <span class="dp-upload-list__name">batch.csv</span>
+                  <span class="dp-upload-list__meta">240 KB</span>
+                  <span class="dp-upload-list__status">失败</span>
+                  <a href="#">重试</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel-card b1-demo">
+            <div class="panel-card__head"><h3>B1 · DatePicker</h3></div>
+            <div class="b1-datepicker-demo">
+              <div class="dp-datepicker is-open is-demo">
+                <button type="button" class="dp-datepicker__trigger" id="dpDateTrigger" aria-expanded="true" aria-haspopup="dialog">
+                  <span id="dpDateValue">2026-08-14</span>
+                  <span class="dp-datepicker__ico" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                  </span>
+                </button>
+                <div class="dp-datepicker__panel" id="dpDatePanel">
+                  <div class="dp-datepicker__head">
+                    <strong>2026 年 8 月</strong>
+                    <span class="muted">YYYY-MM-DD · 无重阴影</span>
+                  </div>
+                  <div class="dp-datepicker__grid" aria-hidden="true">
+                    <span class="is-dow">一</span><span class="is-dow">二</span><span class="is-dow">三</span><span class="is-dow">四</span><span class="is-dow">五</span><span class="is-dow">六</span><span class="is-dow">日</span>
+                    <span class="is-empty"></span><span class="is-empty"></span><span class="is-empty"></span><span class="is-empty"></span><span class="is-empty"></span><span>1</span><span>2</span>
+                    <span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                    <span>10</span><span>11</span><span>12</span><span>13</span><span class="is-active">14</span><span>15</span><span>16</span>
+                    <span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+                    <span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+                    <span>31</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card b1-demo">
+            <div class="panel-card__head"><h3>B1 · Descriptions / Statistic</h3></div>
+            <div class="comp-b1-split">
+              <dl class="dp-descriptions">
+                <div><dt>任务 ID</dt><dd>JOB-2048</dd></div>
+                <div><dt>类型</dt><dd><span class="tag tag--blue">计算</span></dd></div>
+                <div><dt>能量</dt><dd>−48.2 kJ/mol</dd></div>
+                <div><dt>负责人</dt><dd>—</dd></div>
+              </dl>
+              <div class="dp-stat-row">
+                <div class="dp-stat">
+                  <span class="dp-stat__label">样本数</span>
+                  <strong class="dp-stat__value">12,345</strong>
+                  <em class="dp-stat__trend is-up">↑ 2.4%</em>
+                </div>
+                <div class="dp-stat">
+                  <span class="dp-stat__label">转化率</span>
+                  <strong class="dp-stat__value">12.5<span class="dp-stat__unit">%</span></strong>
+                  <em class="dp-stat__trend is-down">↓ 0.3%</em>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card b1-demo">
+            <div class="panel-card__head"><h3>B1 · Skeleton / Progress / Spin / Tooltip</h3></div>
+            <div class="comp-b1-load">
+              <div class="b1-load-grid">
+                <div class="b1-load-card">
+                  <p class="b1-load-card__label">Skeleton</p>
+                  <div class="dp-skeleton" aria-hidden="true">
+                    <div class="dp-skeleton__avatar"></div>
+                    <div class="dp-skeleton__body">
+                      <div class="dp-skeleton__title"></div>
+                      <div class="dp-skeleton__line"></div>
+                      <div class="dp-skeleton__line dp-skeleton__line--short"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="b1-load-card">
+                  <p class="b1-load-card__label">Progress</p>
+                  <div class="dp-progress-block">
+                    <div class="dp-progress">
+                      <div class="dp-progress__track"><span class="dp-progress__bar" style="width:64%"></span></div>
+                      <span class="dp-progress__text">64%</span>
+                    </div>
+                    <div class="dp-progress dp-progress--success">
+                      <div class="dp-progress__track"><span class="dp-progress__bar" style="width:100%"></span></div>
+                      <span class="dp-progress__text">完成</span>
+                    </div>
+                    <div class="dp-progress dp-progress--error">
+                      <div class="dp-progress__track"><span class="dp-progress__bar" style="width:40%"></span></div>
+                      <span class="dp-progress__text">失败</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="b1-load-card b1-load-card--row">
+                <p class="b1-load-card__label">Spin / Tooltip</p>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary btn--sm" disabled>
+                    <span class="dp-spin dp-spin--sm" aria-hidden="true"></span> 提交中
+                  </button>
+                  <div class="dp-spin-wrap">
+                    <span class="dp-spin" aria-hidden="true"></span>
+                    <span>区域加载</span>
+                  </div>
+                  <span class="dp-tooltip is-demo">
+                    <button type="button" class="btn btn--secondary btn--sm">悬停查看</button>
+                    <span class="dp-tooltip__pop" role="tooltip">补充说明，勿写长文</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card b2-demo">
+            <div class="panel-card__head"><h3>B2 · Notification</h3></div>
+            <div class="b2-notify-stage">
+              <div class="dp-notify-stack" id="dpNotifyStack" aria-live="polite"></div>
+              <div class="demo-row">
+                <button type="button" class="btn btn--primary btn--sm" id="dpNotifyOk">成功通知</button>
+                <button type="button" class="btn btn--secondary btn--sm" id="dpNotifyErr">失败通知</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="dpNotifyInfo">进行中</button>
+              </div>
+              <article class="dp-notify dp-notify--ok is-demo">
+                <div class="dp-notify__mark" aria-hidden="true"></div>
+                <div class="dp-notify__body">
+                  <strong>计算完成</strong>
+                  <p>任务 JOB-2048 已完成，可查看结果。</p>
+                  <a href="#">查看结果</a>
+                </div>
+                <button type="button" class="dp-notify__close" aria-label="关闭">×</button>
+              </article>
+              <p class="muted" style="margin:10px 0 0">右上堆叠 · 异步任务用 Notification · 瞬时操作用 Toast（§5.5）</p>
+            </div>
+          </div>
+
+          <div class="panel-card b2-demo">
+            <div class="panel-card__head"><h3>B2 · Avatar</h3></div>
+            <div class="b2-avatar-row">
+              <div class="b2-avatar-group">
+                <span class="dp-avatar dp-avatar--sm" title="24">研</span>
+                <span class="dp-avatar" title="32">张</span>
+                <span class="dp-avatar dp-avatar--lg" title="40">李</span>
+                <span class="dp-avatar dp-avatar--img dp-avatar--lg" title="图片" style="background-image:linear-gradient(135deg,#3c49dd,#5d26ff)"></span>
+              </div>
+              <div class="dp-avatar-stack" aria-label="协作成员">
+                <span class="dp-avatar">A</span>
+                <span class="dp-avatar">B</span>
+                <span class="dp-avatar">C</span>
+                <span class="dp-avatar dp-avatar--more">+3</span>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0">尺寸 24 / 32 / 40 · 字或色块 · 叠放间距 −8</p>
+          </div>
+
+          <div class="panel-card b2-demo">
+            <div class="panel-card__head"><h3>B2 · Dropdown / Popover</h3></div>
+            <div class="b2-float-row">
+              <div class="dp-dropdown is-open is-demo" data-dp-dropdown>
+                <button type="button" class="btn btn--secondary btn--sm dp-dropdown__trigger" aria-expanded="true" aria-haspopup="menu">
+                  更多操作 <span class="dp-dropdown__caret" aria-hidden="true"></span>
+                </button>
+                <ul class="dp-dropdown__menu" role="menu">
+                  <li role="menuitem">导出结果</li>
+                  <li role="menuitem">复制链接</li>
+                  <li role="menuitem" class="is-danger">删除任务</li>
+                </ul>
+              </div>
+              <div class="dp-popover is-open is-demo" data-dp-popover>
+                <button type="button" class="btn btn--secondary btn--sm dp-popover__trigger" aria-expanded="true">筛选说明</button>
+                <div class="dp-popover__panel" role="dialog">
+                  <strong>筛选说明</strong>
+                  <p>最多使用 3 个常用筛选；更多条件在「更多筛选」中展开。</p>
+                  <button type="button" class="btn btn--primary btn--sm">知道了</button>
+                </div>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0">Dropdown 与触发框一体拼合 · Popover 白底边框，可承载短说明</p>
+          </div>
+
+          <div class="panel-card b2-demo">
+            <div class="panel-card__head"><h3>B2 · Anchor</h3></div>
+            <div class="b2-anchor-demo">
+              <nav class="dp-anchor" aria-label="页面锚点">
+                <a href="#b2-anchor-overview" class="is-active">概览</a>
+                <a href="#b2-anchor-params">参数</a>
+                <a href="#b2-anchor-logs">日志</a>
+                <a href="#b2-anchor-related">关联</a>
+              </nav>
+              <div class="b2-anchor-content">
+                <section id="b2-anchor-overview"><h4>概览</h4><p>详情长页用 Anchor 跳转章节，不作站级导航。</p></section>
+                <section id="b2-anchor-params"><h4>参数</h4><p>能量、收敛阈值等字段放此章节。</p></section>
+                <section id="b2-anchor-logs"><h4>日志</h4><p>运行日志默认折叠，需要时展开。</p></section>
+                <section id="b2-anchor-related"><h4>关联</h4><p>关联数据列表置于详情下方。</p></section>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card b3-demo">
+            <div class="panel-card__head"><h3>B3 · Tree</h3></div>
+            <div class="dp-tree" id="dpTreeDemo" role="tree">
+              <div class="dp-tree__node is-open" role="treeitem" aria-expanded="true">
+                <button type="button" class="dp-tree__twist" aria-label="折叠"></button>
+                <span class="dp-tree__label">项目根目录</span>
+              </div>
+              <div class="dp-tree__children">
+                <div class="dp-tree__node is-open" role="treeitem" aria-expanded="true">
+                  <button type="button" class="dp-tree__twist" aria-label="折叠"></button>
+                  <span class="dp-tree__label">计算结果</span>
+                </div>
+                <div class="dp-tree__children">
+                  <div class="dp-tree__node is-leaf is-selected" role="treeitem">
+                    <span class="dp-tree__spacer"></span>
+                    <span class="dp-tree__label">energy.csv</span>
+                  </div>
+                  <div class="dp-tree__node is-leaf" role="treeitem">
+                    <span class="dp-tree__spacer"></span>
+                    <span class="dp-tree__label">trajectory.xyz</span>
+                  </div>
+                </div>
+                <div class="dp-tree__node is-leaf" role="treeitem">
+                  <span class="dp-tree__spacer"></span>
+                  <span class="dp-tree__label">README.md</span>
+                </div>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0">行高 32–36 · 缩进 16–20 · 选中 Action 浅底</p>
+          </div>
+
+          <div class="panel-card b3-demo">
+            <div class="panel-card__head"><h3>B3 · Slider</h3></div>
+            <div class="dp-slider-block">
+              <div class="dp-slider-head">
+                <span>收敛阈值</span>
+                <strong id="dpSliderValue">1.0e-4</strong>
+              </div>
+              <label class="dp-slider">
+                <input type="range" id="dpSlider" min="0" max="100" value="40" />
+                <span class="dp-slider__track" aria-hidden="true"><i id="dpSliderFill" style="width:40%"></i></span>
+              </label>
+              <div class="dp-slider-marks"><span>宽松</span><span>适中</span><span>严格</span></div>
+            </div>
+          </div>
+
+          <div class="panel-card b3-demo">
+            <div class="panel-card__head"><h3>B3 · Affix / BackTop</h3></div>
+            <div class="b3-affix-demo" id="b3AffixDemo">
+              <div class="dp-affix" id="dpAffixBar">
+                <span>筛选工具条（示意吸顶）</span>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--secondary btn--sm">状态</button>
+                  <button type="button" class="btn btn--primary btn--sm">应用</button>
+                </div>
+              </div>
+              <div class="b3-affix-scroll">
+                <p>向下滚动此区域，工具条保持贴顶；超过可视高度后右下出现 BackTop。</p>
+                <p class="muted">Affix 偏移对齐顶栏下缘；BackTop 圆形 40、距边 24。</p>
+                <p>占位内容 1 — 任务列表、图表与说明区域。</p>
+                <p>占位内容 2 — 长页中保持关键操作可达。</p>
+                <p>占位内容 3 — 避免侧栏与内容双吸顶冲突。</p>
+                <p>占位内容 4 — 滚动足够距离以触发 BackTop。</p>
+                <p>占位内容 5 — 点击回到本区域顶部。</p>
+              </div>
+              <button type="button" class="dp-backtop" id="dpBackTop" hidden aria-label="回到顶部">↑</button>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <ul>
+                  <li>Tree 选中浅蓝底</li>
+                  <li>Slider 显示当前数值</li>
+                  <li>Affix 吸顶筛选条</li>
+                  <li>BackTop 一屏后出现</li>
+                </ul>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <ul>
+                  <li>Tree 选中高饱和实心整行</li>
+                  <li>Slider 无数值难校准</li>
+                  <li>侧栏与内容双 Affix 打架</li>
+                  <li>BackTop 一进页就常驻挡内容</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>组件值引用全局 token；不另开冲突色/圆角</li>
+              <li>B1 / B2 / B3 见 §5.13–5.15</li>
+              <li>Tree 选中浅底 · Slider 显值 · Affix 单层吸顶 · BackTop 延迟出现</li>
+              <li>Notification ≠ Toast；Dropdown 一体拼合；Anchor 不作站级导航</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SCENES -->
+        <section class="page" data-page-panel="scenes">
+          <div class="page-head">
+            <div>
+              <h1>双场景</h1>
+              <p>Showcase = dp.tech；Product = bohrium.com。</p>
+            </div>
+          </div>
+          <div class="scene-grid">
+            <article class="scene">
+              <header class="scene__bar"><strong>Showcase</strong><span>dp.tech</span></header>
+              <div class="scene__hero">
+                <p class="eyebrow">AI for Science</p>
+                <h3>用智能基础设施<br />加速科学发现</h3>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary btn--pill">了解平台</button>
+                  <button type="button" class="btn btn--secondary btn--pill">查看产品</button>
+                </div>
+              </div>
+              <div class="scene__cards">
+                <div><b>Bohrium</b><span>科研空间站</span></div>
+                <div><b>Hermite</b><span>药物计算</span></div>
+                <div><b>Piloteye</b><span>电池设计</span></div>
+              </div>
+            </article>
+            <article class="scene scene--product">
+              <header class="scene__bar"><strong>Product</strong><span>bohrium.com</span></header>
+              <div class="scene__product">
+                <div class="scene__sider"><i></i><i></i><i class="is-on"></i><i></i></div>
+                <div class="scene__canvas">
+                  <div class="scene__panel">
+                    <b>工作区面板</b>
+                    <p>灰底 + 白卡 + 8px 圆角 + 主蓝 CTA</p>
+                    <button type="button" class="btn btn--primary btn--sm">开始计算</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>验收清单</h3></div>
+            <ul class="checklist">
+              <li>默认浅色，不使用深色作为默认皮肤</li>
+              <li>Primary / CTA 落在品牌蓝区间</li>
+              <li>文本四级灰使用正确</li>
+              <li>工具站圆角以 8px 为主；展示大卡 ≤ 20px</li>
+              <li>阴影为蓝味轻阴影或边框，无重 glow</li>
+              <li>紫蓝渐变仅出现在展示区块</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- INTRODUCE -->
+        <section class="page" data-page-panel="introduce">
+          <div class="page-head">
+            <div>
+              <h1>介绍 <span class="status status--done">已定基准</span></h1>
+              <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
+            </div>
+            <div class="page-head__actions">
+              <span class="tag tag--blue">v0.1.5</span>
+            </div>
+          </div>
+
+          <div class="intro-howto">
+            <article class="intro-howto__card">
+              <span class="intro-howto__step">1</span>
+              <h3>看样式 · 来本站</h3>
+              <p>用左侧导航浏览色彩、布局、组件、空态、文案等。对照预览即可，无需改业务代码。</p>
+            </article>
+            <article class="intro-howto__card">
+              <span class="intro-howto__step">2</span>
+              <h3>改前端 · 下载指南包</h3>
+              <p>主文件为工具无关的 <code>AGENT.md</code>；按安装说明接到任意 AI 编程软件，不局限于 Cursor。</p>
+            </article>
+            <article class="intro-howto__card">
+              <span class="intro-howto__step">3</span>
+              <h3>接 Token</h3>
+              <p>业务站消费 <code>tokens/dp-bohrium.css</code>，禁止私自改 Primary；例外须登记。</p>
+            </article>
+          </div>
+
+          <div class="panel-card intro-download" id="skill-download">
+            <div class="panel-card__head">
+              <h3>下载 DP Design Agent Pack</h3>
+              <span class="tag tag--success">v0.1.5</span>
+            </div>
+            <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（主指令 <code>AGENT.md</code> + Token 速查 + 正反例 + 各工具安装矩阵）。<strong>不含</strong>特定站点落地顺序；适用于当前与后续任意对齐本体系的产品。</p>
+            <div class="intro-download__row">
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.5.zip" download="dp-design-agent-pack-v0.1.5.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
+            </div>
+            <ol class="intro-install muted">
+              <li>解压得到 <code>dp-design/</code>，放到例如 <code>docs/dp-design/</code></li>
+              <li>按包内 <code>INSTALL.md</code> 让所用工具加载 <code>AGENT.md</code></li>
+              <li>对话中说触发词 <code>dpdesign</code></li>
+            </ol>
+            <div class="intro-tools muted">
+              <strong>触发词：</strong> <code>dpdesign</code>
+              · 已覆盖接法：任意自定义指令 · Cursor · Claude Code · Copilot · Windsurf · Continue · AGENTS.md
+            </div>
+            <p class="muted" style="margin:12px 0 0">包内：<code>AGENT.md</code>（主）· <code>INSTALL.md</code> · <code>tokens-cheatsheet.md</code> · <code>do-dont.md</code> · <code>SKILL.md</code>（Cursor）· <code>templates/AGENTS.snippet.md</code></p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>体系目标</h3></div>
+            <ul class="checklist">
+              <li>统一科研 / 工业软件前端气质，对齐 <strong>dp.tech</strong>（Showcase）与 <strong>bohrium.com</strong>（Product）</li>
+              <li>Design Token 为单一事实来源；指南站供对照，Agent Pack（任意 AI 工具）供改站</li>
+              <li>覆盖全局样式 → 全局规则 → 模板 → 组件 → 资源治理（价值观暂缓）</li>
+            </ul>
+          </div>
+          <div class="card-grid">
+            <article class="card"><div class="card__icon">A</div><h4>基础</h4><p>介绍（本页）· 价值观暂缓 —— 定位与下载入口。</p></article>
+            <article class="card"><div class="card__icon">B</div><h4>全局样式</h4><p>色、字、布局、图标、阴影、暗色、动效 —— 视觉地基。</p></article>
+            <article class="card"><div class="card__icon">C</div><h4>规则与模板</h4><p>导航 / 反馈 / 文案 / i18n + 列表表单详情与空态。</p></article>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>适用产品</h3></div>
+            <p class="muted" style="margin:0 0 12px">凡需对齐 DP / Bohrium 视觉的产品均可接入。下列为当前已纳入对齐范围的示例（非闭环名单）：</p>
+            <table class="table">
+              <thead><tr><th>产品（示例）</th><th>场景</th><th>备注</th></tr></thead>
+              <tbody>
+                <tr><td>SynAsterHub</td><td>Showcase</td><td>示例</td></tr>
+                <tr><td>fermopt</td><td>Product</td><td>示例</td></tr>
+                <tr><td>报价小助手</td><td>Showcase + Product</td><td>示例</td></tr>
+                <tr><td>Macroflow-Web</td><td>Product</td><td>取色环等业务例外可登记保留</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- VALUES -->
+        <section class="page" data-page-panel="values">
+          <div class="page-head">
+            <div>
+              <h1>价值观与原则 <span class="status status--todo">待撰写</span></h1>
+              <p>对标 Ant「自然/确定/意义/生长」与 Arco 设计原则。下列为深势草案，需品牌/设计确认后定稿。</p>
+            </div>
+          </div>
+          <div class="card-grid">
+            <article class="card"><h4>严谨</h4><p>科学计算产品优先准确性与可追溯；数字、单位、状态表达必须清晰。</p><span class="tag tag--warning">待确认</span></article>
+            <article class="card"><h4>高效</h4><p>减少跳转与认知负担；工作台信息密度高于营销站，但保持秩序。</p><span class="tag tag--warning">待确认</span></article>
+            <article class="card"><h4>可信</h4><p>反馈即时、文案克制、避免夸张科技特效；品牌蓝稳定而非霓虹。</p><span class="tag tag--warning">待确认</span></article>
+            <article class="card"><h4>可生长</h4><p>Token 与组件可扩展；允许 Showcase / Product 双密度，同一家族。</p><span class="tag tag--warning">待确认</span></article>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>交互原则（草案，对齐 Ant）</h3></div>
+            <div class="principle-grid">
+              <div><strong>亲密性</strong><span>相关信息成组，间距体现归属</span></div>
+              <div><strong>对齐</strong><span>同一列起点对齐，建立扫描线</span></div>
+              <div><strong>对比</strong><span>主行动唯一高对比，避免多主色</span></div>
+              <div><strong>重复</strong><span>同类控件样式一致，降低学习成本</span></div>
+              <div><strong>直截了当</strong><span>关键操作可达，少隐藏</span></div>
+              <div><strong>即时反应</strong><span>悬停/点击/加载均有反馈</span></div>
+              <div><strong>简化交互</strong><span>复杂任务拆步或就地完成</span></div>
+              <div><strong>足不出户</strong><span>优先 Drawer/Modal，少整页跳转</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LAYOUT -->
+        <section class="page" data-page-panel="layout">
+          <div class="page-head">
+            <div>
+              <h1>布局与栅格 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-09 决策：8px 网格 · 24 栏 Gutter 24 · Product T 型 · Showcase 上下 · 侧栏 220/72 · 顶栏 64。</p>
+            </div>
+          </div>
+
+          <div class="kpi-grid">
+            <article class="kpi-card"><div class="kpi-card__top"><span>网格基数</span></div><strong>8px</strong><small>--dp-grid-base</small></article>
+            <article class="kpi-card"><div class="kpi-card__top"><span>栅格 / Gutter</span></div><strong>24 / 24</strong><small>栏数可变宽 · Gutter 定值</small></article>
+            <article class="kpi-card"><div class="kpi-card__top"><span>侧栏</span></div><strong>220 / 72</strong><small>展开 / 折叠</small></article>
+            <article class="kpi-card"><div class="kpi-card__top"><span>内容最大宽</span></div><strong>1200 / 1280</strong><small>Product / Showcase</small></article>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>布局模式（默认）</h3></div>
+            <div class="layout-demos">
+              <div class="layout-demo">
+                <div class="layout-demo__frame layout-demo__frame--t"><i></i><em></em><b></b></div>
+                <strong>T 型 · Product 默认</strong><span>顶栏 64 + 侧栏 220 + 画布</span>
+              </div>
+              <div class="layout-demo">
+                <div class="layout-demo__frame layout-demo__frame--tb"><i></i><b></b></div>
+                <strong>上下 · Showcase</strong><span>顶栏 + 通栏内容 ≤1280</span>
+              </div>
+              <div class="layout-demo">
+                <div class="layout-demo__frame layout-demo__frame--lr"><i></i><b></b></div>
+                <strong>左右 · 非默认</strong><span>仅特殊全屏工具</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head">
+              <h3>24 栅格示意</h3>
+              <span class="muted">Gutter = 24px 定值 · Column 随容器变宽</span>
+            </div>
+            <div class="grid-24" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="grid-span-demos">
+              <div class="grid-span grid-span--16"><span>16 栏主内容</span></div>
+              <div class="grid-span grid-span--8"><span>8 栏侧栏信息</span></div>
+              <div class="grid-span grid-span--12"><span>12 栏</span></div>
+              <div class="grid-span grid-span--12"><span>12 栏</span></div>
+              <div class="grid-span grid-span--8"><span>8</span></div>
+              <div class="grid-span grid-span--8"><span>8</span></div>
+              <div class="grid-span grid-span--8"><span>8</span></div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>锁定尺寸表</h3></div>
+            <table class="table">
+              <thead><tr><th>项</th><th>值</th><th>Token</th></tr></thead>
+              <tbody>
+                <tr><td>顶栏高度</td><td>64px</td><td>--dp-header-height</td></tr>
+                <tr><td>侧栏展开 / 折叠</td><td>220 / 72px</td><td>--dp-sidebar-width / --dp-sidebar-collapsed</td></tr>
+                <tr><td>页面边距</td><td>24px（窄屏 16）</td><td>--dp-page-padding</td></tr>
+                <tr><td>卡片内边距 Tool</td><td>16–24px</td><td>--dp-card-padding-tool*</td></tr>
+                <tr><td>卡片内边距 Showcase</td><td>24–40px</td><td>--dp-card-padding-showcase*</td></tr>
+                <tr><td>Product 容器</td><td>max 1200px</td><td>--dp-container-max</td></tr>
+                <tr><td>Showcase 容器</td><td>max 1280px</td><td>--dp-container-wide-max</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>断点（已锁定）</h3></div>
+            <table class="table">
+              <thead><tr><th>名称</th><th>宽度</th><th>行为</th></tr></thead>
+              <tbody>
+                <tr><td>xs</td><td>&lt; 768</td><td>侧栏抽屉化</td></tr>
+                <tr><td>md</td><td>≥ 768</td><td>可折叠侧栏</td></tr>
+                <tr><td>lg</td><td>≥ 1200</td><td>标准工作台</td></tr>
+                <tr><td>xl</td><td>≥ 1600</td><td>宽屏多栏（可选）</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>间距 Scale</h3></div>
+            <div class="space-row" id="spaceRowLayout"></div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>背景层级</h3></div>
+            <div class="surface-stack">
+              <div class="surface-stack__canvas">
+                <span>画布 --dp-bg-layout</span>
+                <div class="surface-stack__card">白卡片 --dp-bg-white · 边框分割</div>
+              </div>
+            </div>
+            <ul class="checklist" style="margin-top:14px">
+              <li>间距、尺寸优先落在 8px 网格</li>
+              <li>多列内容用 24 栅格；Gutter 保持 24px</li>
+              <li>Product 不默认第三侧栏，用 Drawer 承载辅助信息</li>
+              <li>窄屏优先收起侧栏，避免挤压内容区</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ICONS -->
+        <section class="page" data-page-panel="icons">
+          <div class="page-head">
+            <div>
+              <h1>图标 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-10 决策：线型为主 · @16 线宽 1.5 · 尺寸 12/16/20/24/48–64 · 激活用 Action。图标库对齐 Ant/Arco 规格，当前 <strong id="iconTotalCount">—</strong> 个。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>尺寸阶梯</h3></div>
+            <div class="icon-size-row" id="iconSizeRow">
+              <div class="icon-size">
+                <svg class="dp-icon" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><use href="#dp-icon-action-search"/></svg>
+                <code>12</code><span>辅助</span>
+              </div>
+              <div class="icon-size">
+                <svg class="dp-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><use href="#dp-icon-action-search"/></svg>
+                <code>16</code><span>默认</span>
+              </div>
+              <div class="icon-size">
+                <svg class="dp-icon" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><use href="#dp-icon-nav-home"/></svg>
+                <code>20</code><span>导航</span>
+              </div>
+              <div class="icon-size">
+                <svg class="dp-icon" width="24" height="24" viewBox="0 0 16 16" aria-hidden="true"><use href="#dp-icon-data-chart"/></svg>
+                <code>24</code><span>强调</span>
+              </div>
+              <div class="icon-size">
+                <svg class="dp-icon" width="48" height="48" viewBox="0 0 16 16" aria-hidden="true"><use href="#dp-icon-status-info"/></svg>
+                <code>48–64</code><span>空态</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>用色状态</h3></div>
+            <div class="icon-color-row">
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-icon-color)" width="20" height="20"><use href="#dp-icon-action-edit"/></svg><span>默认 Text2</span></div>
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-icon-color-muted)" width="20" height="20"><use href="#dp-icon-action-edit"/></svg><span>弱化 Text3</span></div>
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-icon-color-active)" width="20" height="20"><use href="#dp-icon-action-edit"/></svg><span>激活 Action</span></div>
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-icon-color-disabled)" width="20" height="20"><use href="#dp-icon-action-edit"/></svg><span>禁用 Text4</span></div>
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-success)" width="20" height="20"><use href="#dp-icon-status-success"/></svg><span>成功</span></div>
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-warning)" width="20" height="20"><use href="#dp-icon-status-warning"/></svg><span>警告</span></div>
+              <div class="icon-color"><svg class="dp-icon" style="color:var(--dp-error)" width="20" height="20"><use href="#dp-icon-status-error"/></svg><span>错误</span></div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>与文字组合（间距 8px）</h3></div>
+            <div class="demo-row">
+              <button type="button" class="btn btn--primary"><svg class="dp-icon" width="16" height="16"><use href="#dp-icon-action-add"/></svg>新建任务</button>
+              <button type="button" class="btn btn--secondary"><svg class="dp-icon" width="16" height="16"><use href="#dp-icon-action-download"/></svg>导出</button>
+              <a class="icon-text" href="#"><svg class="dp-icon" width="16" height="16"><use href="#dp-icon-action-search"/></svg>搜索规范</a>
+              <span class="icon-text muted"><svg class="dp-icon" width="16" height="16"><use href="#dp-icon-nav-settings"/></svg>设置</span>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head">
+              <h3>图标库（线型 · 16 视口 · stroke 1.5）</h3>
+              <span class="muted" id="iconVisibleCount"></span>
+            </div>
+            <div class="icon-toolbar">
+              <label class="icon-search">
+                <svg class="dp-icon" width="16" height="16" aria-hidden="true"><use href="#dp-icon-action-search"/></svg>
+                <input type="search" id="iconSearch" placeholder="搜索名称，如 search / molecule" autocomplete="off" />
+              </label>
+              <div class="icon-tabs" id="iconCategoryTabs" role="tablist" aria-label="图标分类"></div>
+            </div>
+            <div class="icon-catalog" id="iconCatalogHost">
+              <p class="muted">正在加载图标库…</p>
+            </div>
+            <p class="muted" style="margin:14px 0 0">分类对齐 Ant Design Icons / Arco Icon：Direction · Suggested · Editor · Data · Navigation · Action · User · Communication · Time · Application · Science。命名：<code>dp-icon-{category}-{name}</code> · 资源：<code>icons-sprite.svg</code> + <code>icons-registry.json</code></p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>线型为主；同一界面线宽一致（@16 ≈ 1.5）</li>
+              <li>语义色仅用于状态，不拿成功绿/警告橙做导航装饰</li>
+              <li>与文字间距 8px，垂直居中</li>
+              <li>统一使用本库 SVG sprite；禁止各项目私自混用多套风格</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ILLUSTRATIONS -->
+        <section class="page" data-page-panel="illustrations">
+          <div class="page-head">
+            <div>
+              <h1>插画 <span class="status status--todo">暂不使用</span></h1>
+              <p>2026-08-14 决定：当前插画素材观感未达发布标准，<strong>业务站与预览空态一律改用线型图标（48–64）</strong>。母题与命名约定保留，正式插画到位后再启用。</p>
+            </div>
+          </div>
+
+          <div class="panel-card" style="border-color: color-mix(in srgb, var(--dp-warning) 35%, var(--dp-border));">
+            <div class="panel-card__head"><h3>当前策略</h3></div>
+            <ul class="checklist">
+              <li>空态 / Result / Guide：优先 <strong>线型大图标</strong>（见「图标」页与 §4.5）</li>
+              <li>勿引用 <code>styleguide/illustrations/*.svg</code> 作为线上或改站默认素材</li>
+              <li>目录内旧 SVG 仅存档备查，不视为设计系统交付物</li>
+              <li>后续有合格插画时：仍建议命名 <code>dp-illust-&#123;scene&#125;-&#123;name&#125;.svg</code>，再恢复启用</li>
+            </ul>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>空态图标回退（现行）</h3></div>
+            <div class="illust-grid">
+              <figure class="illust-card">
+                <div class="illust-card__frame illust-card__frame--md tpl-state__icon">
+                  <svg class="dp-icon" width="64" height="64" aria-hidden="true"><use href="#dp-icon-data-inbox"/></svg>
+                </div>
+                <figcaption><code>data-inbox</code><span>无数据</span></figcaption>
+              </figure>
+              <figure class="illust-card">
+                <div class="illust-card__frame illust-card__frame--md tpl-state__icon">
+                  <svg class="dp-icon" width="64" height="64" aria-hidden="true"><use href="#dp-icon-action-search"/></svg>
+                </div>
+                <figcaption><code>action-search</code><span>无结果</span></figcaption>
+              </figure>
+              <figure class="illust-card">
+                <div class="illust-card__frame illust-card__frame--md tpl-state__icon">
+                  <svg class="dp-icon" width="64" height="64" aria-hidden="true"><use href="#dp-icon-action-lock"/></svg>
+                </div>
+                <figcaption><code>action-lock</code><span>无权限</span></figcaption>
+              </figure>
+              <figure class="illust-card">
+                <div class="illust-card__frame illust-card__frame--md tpl-state__icon tpl-state__icon--error">
+                  <svg class="dp-icon" width="64" height="64" aria-hidden="true"><use href="#dp-icon-status-exclamation-circle"/></svg>
+                </div>
+                <figcaption><code>status-exclamation-circle</code><span>加载失败</span></figcaption>
+              </figure>
+            </div>
+            <p class="muted" style="margin:12px 0 0">尺寸 48–64；颜色用 Text 3 / Action / 语义色。完整图标见侧栏「图标」。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>预留约定（未启用）</h3></div>
+            <table class="table">
+              <thead><tr><th>项</th><th>约定</th></tr></thead>
+              <tbody>
+                <tr><td>母题（规划）</td><td>分子 / 键连几何；正式稿到位后再定视觉</td></tr>
+                <tr><td>命名</td><td><code>dp-illust-&#123;scene&#125;-&#123;name&#125;.svg</code></td></tr>
+                <tr><td>尺寸阶梯</td><td>sm 96 · md 160 · lg 240 · hero ≤ 480</td></tr>
+                <tr><td>禁止</td><td>写实结构式、吉祥物、贴纸风、强霓虹、3D 拟物</td></tr>
+              </tbody>
+            </table>
+            <p class="muted" style="margin:12px 0 0">旧预览 SVG 已从本页下线展示；文件仍留在仓库 <code>illustrations/</code> 存档，改站请勿引用。</p>
+          </div>
+        </section>
+
+        <!-- DARK -->
+        <section class="page" data-page-panel="dark">
+          <div class="page-head">
+            <div>
+              <h1>暗黑模式 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-11 决策：可选 Dark · token 重映射 · Product 优先 · 默认不跟系统 · Hero 深色 ≠ 全局 Dark。可用顶栏「主题」切换整站预览。</p>
+            </div>
+            <div class="page-head__actions">
+              <button type="button" class="btn btn--secondary" data-theme-quick="light">切 Light</button>
+              <button type="button" class="btn btn--primary" data-theme-quick="dark">切 Dark</button>
+            </div>
+          </div>
+
+          <div class="scene-grid">
+            <article class="scene">
+              <header class="scene__bar"><strong>当前主题实况</strong><span id="darkThemeLabel">Light</span></header>
+              <div class="scene__panel dark-live-panel">
+                <b>画布 / 卡片 / Action 随 token 变化</b>
+                <p class="muted">本页与整个指南站共用 <code>data-dp-theme</code>。</p>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary btn--sm">主按钮</button>
+                  <button type="button" class="btn btn--secondary btn--sm">次按钮</button>
+                  <span class="tag tag--blue">Tag</span>
+                  <span class="tag tag--success">Success</span>
+                </div>
+                <label class="form-field" style="margin-top:12px">
+                  <span>输入框</span>
+                  <input class="input" type="text" value="Focus 看发光环" />
+                </label>
+              </div>
+            </article>
+            <article class="scene">
+              <header class="scene__bar"><strong>Light 下的深色 Hero</strong><span>局部</span></header>
+              <div class="dark-hero-sample">
+                <b>Hero Dark <code>#161a2e</code></b>
+                <p>仅 Showcase 区块；不等于打开全局 Dark。</p>
+                <button type="button" class="btn btn--primary btn--sm">了解更多</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>Token 对照（摘要）</h3></div>
+            <table class="table">
+              <thead><tr><th>Token</th><th>Light</th><th>Dark</th></tr></thead>
+              <tbody>
+                <tr><td><code>--dp-bg-layout</code></td><td>#f4f6fb</td><td>#12162a</td></tr>
+                <tr><td><code>--dp-bg-white</code></td><td>#ffffff</td><td>#1a1f36</td></tr>
+                <tr><td><code>--dp-text-1</code></td><td>#1d2129</td><td>#f2f3f5</td></tr>
+                <tr><td><code>--dp-border</code></td><td>#e5e6eb</td><td>#2e3554</td></tr>
+                <tr><td><code>--dp-color-action</code></td><td>#3c49dd</td><td>#6b74f2</td></tr>
+                <tr><td><code>--dp-shadow</code></td><td>蓝味轻阴影</td><td>中性深阴影</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>默认 Light；Dark 用 <code>data-dp-theme="dark"</code> 重映射，禁止 invert</li>
+              <li><strong>顶栏 / 侧栏 / 画布必须跟 token</strong>，禁止写死 <code>#fff</code> / <code>rgba(255,255,255,*)</code></li>
+              <li>顶栏使用 <code>--dp-bg-header</code>；切换后壳层与内容须同步变色、可回切</li>
+              <li>Product 优先提供切换；Showcase 可保留局部深色 Hero（不等于全局 Dark）</li>
+              <li>手动切换为主；可选「跟随系统」；存 <code>localStorage.dp-theme</code></li>
+              <li>Dark 主色提亮；阴影改中性；正文目标 AA 对比</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- MOTION -->
+        <section class="page" data-page-panel="motion">
+          <div class="page-head">
+            <div>
+              <h1>动效 <span class="status status--done">已落地 · 可调</span></h1>
+              <p>建议默认已写入 token。Product 克制、Showcase 可稍丰富。侧栏打开本页即可逐项试交互。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>时长 / 缓动 Token</h3></div>
+            <table class="table">
+              <thead><tr><th>Token</th><th>值</th><th>用途</th></tr></thead>
+              <tbody>
+                <tr><td><code>--dp-duration-fast</code></td><td>160ms</td><td>Hover / Focus</td></tr>
+                <tr><td><code>--dp-duration-medium</code></td><td>240ms</td><td>Drawer / Toast / Collapse</td></tr>
+                <tr><td><code>--dp-duration-slow</code></td><td>360ms</td><td>Showcase 入场</td></tr>
+                <tr><td><code>--dp-ease-standard</code></td><td>ease</td><td>颜色 / 阴影</td></tr>
+                <tr><td><code>--dp-ease-emphasize</code></td><td>cubic-bezier(0.22,1,0.36,1)</td><td>位移淡入</td></tr>
+                <tr><td><code>--dp-ease-linear</code></td><td>linear</td><td>Spin / 骨架</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>场景映射</h3></div>
+            <table class="table">
+              <thead><tr><th>场景</th><th>时长</th><th>缓动</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>控件 Hover / Active</td><td>160ms</td><td>standard</td><td>颜色 + 外/内发光；按钮不位移</td></tr>
+                <tr><td>Dropdown / Drawer / Toast</td><td>240ms</td><td>emphasize</td><td>opacity + 轻位移</td></tr>
+                <tr><td>路由切换（Product）</td><td>≤ 200ms 或无</td><td>—</td><td>避免整页滑入</td></tr>
+                <tr><td>Showcase 入场</td><td>360ms</td><td>emphasize</td><td>stagger 60ms；总 ≤ 600ms</td></tr>
+                <tr><td>Loading Spin</td><td>0.9s 循环</td><td>linear</td><td>rotate</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>可交互示意</h3></div>
+            <div class="motion-lab">
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">按钮 Hover（颜色 + 发光 · 无位移）</p>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary">Primary</button>
+                  <button type="button" class="btn btn--secondary">Secondary</button>
+                  <button type="button" class="btn btn--ghost">Ghost（内发光）</button>
+                </div>
+                <p class="muted" style="margin:8px 0 0">Primary：提亮 + 外环/柔光 · Secondary：描边变 Action + 外环 · Ghost：inset 内发光</p>
+              </div>
+
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">Drawer / 面板（medium）</p>
+                <button type="button" class="btn btn--secondary" id="motionDrawerToggle">打开 / 关闭面板</button>
+                <div class="motion-drawer-stage">
+                  <div class="motion-drawer-mask" id="motionDrawerMask" hidden></div>
+                  <aside class="motion-drawer" id="motionDrawer" aria-hidden="true">
+                    <strong>示例 Drawer</strong>
+                    <p class="muted">240ms · emphasize · 自右滑入</p>
+                  </aside>
+                </div>
+              </div>
+
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">Toast（medium）</p>
+                <button type="button" class="btn btn--secondary" id="motionToastBtn">弹出 Toast</button>
+                <div class="motion-toast-host" id="motionToastHost" aria-live="polite"></div>
+              </div>
+
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">Collapse（medium）</p>
+                <button type="button" class="btn btn--ghost" id="motionCollapseBtn" aria-expanded="false">展开 / 收起</button>
+                <div class="motion-collapse" id="motionCollapse">
+                  <div class="motion-collapse__inner">折叠面板内容：用 grid-template-rows 过渡，避免突兀闪现。</div>
+                </div>
+              </div>
+
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">Showcase 入场（slow + stagger）</p>
+                <button type="button" class="btn btn--secondary" id="motionEnterBtn">重播入场</button>
+                <div class="motion-enter-row" id="motionEnterRow">
+                  <div class="motion-enter-card" style="--i:0">Card A</div>
+                  <div class="motion-enter-card" style="--i:1">Card B</div>
+                  <div class="motion-enter-card" style="--i:2">Card C</div>
+                </div>
+              </div>
+
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">Loading</p>
+                <div class="demo-row">
+                  <svg class="dp-icon dp-icon--spin" width="20" height="20" style="color:var(--dp-color-action)"><use href="#dp-icon-status-loading"/></svg>
+                  <button type="button" class="btn btn--primary" disabled>
+                    <svg class="dp-icon dp-icon--spin" width="16" height="16"><use href="#dp-icon-status-loading"/></svg>
+                    提交中
+                  </button>
+                  <div class="motion-skeleton" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <div class="motion-lab__block">
+                <p class="subhead" style="margin-top:0">减少动效（模拟）</p>
+                <label class="motion-reduce-toggle">
+                  <input type="checkbox" id="motionReduceToggle" />
+                  模拟 <code>prefers-reduced-motion</code>（关闭位移 / 循环）
+                </label>
+                <p class="muted" style="margin:8px 0 0">系统若已开启减少动效，本页动画也会自动降级。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>Product：控件反馈 + 面板进出；禁背景视差与大位移入场</li>
+              <li>Showcase：入场 ≤ 360ms，stagger 约 60ms，总 ≤ 600ms</li>
+              <li>按钮 Hover 用颜色 + 发光，禁止位移；transform 仅面板/入场</li>
+              <li>必须响应 <code>prefers-reduced-motion</code></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- NAVIGATION -->
+        <section class="page" data-page-panel="navigation">
+          <div class="page-head">
+            <div>
+              <h1>导航 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-11 决策：Product 侧栏主导 · Showcase 顶栏一级 · 激活浅蓝底无竖条 · 面包屑 ≥3 层 · Tabs/Steps 不作站级导航。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>模式对照</h3></div>
+            <div class="nav-mode-grid">
+              <article class="nav-mode-card">
+                <header><strong>Product · T 型</strong><span>侧栏 + 顶栏工具</span></header>
+                <div class="nav-mini nav-mini--product" aria-hidden="true">
+                  <aside>
+                    <i class="is-on"></i><i></i><i></i>
+                  </aside>
+                  <div>
+                    <b></b>
+                    <em></em>
+                  </div>
+                </div>
+                <p class="muted">Bohrium / fermopt / 报价内页 / Macroflow 壳层</p>
+              </article>
+              <article class="nav-mode-card">
+                <header><strong>Showcase · 上下</strong><span>顶栏一级</span></header>
+                <div class="nav-mini nav-mini--showcase" aria-hidden="true">
+                  <b><i></i><i class="is-on"></i><i></i><em></em></b>
+                  <em></em>
+                </div>
+                <p class="muted">dp.tech / 落地页 · 无侧栏</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>侧栏状态</h3></div>
+            <div class="nav-sider-demos">
+              <div class="nav-sider-demo">
+                <p class="subhead" style="margin-top:0">展开 220</p>
+                <div class="nav-sider-demo__frame">
+                  <button type="button" class="nav-item"><span class="ico">▣</span><span>工作台</span></button>
+                  <button type="button" class="nav-item is-active" aria-current="page"><span class="ico">☰</span><span>导航</span></button>
+                  <button type="button" class="nav-item"><span class="ico">◇</span><span>反馈</span></button>
+                </div>
+                <p class="muted">激活：浅蓝底 + Action · Hover：fill-1</p>
+              </div>
+              <div class="nav-sider-demo">
+                <p class="subhead" style="margin-top:0">折叠 72（仅图标）</p>
+                <div class="nav-sider-demo__frame nav-sider-demo__frame--collapsed">
+                  <button type="button" class="nav-item" title="工作台"><span class="ico">▣</span></button>
+                  <button type="button" class="nav-item is-active" title="导航" aria-current="page"><span class="ico">☰</span></button>
+                  <button type="button" class="nav-item" title="反馈"><span class="ico">◇</span></button>
+                </div>
+                <p class="muted">折叠态配合 Tooltip</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>面包屑</h3></div>
+            <nav class="breadcrumb breadcrumb--demo" aria-label="示例面包屑">
+              <a href="#">设计系统</a><i>/</i>
+              <a href="#">全局规则</a><i>/</i>
+              <strong aria-current="page">导航</strong>
+            </nav>
+            <p class="muted" style="margin:10px 0 0">≥ 3 层或列表→详情时使用；末级不可点、Text 1 加粗。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>Tabs · Steps · 分页</h3></div>
+            <div class="nav-subnav-demos">
+              <div>
+                <p class="subhead" style="margin-top:0">Tabs（对象内视图）</p>
+                <div class="dp-tabs" role="tablist">
+                  <button type="button" class="dp-tabs__item is-active" role="tab" aria-selected="true">概览</button>
+                  <button type="button" class="dp-tabs__item" role="tab">配置</button>
+                  <button type="button" class="dp-tabs__item" role="tab">日志</button>
+                </div>
+              </div>
+              <div>
+                <p class="subhead" style="margin-top:0">Steps（3–5 步向导）</p>
+                <ol class="dp-steps">
+                  <li class="is-done"><span>1</span>填写信息</li>
+                  <li class="is-current"><span>2</span>确认参数</li>
+                  <li><span>3</span>提交结果</li>
+                </ol>
+              </div>
+              <div>
+                <p class="subhead" style="margin-top:0">Pagination</p>
+                <div class="dp-pagination">
+                  <button type="button" class="btn btn--ghost btn--sm" disabled>上一页</button>
+                  <button type="button" class="dp-pagination__num is-active">1</button>
+                  <button type="button" class="dp-pagination__num">2</button>
+                  <button type="button" class="dp-pagination__num">3</button>
+                  <button type="button" class="btn btn--ghost btn--sm">下一页</button>
+                  <span class="muted">共 48 条</span>
+                </div>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0">Tabs / Steps / 分页 <strong>不作</strong>站级主导航。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <ul>
+                  <li>一组主导航讲清「能去哪」</li>
+                  <li>详情用面包屑回列表</li>
+                  <li>流程用 Steps</li>
+                </ul>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <ul>
+                  <li>顶栏 + 侧栏 + Tabs 三套一级</li>
+                  <li>只靠浏览器后退</li>
+                  <li>用侧栏假装步骤条</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>Product：侧栏主导；Showcase：顶栏一级；禁止双套一级</li>
+              <li>侧栏 ≤ 2 级；激活 = 浅蓝底 + Action，无竖条</li>
+              <li>面包屑 ≥ 3 层或进详情；末级不可点</li>
+              <li>&lt;768 侧栏抽屉；≥768 可折叠 220↔72</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FEEDBACK -->
+        <section class="page" data-page-panel="feedback">
+          <div class="page-head">
+            <div>
+              <h1>反馈 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-11 决策：能轻则轻 · Toast/Banner/Drawer/Modal 分层 · 删除用 Modal · 详情用 Drawer · 动效 240ms。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>分层总表</h3></div>
+            <table class="table">
+              <thead><tr><th>类型</th><th>打断</th><th>场景</th></tr></thead>
+              <tbody>
+                <tr><td>Message / Toast</td><td>低</td><td>保存成功、复制成功</td></tr>
+                <tr><td>Notification</td><td>中</td><td>异步任务完成/失败</td></tr>
+                <tr><td>Alert / Banner</td><td>中</td><td>页内持续提示（草稿、权限）</td></tr>
+                <tr><td>Drawer</td><td>中高</td><td>详情编辑、保持上下文</td></tr>
+                <tr><td>Modal</td><td>高</td><td>删除确认、不可逆操作</td></tr>
+                <tr><td>Progress / Spin / Skeleton</td><td>—</td><td>进行中 / 加载占位</td></tr>
+                <tr><td>Result</td><td>—</td><td>流程结束（版式见模板页）</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>Alert / Banner</h3></div>
+            <div class="alert-stack" style="margin-top:0">
+              <div class="alert alert--info">信息：任务已加入队列。</div>
+              <div class="alert alert--success">成功：规范 Token 已保存。</div>
+              <div class="alert alert--warning">警告：当前为草稿，尚未发布。</div>
+              <div class="alert alert--error">错误：计算失败，请检查输入参数后重试。</div>
+            </div>
+            <p class="muted" style="margin:10px 0 0">持续状态用 Banner；瞬时结果用 Toast。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>可交互示意</h3></div>
+            <div class="feedback-lab">
+              <div class="feedback-lab__block">
+                <p class="subhead" style="margin-top:0">Toast（顶部 · 3–5s）</p>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--secondary" id="fbToastOk">成功 Toast</button>
+                  <button type="button" class="btn btn--secondary" id="fbToastErr">错误 Toast</button>
+                </div>
+                <div class="feedback-toast-host" id="fbToastHost" aria-live="polite"></div>
+              </div>
+
+              <div class="feedback-lab__block">
+                <p class="subhead" style="margin-top:0">Modal（删除确认 · 遮罩不关）</p>
+                <button type="button" class="btn btn--secondary" id="fbModalOpen">打开确认框</button>
+              </div>
+
+              <div class="feedback-lab__block">
+                <p class="subhead" style="margin-top:0">Drawer（详情 · 遮罩可关）</p>
+                <button type="button" class="btn btn--secondary" id="fbDrawerOpen">打开详情抽屉</button>
+                <div class="feedback-drawer-stage">
+                  <div class="feedback-drawer-mask" id="fbDrawerMask" hidden></div>
+                  <aside class="feedback-drawer" id="fbDrawer" aria-hidden="true">
+                    <header>
+                      <strong>任务详情</strong>
+                      <button type="button" class="btn btn--ghost btn--sm" id="fbDrawerClose">关闭</button>
+                    </header>
+                    <p class="muted">右侧 Drawer · 保持列表上下文 · Esc / 遮罩可关</p>
+                    <button type="button" class="btn btn--primary btn--sm">保存</button>
+                  </aside>
+                </div>
+              </div>
+
+              <div class="feedback-lab__block">
+                <p class="subhead" style="margin-top:0">加载</p>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary" disabled>
+                    <svg class="dp-icon dp-icon--spin" width="16" height="16"><use href="#dp-icon-status-loading"/></svg>
+                    提交中
+                  </button>
+                  <div class="motion-skeleton" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <ul>
+                  <li>保存成功 → Toast</li>
+                  <li>删除 → Modal 确认</li>
+                  <li>行详情 → Drawer</li>
+                  <li>页顶草稿 → Banner</li>
+                </ul>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <ul>
+                  <li>保存成功弹 Modal</li>
+                  <li>删除只 Toast、无确认</li>
+                  <li>同一信息反复 Toast</li>
+                  <li>用侧栏假装步骤反馈</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>能轻则轻：瞬时用 Toast，持续用 Banner，确认用 Modal，详情用 Drawer</li>
+              <li>Toast 成功 3s / 错误 5s；同屏 ≤3；禁作删除确认</li>
+              <li>确认类 Modal 点击遮罩默认不关闭；Drawer 可关</li>
+              <li>文案准确克制；错误给原因 + 下一步</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Feedback Modal overlay (page-global within styleguide) -->
+        <div class="feedback-modal" id="fbModal" hidden>
+          <div class="feedback-modal__mask" data-fb-modal-dismiss="0"></div>
+          <div class="feedback-modal__panel" role="dialog" aria-modal="true" aria-labelledby="fbModalTitle">
+            <h3 id="fbModalTitle">确定删除该任务？</h3>
+            <p class="muted">删除后不可恢复。请确认后再继续。</p>
+            <div class="demo-row" style="margin-top:16px;justify-content:flex-end">
+              <button type="button" class="btn btn--secondary" id="fbModalCancel">取消</button>
+              <button type="button" class="btn btn--primary" id="fbModalConfirm">确定删除</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- COPYWRITING -->
+        <section class="page" data-page-panel="copywriting">
+          <div class="page-head">
+            <div>
+              <h1>文案 <span class="status status--done">已锁定 · 验收通过</span></h1>
+              <p>2026-08-14 决策并验收：科研语气四字——严谨 · 正式 · 精准 · 简练。与反馈 / 空态 / 数据格式配套（§5.12）。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>语气原则</h3></div>
+            <table class="table">
+              <thead><tr><th>原则</th><th>要求</th></tr></thead>
+              <tbody>
+                <tr><td>严谨</td><td>陈述可核对；不夸大结论；不确定处写「可能 / 未能确认」</td></tr>
+                <tr><td>正式</td><td>书面语；无口语、梗、emoji、感叹号堆叠</td></tr>
+                <tr><td>精准</td><td>对象、动作、结果写清；避免笼统「异常」「出错了」</td></tr>
+                <tr><td>简练</td><td>标题宜 ≤12 字；说明 1–2 句；按钮 2–6 字动词短语</td></tr>
+              </tbody>
+            </table>
+            <p class="muted" style="margin:12px 0 0">称谓用中性祈使（「请检查参数」），少用「您」。产品名保留官方写法（Bohrium、SynAster、DP）。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>场景句式</h3></div>
+            <table class="table">
+              <thead><tr><th>场景</th><th>写法</th><th>示例</th></tr></thead>
+              <tbody>
+                <tr><td>按钮</td><td>具体动词</td><td>保存 · 开始计算 · 删除任务</td></tr>
+                <tr><td>占位符</td><td>格式或约束</td><td>请输入任务名称 · 例如 −48.2</td></tr>
+                <tr><td>Toast</td><td>短结果</td><td>已保存 · 已加入队列</td></tr>
+                <tr><td>错误</td><td>现象 + 下一步</td><td>未能读取批次数据。请确认批次号后重试。</td></tr>
+                <tr><td>空态</td><td>现状 + 如何开始</td><td>还没有任务。创建后，进度与结果将显示在此。</td></tr>
+                <tr><td>确认</td><td>动作 + 不可逆说明</td><td>删除后不可恢复。是否继续？</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>常用对照</h3></div>
+            <table class="table">
+              <thead><tr><th>场景</th><th>推荐</th><th>避免</th></tr></thead>
+              <tbody>
+                <tr><td>校验失败</td><td>参数未通过校验，请修改后重试</td><td>输入有问题哦</td></tr>
+                <tr><td>权限</td><td>当前账号无访问权限</td><td>你被拒绝了</td></tr>
+                <tr><td>加载失败</td><td>数据未能加载，请检查网络后重试</td><td>崩了，再点一下</td></tr>
+                <tr><td>删除确认</td><td>删除后不可恢复。是否继续？</td><td>真的要删吗！！</td></tr>
+                <tr><td>计算中</td><td>任务已进入队列</td><td>正在疯狂计算中…</td></tr>
+                <tr><td>无结果</td><td>未找到匹配项。可缩短关键词或清空筛选</td><td>啥也没有</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例 · 整段</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <p class="t2" style="margin:8px 0">未能读取批次数据。请确认批次号后重试，或联系管理员。</p>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary btn--sm">重新加载</button>
+                  <button type="button" class="btn btn--secondary btn--sm">查看帮助</button>
+                </div>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <p class="t2" style="margin:8px 0">错误！数据异常！！请重试。</p>
+                <button type="button" class="btn btn--primary btn--sm">确定</button>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>四字：严谨 · 正式 · 精准 · 简练</li>
+              <li>错误 = 现象 + 下一步；忌笼统「异常」与感叹号堆叠</li>
+              <li>按钮用具体动词；忌无语境「确定」</li>
+              <li>禁用营销夸张词；数字单位遵循数据格式 §5.11</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- I18N / A11Y -->
+        <section class="page" data-page-panel="i18n">
+          <div class="page-head">
+            <div>
+              <h1>无障碍 / 国际化 <span class="status status--done">已锁定 · 验收通过</span></h1>
+              <p>2026-08-14 决策并验收：两种语言模式 <code>zh</code> / <code>en</code>；<code>zh</code> 用自然中文——Job 等简单词写「任务」，不要夹英文；学科专名用中文译名；a11y 基线并行（§5.16）。语气仍遵循文案 §5.12。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>两模式定义</h3></div>
+            <table class="table">
+              <thead><tr><th>模式</th><th>代码</th><th>界面</th><th>用词策略</th><th>适用</th></tr></thead>
+              <tbody>
+                <tr><td>中文</td><td><code>zh</code></td><td>中文</td><td>简单词用中文；学科专名用中文译名；勿无谓夹英文</td><td>Product 默认</td></tr>
+                <tr><td>纯英文</td><td><code>en</code></td><td>英文</td><td>全英；品牌/代码专名保持官方写法</td><td>海外 / 对外演示</td></tr>
+              </tbody>
+            </table>
+            <p class="muted" style="margin:12px 0 0">不设术语释义独立模式；帮助文档中的术语解释按文档体例处理，不进产品 UI 语言切换。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>zh 用词分类</h3></div>
+            <table class="table">
+              <thead><tr><th>类别</th><th>规则</th><th>示例</th></tr></thead>
+              <tbody>
+                <tr><td>简单界面词</td><td>写中文，不要夹英文</td><td>任务、工作区、运行中</td></tr>
+                <tr><td>学科专有名词</td><td>有稳定译法时用中文</td><td>结合能、势能面</td></tr>
+                <tr><td>品牌 / 产品名</td><td>官方写法</td><td>Bohrium、SynAster</td></tr>
+                <tr><td>单位与符号</td><td>按数据格式 §5.11</td><td><code>kJ/mol</code>、<code>UTC+8</code></td></tr>
+                <tr><td>可保留英文</td><td>无稳定中文或协议/代码专名</td><td>API、JSON、UUID</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>模式切换示意</h3></div>
+            <div class="i18n-mode-switch" role="tablist" aria-label="语言模式">
+              <button type="button" class="i18n-mode-btn is-active" data-i18n-mode="zh" role="tab" aria-selected="true">zh · 中文</button>
+              <button type="button" class="i18n-mode-btn" data-i18n-mode="en" role="tab" aria-selected="false">en · English</button>
+            </div>
+            <article class="i18n-demo-card" id="i18nDemoCard" data-i18n-active="zh" lang="zh-CN">
+              <header class="i18n-demo-card__head">
+                <h3 class="i18n-demo-title" data-i18n-key="title"></h3>
+                <span class="tag tag--blue" data-i18n-key="badge"></span>
+              </header>
+              <p class="i18n-demo-body t2" data-i18n-key="body"></p>
+              <dl class="i18n-demo-meta">
+                <div><dt data-i18n-key="metaEnergyLabel"></dt><dd data-i18n-key="metaEnergy"></dd></div>
+                <div><dt data-i18n-key="metaTimeLabel"></dt><dd data-i18n-key="metaTime"></dd></div>
+              </dl>
+              <div class="demo-row">
+                <button type="button" class="btn btn--primary btn--sm" data-i18n-key="ctaPrimary"></button>
+                <button type="button" class="btn btn--secondary btn--sm" data-i18n-key="ctaSecondary"></button>
+                <button type="button" class="btn btn--ghost btn--sm" aria-label="Refresh job status" title="Refresh">
+                  <span aria-hidden="true">↻</span>
+                </button>
+              </div>
+              <p class="i18n-demo-toast muted" data-i18n-key="toast"></p>
+            </article>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>混排版式</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ zh · 自然中文</strong>
+                <p class="t2" style="margin:8px 0">提交任务后查看结合能曲线（单位 <code>kJ/mol</code>）。</p>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免无谓夹英文</strong>
+                <p class="t2" style="margin:8px 0">提交 Job 后查看 Energy 曲线<br>或控件标签中英双行</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>无障碍基线</h3></div>
+            <table class="table">
+              <thead><tr><th>项</th><th>规则</th></tr></thead>
+              <tbody>
+                <tr><td>对比度</td><td>正文与图标可辨识；勿用过浅灰作唯一状态色</td></tr>
+                <tr><td>焦点</td><td>可见 Focus 环（Action 边 + 3px 环）；键盘可达主操作</td></tr>
+                <tr><td>动效</td><td>尊重 <code>prefers-reduced-motion</code> / 站内减少动效</td></tr>
+                <tr><td>语义</td><td>按钮用具体动词；图标按钮需 <code>aria-label</code></td></tr>
+                <tr><td>lang</td><td><code>zh</code> → <code>lang="zh-CN"</code>；<code>en</code> → <code>lang="en"</code></td></tr>
+              </tbody>
+            </table>
+            <div class="i18n-a11y-row" style="margin-top:14px">
+              <button type="button" class="btn btn--primary btn--sm i18n-focus-demo">Tab 可见焦点（点此后按 Tab）</button>
+              <button type="button" class="btn btn--secondary btn--sm" aria-label="打开帮助">?</button>
+              <span class="muted">右侧为仅图标按钮，已带 aria-label</span>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例</h3></div>
+            <table class="table">
+              <thead><tr><th>✅</th><th>❌</th></tr></thead>
+              <tbody>
+                <tr><td><code>zh</code>：提交任务后查看结合能曲线</td><td>提交 Job / 查看 Energy（简单词夹英文）</td></tr>
+                <tr><td><code>en</code>：界面与反馈全英</td><td>英文界面混入未翻译中文按钮</td></tr>
+                <tr><td>图标按钮有 aria-label</td><td>仅图标无文字无标签</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>两种模式：<code>zh</code>（默认）· <code>en</code>；不设 <code>zh-gloss</code></li>
+              <li><code>zh</code>：简单词写中文（任务）；学科专名用中文译名；勿无谓夹英文</li>
+              <li>品牌官方写法；单位与数字遵循 §5.11；禁止控件标签中英双行</li>
+              <li>无障碍：对比度 · Focus · reduced-motion · aria-label · 正确 lang</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- TEMPLATES -->
+        <!-- PAGE TEMPLATES: list / form / detail -->
+        <section class="page" data-page-panel="page-templates">
+          <div class="page-head">
+            <div>
+              <h1>页面模板 <span class="status status--done">已锁定 · 验收通过</span></h1>
+              <p>2026-08-13 决策并验收：列表（筛选/排序/批量）· 表单 720 · 详情两列 Descriptions · 与 Drawer/Modal/空态边界对齐 §5.9–5.10。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>列表页 · 数据列表模式</h3></div>
+            <div class="ptpl-shell">
+              <nav class="breadcrumb breadcrumb--demo" aria-label="列表面包屑">
+                <a href="#">工作台</a><i>/</i><strong>任务列表</strong>
+              </nav>
+              <div class="ptpl-pagehead">
+                <div>
+                  <h2 class="ptpl-pagehead__title">任务列表</h2>
+                  <p class="muted">筛选 ≤3 + 更多展开 · 批量条 · 分页默认 20</p>
+                </div>
+                <button type="button" class="btn btn--primary">新建任务</button>
+              </div>
+              <div class="ptpl-filter">
+                <input class="input ptpl-filter__search" type="search" placeholder="搜索任务名称…" />
+                <div class="dp-select ptpl-filter__select" data-dp-select>
+                  <button type="button" class="dp-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="dp-select__value">全部状态</span>
+                    <span class="dp-select__caret" aria-hidden="true"></span>
+                  </button>
+                  <ul class="dp-select__menu" role="listbox">
+                    <li role="option" class="is-selected" aria-selected="true">全部状态</li>
+                    <li role="option">进行中</li>
+                    <li role="option">已完成</li>
+                  </ul>
+                </div>
+                <div class="dp-select ptpl-filter__select" data-dp-select>
+                  <button type="button" class="dp-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="dp-select__value">全部类型</span>
+                    <span class="dp-select__caret" aria-hidden="true"></span>
+                  </button>
+                  <ul class="dp-select__menu" role="listbox">
+                    <li role="option" class="is-selected" aria-selected="true">全部类型</li>
+                    <li role="option">计算</li>
+                    <li role="option">报价</li>
+                  </ul>
+                </div>
+                <div class="dp-select ptpl-filter__select" data-dp-select>
+                  <button type="button" class="dp-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="dp-select__value">全部负责人</span>
+                    <span class="dp-select__caret" aria-hidden="true"></span>
+                  </button>
+                  <ul class="dp-select__menu" role="listbox">
+                    <li role="option" class="is-selected" aria-selected="true">全部负责人</li>
+                    <li role="option">我负责的</li>
+                  </ul>
+                </div>
+                <button type="button" class="btn btn--ghost btn--sm">更多筛选</button>
+                <button type="button" class="btn btn--link btn--sm">清空</button>
+              </div>
+              <div class="ptpl-bulk">
+                <span>已选 <strong>2</strong> 项</span>
+                <button type="button" class="btn btn--secondary btn--sm">导出</button>
+                <button type="button" class="btn btn--danger btn--sm">删除</button>
+              </div>
+              <div class="ptpl-table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="ptpl-check"><input type="checkbox" aria-label="全选" /></th>
+                      <th>名称</th>
+                      <th class="is-sorted is-sorted--desc">更新时间 <span aria-hidden="true">↓</span></th>
+                      <th>状态</th>
+                      <th>能量</th>
+                      <th class="is-actions">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="is-selected">
+                      <td class="ptpl-check"><input type="checkbox" checked aria-label="选中行" /></td>
+                      <td>PETase 稳定性扫描</td>
+                      <td>2026-08-13 14:30</td>
+                      <td><span class="tag tag--blue">进行中</span></td>
+                      <td>−48.2 kJ/mol</td>
+                      <td class="is-actions"><a href="#">详情</a><a href="#">编辑</a></td>
+                    </tr>
+                    <tr class="is-selected">
+                      <td class="ptpl-check"><input type="checkbox" checked aria-label="选中行" /></td>
+                      <td>报价批次 #1042</td>
+                      <td>2026-08-12 09:05</td>
+                      <td><span class="tag tag--success">已完成</span></td>
+                      <td>—</td>
+                      <td class="is-actions"><a href="#">详情</a><a href="#">编辑</a></td>
+                    </tr>
+                    <tr>
+                      <td class="ptpl-check"><input type="checkbox" aria-label="选中行" /></td>
+                      <td>fermopt 工况 A</td>
+                      <td>2026-08-11 18:22</td>
+                      <td><span class="tag tag--gray">草稿</span></td>
+                      <td>1.23e-4 eV</td>
+                      <td class="is-actions"><a href="#">详情</a><a href="#">编辑</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="ptpl-footer">
+                <span class="muted">共 48 条</span>
+                <div class="dp-pagination">
+                  <span class="muted">每页</span>
+                  <select class="input ptpl-pagesize" aria-label="页大小"><option>10</option><option selected>20</option></select>
+                  <button type="button" class="btn btn--ghost btn--sm" disabled>上一页</button>
+                  <button type="button" class="dp-pagination__num is-active">1</button>
+                  <button type="button" class="dp-pagination__num">2</button>
+                  <button type="button" class="dp-pagination__num">3</button>
+                  <button type="button" class="btn btn--ghost btn--sm">下一页</button>
+                </div>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0">轻详情 → Drawer；重编辑 → 详情/表单页。批量删除用 Modal，不用 Toast。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>表单页</h3></div>
+            <div class="ptpl-shell">
+              <nav class="breadcrumb breadcrumb--demo" aria-label="表单面包屑">
+                <a href="#">任务列表</a><i>/</i><strong>新建任务</strong>
+              </nav>
+              <div class="ptpl-pagehead">
+                <div>
+                  <h2 class="ptpl-pagehead__title">新建任务</h2>
+                  <p class="muted">单栏 · 标签在上 · 内容最大宽 720px</p>
+                </div>
+              </div>
+              <ol class="dp-steps ptpl-steps">
+                <li class="is-current"><span>1</span>基本信息</li>
+                <li><span>2</span>参数配置</li>
+                <li><span>3</span>确认提交</li>
+              </ol>
+              <form class="ptpl-form" onsubmit="return false;">
+                <label class="form-field"><span>任务名称 <em class="req">*</em></span><input class="input" placeholder="请输入任务名称" value="PETase 稳定性扫描" /></label>
+                <div class="form-field"><span>任务类型</span>
+                  <div class="dp-select" data-dp-select>
+                    <button type="button" class="dp-select__trigger" aria-haspopup="listbox" aria-expanded="false">
+                      <span class="dp-select__value">计算</span>
+                      <span class="dp-select__caret" aria-hidden="true"></span>
+                    </button>
+                    <ul class="dp-select__menu" role="listbox">
+                      <li role="option" class="is-selected" aria-selected="true">计算</li>
+                      <li role="option">报价</li>
+                    </ul>
+                  </div>
+                </div>
+                <label class="form-field"><span>目标能量 (kJ/mol)</span><input class="input" placeholder="如 −48.2" /></label>
+                <label class="form-field"><span>说明</span><textarea class="input" rows="3" placeholder="可选说明…"></textarea></label>
+                <label class="form-field"><span>校验示例</span><input class="input input--error" value="abc" /><small class="form-error">请输入有效数值</small></label>
+              </form>
+              <div class="ptpl-form-bar">
+                <button type="button" class="btn btn--primary">提交</button>
+                <button type="button" class="btn btn--secondary">取消</button>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0">字段组 ≥3 且有阶段时用 Steps；成功 Toast，流程终点用 Result。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>详情页</h3></div>
+            <div class="ptpl-shell">
+              <nav class="breadcrumb breadcrumb--demo" aria-label="详情面包屑">
+                <a href="#">任务列表</a><i>/</i><strong>PETase 稳定性扫描</strong>
+              </nav>
+              <div class="ptpl-pagehead">
+                <div class="ptpl-pagehead__main">
+                  <h2 class="ptpl-pagehead__title">PETase 稳定性扫描</h2>
+                  <span class="tag tag--blue">进行中</span>
+                </div>
+                <div class="demo-row">
+                  <button type="button" class="btn btn--primary btn--sm">编辑</button>
+                  <button type="button" class="btn btn--link btn--sm" style="color:var(--dp-error)">删除</button>
+                </div>
+              </div>
+              <div class="dp-tabs" role="tablist">
+                <button type="button" class="dp-tabs__item is-active" role="tab" aria-selected="true">概览</button>
+                <button type="button" class="dp-tabs__item" role="tab">关联</button>
+                <button type="button" class="dp-tabs__item" role="tab">日志</button>
+              </div>
+              <dl class="ptpl-desc">
+                <div><dt>任务 ID</dt><dd>JOB-2048</dd></div>
+                <div><dt>类型</dt><dd>计算</dd></div>
+                <div><dt>创建时间</dt><dd>2026-08-10 11:20 UTC+8</dd></div>
+                <div><dt>更新时间</dt><dd>2026-08-13 14:30 UTC+8</dd></div>
+                <div><dt>能量</dt><dd>−48.2 kJ/mol</dd></div>
+                <div><dt>收敛阈值</dt><dd>1.23e-4 eV</dd></div>
+                <div><dt>负责人</dt><dd>—</dd></div>
+                <div><dt>备注</dt><dd>首轮扫描，后续可扩突变库</dd></div>
+              </dl>
+              <p class="subhead">关联数据</p>
+              <table class="table">
+                <thead><tr><th>相关项</th><th>状态</th><th class="is-actions">操作</th></tr></thead>
+                <tbody>
+                  <tr><td>突变集 v2</td><td><span class="tag tag--success">就绪</span></td><td class="is-actions"><a href="#">打开</a></td></tr>
+                  <tr><td>结果摘要</td><td><span class="tag tag--gray">生成中</span></td><td class="is-actions"><a href="#">查看</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="muted" style="margin:12px 0 0">Descriptions 默认两列；轻改 Drawer，重改跳转表单页。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <ul>
+                  <li>列表页头一个 Primary</li>
+                  <li>删除用 Modal 确认</li>
+                  <li>表单 720 单栏左对齐</li>
+                  <li>详情面包屑回列表</li>
+                </ul>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <ul>
+                  <li>筛选区再放一排实心主按钮</li>
+                  <li>批量删除仅 Toast</li>
+                  <li>表单拉满 1200 无层次</li>
+                  <li>只靠浏览器后退</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>列表：页头 → 筛选 → 表 → 分页；默认页大小 20</li>
+              <li>筛选首行搜索 + ≤3；更多在同卡片展开</li>
+              <li>批量条随选中出现；不可逆用 Modal</li>
+              <li>表单 720 / 粘性底栏；详情两列 + 关联下置</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- DATA FORMAT -->
+        <section class="page" data-page-panel="data-format">
+          <div class="page-head">
+            <div>
+              <h1>数据格式 <span class="status status--done">已锁定 · 验收通过</span></h1>
+              <p>2026-08-13 决策并验收：千分位 · 有效数字按约定 · 单位半角空格 · 日期 <code>YYYY-MM-DD HH:mm</code> · 空值 <code>—</code>。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>展示对照</h3></div>
+            <table class="table">
+              <thead><tr><th>类型</th><th>正确</th><th>避免</th><th>说明</th></tr></thead>
+              <tbody>
+                <tr><td>千分位</td><td><code>12,345</code></td><td><code>12345</code>（≥1000）</td><td>zh-CN 分组；小数不强制</td></tr>
+                <tr><td>单位</td><td><code>12.5 kJ/mol</code></td><td><code>12.5kJ/mol</code></td><td>数值与单位半角空格</td></tr>
+                <tr><td>科学计数</td><td><code>1.23e-4 eV</code></td><td>同列混用 <code>0.000123</code></td><td>|x|&lt;1e-3 或 ≥1e6</td></tr>
+                <tr><td>日期时间</td><td><code>2026-08-13 14:30 UTC+8</code></td><td><code>08/13/26 2:30 PM</code></td><td>24h；跨时区加后缀；存 UTC</td></tr>
+                <tr><td>百分比</td><td><code>12.5%</code></td><td><code>12.50%</code>（无约定时）</td><td>默认 1 位小数</td></tr>
+                <tr><td>空值</td><td><code>—</code></td><td><code>null</code> / 空白</td><td>统一 em dash</td></tr>
+                <tr><td>有效数字</td><td>按接口约定</td><td>前端擅自「好看」舍入</td><td>未约定时能量类 3–4 位</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>列表中的数据列示例</h3></div>
+            <table class="table">
+              <thead><tr><th>指标</th><th>数值</th><th>更新</th><th>备注</th></tr></thead>
+              <tbody>
+                <tr><td>样本数</td><td>12,345</td><td>2026-08-13 09:00</td><td>—</td></tr>
+                <tr><td>结合能</td><td>−48.2 kJ/mol</td><td>2026-08-13 14:30 UTC+8</td><td>业务约定 1 位小数</td></tr>
+                <tr><td>残差</td><td>1.23e-4 eV</td><td>2026-08-12 18:00</td><td>列内统一科学计数</td></tr>
+                <tr><td>转化率</td><td>12.5%</td><td>2026-08-11 10:15</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <ul>
+                  <li><code>12.5 kJ/mol</code></li>
+                  <li><code>2026-08-13 14:30 UTC+8</code></li>
+                  <li>空单元格 <code>—</code></li>
+                  <li>列内科学计数风格统一</li>
+                </ul>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <ul>
+                  <li><code>12.5kJ/mol</code> 或中英混写同一量</li>
+                  <li>Product 默认用 <code>08/13/26 2:30 PM</code></li>
+                  <li>写 <code>null</code> / <code>N/A</code></li>
+                  <li>同行混用 <code>0.0001</code> 与 <code>1e-4</code></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>整数 ≥1000 千分位；单位前半角空格</li>
+              <li>有效数字跟业务/接口，前端不擅自舍入</li>
+              <li>日期 <code>YYYY-MM-DD HH:mm</code>；存 UTC</li>
+              <li>空值统一 <code>—</code></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="page" data-page-panel="templates">
+          <div class="page-head">
+            <div>
+              <h1>空态 / 结果 / 异常 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-13 决策：通用版式图标→标题→说明→一主按钮 · 空态分型 · Result 三态 · 403/404/500 · 与 Toast/Modal 边界清晰。</p>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>空状态</h3></div>
+            <div class="tpl-grid">
+              <article class="tpl-state">
+                <div class="tpl-state__icon" aria-hidden="true">
+                  <svg class="dp-icon" width="56" height="56"><use href="#dp-icon-data-inbox"/></svg>
+                </div>
+                <h4>还没有任务</h4>
+                <p>创建第一个任务后，进度与结果会显示在这里。</p>
+                <button type="button" class="btn btn--primary btn--sm">新建任务</button>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__icon" aria-hidden="true">
+                  <svg class="dp-icon" width="56" height="56"><use href="#dp-icon-action-search"/></svg>
+                </div>
+                <h4>未找到匹配项</h4>
+                <p>试试更短的关键词，或清空筛选条件。</p>
+                <button type="button" class="btn btn--secondary btn--sm">清空筛选</button>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__icon" aria-hidden="true">
+                  <svg class="dp-icon" width="56" height="56"><use href="#dp-icon-action-lock"/></svg>
+                </div>
+                <h4>暂无访问权限</h4>
+                <p>当前账号无法查看此模块，可申请权限或返回上一页。</p>
+                <div class="demo-row" style="justify-content:center">
+                  <button type="button" class="btn btn--primary btn--sm">申请权限</button>
+                  <button type="button" class="btn btn--link btn--sm">返回</button>
+                </div>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__icon tpl-state__icon--error" aria-hidden="true">
+                  <svg class="dp-icon" width="56" height="56"><use href="#dp-icon-status-exclamation-circle"/></svg>
+                </div>
+                <h4>加载失败</h4>
+                <p>数据未能加载，请检查网络后重试。</p>
+                <button type="button" class="btn btn--primary btn--sm">重新加载</button>
+              </article>
+            </div>
+            <p class="muted" style="margin:12px 0 0">现行：线型图标 48–64（§5.8）。插画素材暂不使用（见侧栏「插画」）。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>结果页（Result）</h3></div>
+            <div class="tpl-grid tpl-grid--3">
+              <article class="tpl-state">
+                <div class="tpl-state__icon tpl-state__icon--success" aria-hidden="true">
+                  <svg class="dp-icon" width="48" height="48"><use href="#dp-icon-status-success"/></svg>
+                </div>
+                <h4>提交成功</h4>
+                <p>报价已生成，可查看详情或返回列表继续处理。</p>
+                <div class="demo-row" style="justify-content:center">
+                  <button type="button" class="btn btn--primary btn--sm">查看结果</button>
+                  <button type="button" class="btn btn--secondary btn--sm">返回列表</button>
+                </div>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__icon tpl-state__icon--error" aria-hidden="true">
+                  <svg class="dp-icon" width="48" height="48"><use href="#dp-icon-status-error"/></svg>
+                </div>
+                <h4>提交失败</h4>
+                <p>参数校验未通过，请返回修改后再试。</p>
+                <div class="demo-row" style="justify-content:center">
+                  <button type="button" class="btn btn--primary btn--sm">返回修改</button>
+                  <button type="button" class="btn btn--secondary btn--sm">重试</button>
+                </div>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__icon tpl-state__icon--info" aria-hidden="true">
+                  <svg class="dp-icon dp-icon--spin" width="48" height="48"><use href="#dp-icon-status-loading"/></svg>
+                </div>
+                <h4>正在处理</h4>
+                <p>任务已进入队列，完成后将通知你。</p>
+                <div class="demo-row" style="justify-content:center">
+                  <button type="button" class="btn btn--primary btn--sm">查看进度</button>
+                  <button type="button" class="btn btn--link btn--sm">后台运行</button>
+                </div>
+              </article>
+            </div>
+            <p class="muted" style="margin:12px 0 0">流程终点用 Result；保存成功仍用 Toast（§5.5）。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>异常页</h3></div>
+            <div class="tpl-grid tpl-grid--3">
+              <article class="tpl-state">
+                <div class="tpl-state__code">404</div>
+                <h4>页面不存在</h4>
+                <p>链接失效或页面已被移动。</p>
+                <button type="button" class="btn btn--primary btn--sm">返回首页</button>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__code">403</div>
+                <h4>无权访问</h4>
+                <p>当前账号没有访问该资源的权限。</p>
+                <div class="demo-row" style="justify-content:center">
+                  <button type="button" class="btn btn--primary btn--sm">申请权限</button>
+                  <button type="button" class="btn btn--secondary btn--sm">返回</button>
+                </div>
+              </article>
+              <article class="tpl-state">
+                <div class="tpl-state__code">500</div>
+                <h4>服务异常</h4>
+                <p>服务暂时不可用，请稍后重试。</p>
+                <div class="demo-row" style="justify-content:center">
+                  <button type="button" class="btn btn--primary btn--sm">重试</button>
+                  <button type="button" class="btn btn--link btn--sm">查看详情</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>正反例 · 边界</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 推荐</strong>
+                <ul>
+                  <li>说明如何开始 + 一个主按钮</li>
+                  <li>404 提供返回首页</li>
+                  <li>成功 Result + 查看结果</li>
+                  <li>保存成功用 Toast，不用 Result</li>
+                </ul>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 避免</strong>
+                <ul>
+                  <li>只写「暂无数据」</li>
+                  <li>异常页空白无操作</li>
+                  <li>成功再弹「太棒了」Modal</li>
+                  <li>无权限只红字无入口</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>相关模板</h3></div>
+            <div class="demo-row">
+              <span class="tag tag--success">列表 / 表单 / 详情 → 侧栏「页面模板」</span>
+              <span class="tag tag--success">数据格式 → 侧栏「数据格式」</span>
+              <span class="tag tag--warning">插画 → 暂不使用 · 用线型图标</span>
+              <span class="tag tag--warning">工作台增强</span>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>结构：线型图标 48–64 → 标题 → 说明 → 一个 Primary（插画暂不使用）</li>
+              <li>空态分型：无数据 / 无结果 / 无权限 / 加载失败</li>
+              <li>Result = 流程终点；异常保留壳层；详情可折叠</li>
+              <li>图标见「图标」页；插画页仅保留预留约定</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CATALOG -->
+        <section class="page" data-page-panel="catalog">
+          <div class="page-head">
+            <div>
+              <h1>组件总览清单 <span class="status status--wip">对照表</span></h1>
+              <p>对标 Ant / Arco / HiUI 常用组件。状态说明还需设计哪些项目才能凑齐指南站。</p>
+            </div>
+          </div>
+          <div class="panel-card">
+            <table class="table">
+              <thead><tr><th>类别</th><th>组件</th><th>状态</th><th>备注</th></tr></thead>
+              <tbody>
+                <tr><td>通用</td><td>Button / Typography / Space / Divider</td><td><span class="tag tag--success">部分完成</span></td><td>预览站可调</td></tr>
+                <tr><td>通用</td><td>Icon / Grid / Layout</td><td><span class="tag tag--success">图标已锁定</span></td><td>见图标页</td></tr>
+                <tr><td>通用</td><td>Illustration</td><td><span class="tag tag--warning">暂不使用</span></td><td>空态用线型图标</td></tr>
+                <tr><td>导航</td><td>Menu / Breadcrumb / Tabs / Steps / Pagination</td><td><span class="tag tag--success">规则已锁定</span></td><td>见导航页</td></tr>
+                <tr><td>录入</td><td>Input / Select / Form / Upload / DatePicker</td><td><span class="tag tag--success">B1 已补</span></td><td>Upload/DatePicker §5.13</td></tr>
+                <tr><td>展示</td><td>Table / Card / Tag / Statistic / Descriptions</td><td><span class="tag tag--success">已锁定</span></td><td>含 B1</td></tr>
+                <tr><td>展示</td><td>Avatar</td><td><span class="tag tag--success">B2 已补</span></td><td>§5.14</td></tr>
+                <tr><td>展示</td><td>Tree</td><td><span class="tag tag--success">B3 已补</span></td><td>§5.15</td></tr>
+                <tr><td>录入</td><td>Slider</td><td><span class="tag tag--success">B3 已补</span></td><td>§5.15</td></tr>
+                <tr><td>其它</td><td>Affix / BackTop</td><td><span class="tag tag--success">B3 已补</span></td><td>§5.15</td></tr>
+                <tr><td>展示</td><td>Empty / Badge</td><td><span class="tag tag--success">已锁定</span></td><td>空态/组件页</td></tr>
+                <tr><td>反馈</td><td>Alert / Modal / Drawer / Message / Result</td><td><span class="tag tag--success">已锁定</span></td><td>见反馈页</td></tr>
+                <tr><td>反馈</td><td>Progress / Spin / Skeleton</td><td><span class="tag tag--success">B1 已补</span></td><td>§5.13</td></tr>
+                <tr><td>反馈</td><td>Notification</td><td><span class="tag tag--success">B2 已补</span></td><td>§5.14</td></tr>
+                <tr><td>其它</td><td>Tooltip</td><td><span class="tag tag--success">B1 已补</span></td><td>§5.13</td></tr>
+                <tr><td>其它</td><td>Dropdown / Popover / Anchor</td><td><span class="tag tag--success">B2 已补</span></td><td>§5.14</td></tr>
+                <tr><td>模板</td><td>空态 / 结果 / 异常</td><td><span class="tag tag--success">已锁定</span></td><td>—</td></tr>
+                <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
+                <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
+                <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>完整文字版</h3></div>
+            <p class="t2">详见文档 <code>docs/规范目录与缺口清单.md</code> —— 含四站对照、P0/P1/P2 节奏与最终体系图。</p>
+          </div>
+        </section>
+
+        <!-- GOVERNANCE -->
+        <section class="page" data-page-panel="governance">
+          <div class="page-head">
+            <div>
+              <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.5</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+            </div>
+            <div class="page-head__actions">
+              <span class="tag tag--blue">设计系统 v0.1.5</span>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>资源清单</h3></div>
+            <table class="table">
+              <thead><tr><th>资源</th><th>路径</th><th>状态</th></tr></thead>
+              <tbody>
+                <tr><td>Token</td><td><code>tokens/dp-bohrium.css</code></td><td><span class="tag tag--success">可用</span></td></tr>
+                <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
+                <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
+                <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.5.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
+                <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
+              </tbody>
+            </table>
+            <p class="muted" style="margin:12px 0 0">改 Token 后须同步 <code>styleguide/dp-bohrium.css</code>。插画目录仅为存档，业务站勿引用。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>版本与变更分级</h3></div>
+            <div class="gov-version-row">
+              <article class="gov-version-card">
+                <span class="muted">当前版本</span>
+                <strong>0.1.2</strong>
+                <small>与业务站版本解耦</small>
+              </article>
+              <article class="gov-version-card gov-version-card--soft">
+                <span class="muted">MAJOR</span>
+                <strong>Breaking</span>
+                <small>Token 改名/删、主色破坏性变更</small>
+              </article>
+              <article class="gov-version-card gov-version-card--soft">
+                <span class="muted">MINOR</span>
+                <strong>Additive</strong>
+                <small>新组件 / 新 Token / 新模板</small>
+              </article>
+              <article class="gov-version-card gov-version-card--soft">
+                <span class="muted">PATCH</span>
+                <strong>Fix</strong>
+                <small>文案勘误、对比度、文档修正</small>
+              </article>
+            </div>
+            <p class="muted" style="margin:12px 0 0">完整记录见 <a href="../docs/CHANGELOG.md"><code>docs/CHANGELOG.md</code></a>（Keep a Changelog；条目标注 规范 / Token / 预览 / 资源）。</p>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>Changelog 摘要 · 0.1.2</h3></div>
+            <ul class="checklist">
+              <li>插画暂不使用；空态改用线型图标 48–64</li>
+              <li>Agent Pack 跨工具：主指令 <code>AGENT.md</code></li>
+              <li>资源与治理 §13；SemVer + CHANGELOG</li>
+              <li>Logo / Figma 仍为占位</li>
+            </ul>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>贡献准入</h3></div>
+            <table class="table">
+              <thead><tr><th>角色</th><th>职责</th></tr></thead>
+              <tbody>
+                <tr><td>设计 owner</td><td>视觉、组件态、插画 / Logo</td></tr>
+                <tr><td>前端 owner</td><td>Token、预览站、四站接入</td></tr>
+              </tbody>
+            </table>
+            <p class="t2" style="margin:12px 0">提案：问题 → 方案 → 影响面（Product / Showcase / 站点）。</p>
+            <ul class="checklist">
+              <li>合入前：预览页更新 · 规范 § 同步 · Changelog 一行</li>
+              <li>改 Token：<code>tokens/</code> 与预览 CSS 双写一致</li>
+              <li>禁止：业务站私自改 Primary；绕过 Token 写死色</li>
+            </ul>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>四站消费约定</h3></div>
+            <div class="nav-do-dont">
+              <article class="nav-do">
+                <strong>✅ 只消费 Token / 本规范</strong>
+                <p class="t2" style="margin:8px 0">引用 <code>dp-bohrium.css</code>；例外（如 Macroflow 取色环）须文档登记。</p>
+              </article>
+              <article class="nav-dont">
+                <strong>❌ 禁止静默 fork</strong>
+                <p class="t2" style="margin:8px 0">在业务站私改主色或另起一套图标线宽，且不记 Changelog。</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>规则摘要</h3></div>
+            <ul class="checklist">
+              <li>当前 <strong>v0.1.5</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
+              <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
+              <li>业务站只消费；例外登记；禁止写死色</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- TOKENS -->
+        <section class="page" data-page-panel="tokens">
+          <div class="page-head">
+            <div>
+              <h1>Token 调整</h1>
+              <p>实时修改设计变量，整站预览随之变化。满意后复制 CSS，写回 tokens 文件。</p>
+            </div>
+            <div class="page-head__actions">
+              <button type="button" class="btn btn--secondary" id="resetTokens">重置官网基准</button>
+              <button type="button" class="btn btn--primary" id="copyTokens">复制当前 CSS</button>
+            </div>
+          </div>
+
+          <div class="token-grid">
+            <article class="panel-card">
+              <div class="panel-card__head"><h3>品牌色</h3></div>
+              <label class="field"><span>Primary</span><input type="color" data-token="--dp-color-primary" value="#3b45e5" /><code>#3b45e5</code></label>
+              <label class="field"><span>Action / CTA</span><input type="color" data-token="--dp-color-action" value="#3c49dd" /><code>#3c49dd</code></label>
+              <label class="field"><span>Primary Hover</span><input type="color" data-token="--dp-color-primary-hover" value="#626aea" /><code>#626aea</code></label>
+              <label class="field"><span>Primary Active</span><input type="color" data-token="--dp-color-primary-active" value="#2f37b7" /><code>#2f37b7</code></label>
+              <label class="field"><span>Accent Violet</span><input type="color" data-token="--dp-color-accent-violet" value="#5d26ff" /><code>#5d26ff</code></label>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card__head"><h3>中性色</h3></div>
+              <label class="field"><span>Text 1</span><input type="color" data-token="--dp-text-1" value="#1d2129" /><code>#1d2129</code></label>
+              <label class="field"><span>Text 2</span><input type="color" data-token="--dp-text-2" value="#4e5969" /><code>#4e5969</code></label>
+              <label class="field"><span>Text 3</span><input type="color" data-token="--dp-text-3" value="#86909c" /><code>#86909c</code></label>
+              <label class="field"><span>Page BG</span><input type="color" data-token="--dp-bg-page" value="#f4f5f7" /><code>#f4f5f7</code></label>
+              <label class="field"><span>Layout BG</span><input type="color" data-token="--dp-bg-layout" value="#f4f6fb" /><code>#f4f6fb</code></label>
+              <label class="field"><span>Border</span><input type="color" data-token="--dp-border" value="#e5e6eb" /><code>#e5e6eb</code></label>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card__head"><h3>语义色</h3></div>
+              <label class="field"><span>Success</span><input type="color" data-token="--dp-success" value="#0ab268" /><code>#0ab268</code></label>
+              <label class="field"><span>Warning</span><input type="color" data-token="--dp-warning" value="#ff7d00" /><code>#ff7d00</code></label>
+              <label class="field"><span>Error</span><input type="color" data-token="--dp-error" value="#ff4747" /><code>#ff4747</code></label>
+            </article>
+
+            <article class="panel-card">
+              <div class="panel-card__head"><h3>图形细节</h3></div>
+              <label class="field field--range">
+                <span>默认圆角 <strong id="radiusLabel">8px</strong></span>
+                <input type="range" id="radiusRange" min="0" max="24" value="8" />
+              </label>
+              <label class="field field--range">
+                <span>大卡圆角 <strong id="radiusXlLabel">16px</strong></span>
+                <input type="range" id="radiusXlRange" min="8" max="32" value="16" />
+              </label>
+              <label class="field">
+                <span>按钮形态</span>
+                <select id="btnShape">
+                  <option value="default" selected>默认圆角 (Product)</option>
+                  <option value="pill">Pill (Showcase CTA)</option>
+                </select>
+              </label>
+              <p class="panel-status" id="panelStatus" hidden></p>
+            </article>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>实时预览</h3></div>
+            <div class="demo-row">
+              <button type="button" class="btn btn--primary">主行动</button>
+              <button type="button" class="btn btn--secondary">次要</button>
+              <span class="tag tag--blue">Tag</span>
+              <span class="tag tag--success">Success</span>
+            </div>
+            <div class="live-preview-card">
+              <h4>卡片标题</h4>
+              <p>调整左侧 Token 后，这里的按钮、标签、边框与文字会同步变化。</p>
+              <button type="button" class="btn btn--primary btn--sm">确认</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="./styleguide.js?v=20260814dpdesign"></script>
+</body>
+</html>
