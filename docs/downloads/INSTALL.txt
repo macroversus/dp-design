@@ -1,0 +1,12 @@
+DP Design Agent Pack · 安装说明（v0.1.5）
+
+触发词：dpdesign
+主指令：AGENT.md
+
+1. 下载 dp-design-agent-pack-v0.1.5.zip 并解压
+2. 放到项目 docs/dp-design/ 或覆盖 .cursor/skills/dp-design/
+3. 按 INSTALL.md 接入所用 AI 工具
+4. 对话说 dpdesign 即可
+
+规范正文：design-system/dp-bohrium/docs/设计规范.md
+Changelog：design-system/dp-bohrium/docs/CHANGELOG.md

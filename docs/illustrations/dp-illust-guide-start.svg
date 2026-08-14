@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" role="img" aria-labelledby="gTitle">
+  <title id="gTitle">Guide start</title>
+  <rect width="160" height="160" rx="20" fill="#f2f3f5"/>
+  <ellipse cx="80" cy="78" rx="46" ry="28" stroke="#e5e6eb" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="80" cy="78" r="10" fill="#3c49dd"/>
+  <circle cx="58" cy="66" r="7" fill="#3b45e5" opacity="0.85"/>
+  <circle cx="104" cy="70" r="6" fill="#3c49dd" opacity="0.65"/>
+  <circle cx="92" cy="96" r="5" fill="#86909c"/>
+  <path d="M71 72l-7-4M88 74l10-3M86 86l4 7" stroke="#3c49dd" stroke-width="2" stroke-linecap="round"/>
+  <path d="M118 108l16 10-16 10v-20z" fill="#e8f0ff" stroke="#3c49dd" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
