@@ -205,6 +205,11 @@
     if (page === 'motion' && typeof replayMotionEnter === 'function') {
       window.setTimeout(() => replayMotionEnter(), 50);
     }
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.page.is-active .dp-segment').forEach((group) => {
+        applySegmentThumb(group, false);
+      });
+    });
   }
 
   function bindNav() {
