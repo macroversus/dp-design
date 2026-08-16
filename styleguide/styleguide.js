@@ -1190,6 +1190,7 @@
     renderSpaces('spaceRow');
     renderSpaces('spaceRowLayout');
     bindNav();
+    switchPage('introduce');
     bindColorInputs();
     bindRadiusControls();
     bindButtonShape();

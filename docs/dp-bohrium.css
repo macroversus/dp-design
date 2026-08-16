@@ -165,25 +165,26 @@ html[data-dp-theme='light'] {
 html[data-dp-theme='dark'] {
   color-scheme: dark;
 
-  --dp-color-primary: #6b74f2;
-  --dp-color-action: #6b74f2;
-  --dp-color-primary-hover: #858df5;
-  --dp-color-primary-active: #545eeb;
+  /* Action/Primary 再提亮，保证深色底上的选中字与图标可读（≈ WCAG AA） */
+  --dp-color-primary: #a5adff;
+  --dp-color-action: #a5adff;
+  --dp-color-primary-hover: #c0c5ff;
+  --dp-color-primary-active: #8b94f7;
   --dp-color-primary-bg: #1e2448;
-  --dp-color-primary-bg-hover: #262d5c;
-  --dp-color-action-bg-light: #262d5c;
-  --dp-color-action-bg-hover: #323a72;
-  --dp-color-accent-violet: #8b5cff;
-  --dp-color-accent-blue: #5b7cff;
+  --dp-color-primary-bg-hover: #2a3360;
+  --dp-color-action-bg-light: #2f3868;
+  --dp-color-action-bg-hover: #3a4478;
+  --dp-color-accent-violet: #b18bff;
+  --dp-color-accent-blue: #8aa0ff;
 
-  --dp-text-1: #f2f3f5;
+  --dp-text-1: #f5f6f8;
   --dp-text-strong: #ffffff;
-  --dp-text-2: #c5c7d4;
-  --dp-text-3: #8b90a5;
-  --dp-text-4: #5c637a;
-  --dp-text-secondary-alt: #a7abd3;
-  --dp-text-tertiary-alt: #8b90a5;
-  --dp-text-on-primary: #ffffff;
+  --dp-text-2: #d0d3e0;
+  --dp-text-3: #a0a6bb;
+  --dp-text-4: #6e7590;
+  --dp-text-secondary-alt: #c2c6e6;
+  --dp-text-tertiary-alt: #a0a6bb;
+  --dp-text-on-primary: #0c0f1a;
 
   --dp-fill-1: #1e243c;
   --dp-fill-2: #262d48;
@@ -198,9 +199,9 @@ html[data-dp-theme='dark'] {
   --dp-border: #2e3554;
   --dp-border-light: #262d48;
   --dp-border-dark: #454e6e;
-  --dp-border-primary-tint: #323a72;
+  --dp-border-primary-tint: #3a4478;
   --dp-divider: var(--dp-border);
-  --dp-focus-ring-color: color-mix(in srgb, var(--dp-color-action) 28%, transparent);
+  --dp-focus-ring-color: color-mix(in srgb, var(--dp-color-action) 32%, transparent);
   --dp-focus-ring: 0 0 0 var(--dp-focus-ring-width) var(--dp-focus-ring-color);
 
   --dp-success: #23c343;
@@ -208,7 +209,7 @@ html[data-dp-theme='dark'] {
   --dp-warning: #ff9a2e;
   --dp-warning-bg: #3a2a14;
   --dp-error: #f76560;
-  --dp-info: #6b74f2;
+  --dp-info: #a5adff;
 
   --dp-shadow-none: none;
   --dp-shadow-xs: 0 1px 2px #00000066;
@@ -221,6 +222,6 @@ html[data-dp-theme='dark'] {
 
   --dp-icon-color: var(--dp-text-2);
   --dp-icon-color-muted: var(--dp-text-3);
-  --dp-icon-color-active: var(--dp-color-action);
+  --dp-icon-color-active: #d2d6ff;
   --dp-icon-color-disabled: var(--dp-text-4);
 }
