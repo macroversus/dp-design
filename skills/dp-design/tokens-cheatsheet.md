@@ -34,13 +34,7 @@
 
 ### Dark 文字规则（摘要）
 
-深色底（page / layout / 卡片 / 侧栏 / 顶栏）上的字**必须浅色**。
-
-1. 正文只用 `--dp-text-*`，不要写死 Light 色值（`#1d2129` `#4e5969` `#020c1a` `#000`）。  
-2. 选中 / 链接 / 图标字色用 `--dp-color-action-fg`，**不要**用 `--dp-color-action` 当字色。  
-3. 主按钮 / **胶囊切换选中段**：`--dp-color-action` 填充 + `--dp-text-on-primary` 白字。  
-4. 例外：浅色浮层上才可用深字。  
-5. 胶囊切换（`.dp-segment`）：2–4 个互斥模式；**独立 thumb 滑动**承担选中底，按钮只改白字。实现见 [segment.md](segment.md)，规范 §5.1.2。  
+深色底上的字必须浅色。正文只用 `--dp-text-*`；链接/选中/图标用 `--dp-color-action-fg`，不要用 `--dp-color-action` 当字色。实心填充与胶囊选中用 `--dp-text-on-primary`。胶囊实现见 [segment.md](segment.md)。  
 
 ## 圆角与布局（摘要）
 
@@ -86,4 +80,4 @@
 <link rel="stylesheet" href="path/to/dp-bohrium.css" />
 ```
 
-主题：默认 `system`（跟随 `prefers-color-scheme`）。偏好存 `localStorage.dp-theme` = `system|light|dark`。解析后写 `html[data-dp-theme="light|dark"]`。颜色 / 语言等模式切换一律用胶囊（`.dp-segment`）。
+主题：默认 `system`；`localStorage.dp-theme` = `system|light|dark`；解析后 `html[data-dp-theme="light|dark"]`。模式切换用胶囊，见 [segment.md](segment.md)。

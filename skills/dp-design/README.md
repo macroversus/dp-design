@@ -1,16 +1,15 @@
 # DP Design Agent Pack
 
-跨编辑器 / 跨 AI 编程助手的前端改站指南包。
+让 AI 助手按 DP Design（Bohrium Baseline）改前端。
 
 | 角色 | 怎么用 |
 |------|--------|
-| **看样式** | 打开 DP Design 指南站（`styleguide/`） |
-| **改前端** | 安装本包，对话说 **`dpdesign`**，让 Agent 遵循 **AGENT.md** |
+| **看样式** | 打开指南站 `styleguide/` |
+| **改前端** | 安装本包，对话说 **`dpdesign`**，助手遵循 **SKILL.md** |
 | **接 Token** | 业务站引用 `dp-bohrium.css`，禁止私自改 Primary |
 
-- 主指令：[AGENT.md](AGENT.md)（工具无关）  
-- 胶囊实现：[segment.md](segment.md)  
-- 安装矩阵：[INSTALL.md](INSTALL.md)  
-- Cursor 适配：[SKILL.md](SKILL.md)  
+- 执行指令：[SKILL.md](SKILL.md)  
+- 安装：[INSTALL.md](INSTALL.md)  
+- 胶囊实现（按需）：[segment.md](segment.md)  
 
-从指南站「介绍」页下载 zip 即可。
+Agent 按 `SKILL.md` 里的路由表按需打开参考文件，不要整包塞进上下文。

@@ -1,4 +1,4 @@
-DP Design Agent Pack · v0.1.15
+DP Design Agent Pack · v0.1.17
 触发词：dpdesign
-模式切换一律用胶囊 .dp-segment（颜色 / 语言等）
-颜色默认跟随系统：跟随系统 / 浅色 / 深色
+执行指令：SKILL.md（按需打开 tokens / do-dont / segment）
+AGENT.md 仅为兼容入口

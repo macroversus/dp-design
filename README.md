@@ -79,7 +79,7 @@ git push
 
 ### 触发方式
 
-在对话里说 **`dpdesign`**（或「按 dpdesign 改」），助手应遵循包内 **`AGENT.md`**。
+在对话里说 **`dpdesign`**（或「按 dpdesign 改」），助手应遵循包内 **`SKILL.md`**。
 
 ### 安装方式（任选）
 
@@ -108,20 +108,21 @@ cp -a skills/dp-design /path/to/your-project/docs/dp-design
 
 | 工具 | 做法 |
 |------|------|
-| **任意工具** | 加载 `AGENT.md`；用户说 `dpdesign` 时按该文件执行 |
-| **Cursor** | 放到 `.cursor/skills/dp-design/`（`SKILL.md` 的 name 为 `dpdesign`） |
-| **Claude Code** | 在 `CLAUDE.md` 写明：说 `dpdesign` 时遵循 `AGENT.md` |
-| **Copilot / 其他** | 在项目规则里指向 `AGENT.md` + 触发词 `dpdesign` |
+| **任意工具** | 加载 `SKILL.md`；用户说 `dpdesign` 时按该文件执行 |
+| **Cursor** | 放到 `.cursor/skills/dp-design/`（自动发现） |
+| **Claude Code** | 在 `CLAUDE.md` 写明：说 `dpdesign` 时遵循 `SKILL.md` |
+| **Copilot / 其他** | 在项目规则里指向 `SKILL.md` + 触发词 `dpdesign` |
 
 ### 包内文件
 
 | 文件 | 作用 |
 |------|------|
-| `AGENT.md` | **主指令**（所有工具共用） |
-| `tokens-cheatsheet.md` | Token / 圆角 / 字体速查 |
-| `do-dont.md` | 正反例 |
-| `SKILL.md` | Cursor 发现用（指向 AGENT.md） |
-| `INSTALL.md` | 完整安装矩阵 |
+| `SKILL.md` | **执行指令**（流程 + 硬约束 + 按需路由） |
+| `tokens-cheatsheet.md` | Token 速查（对色时打开） |
+| `do-dont.md` | 正反例（拿不准时打开） |
+| `segment.md` | 胶囊实现（做模式切换时打开） |
+| `AGENT.md` | 兼容入口，指向 SKILL.md |
+| `INSTALL.md` | 安装矩阵 |
 
 ---
 
