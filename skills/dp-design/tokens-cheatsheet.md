@@ -40,8 +40,11 @@
 | `--dp-radius-xl` / `--dp-radius-container` | `16px`（**Product 主容器**默认） |
 | Showcase 大卡 | ≤ `20px` |
 | 网格 | 8px |
-| 侧栏 / 顶栏 | 220（收起 72）/ 64 |
+| 侧栏 / 顶栏 | 220（收起 72）/ **64** |
+| Logo | 高 **28–32**；名 16·600；间距 8 |
+| 侧栏菜单项 | 高 **40**；字 14；图标 20 |
 | Product 内容宽 | 约 1200；Showcase 约 1280 |
+| 站点页脚 | Showcase 用；Product 默认无；链接 Text2 / 版权 Text3 |
 
 ### 嵌套圆角（必须算，禁止偷懒同 Token）
 

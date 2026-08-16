@@ -22,7 +22,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
         <div>
           <strong>DP Design</strong>
-          <em>Bohrium Baseline · v0.1.7</em>
+          <em>Bohrium Baseline · v0.1.8</em>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
 
         <p class="sider__group">全局规则</p>
         <button type="button" class="nav-item" data-page="navigation">
-          <i class="ico">☰</i><span>导航</span>
+          <i class="ico">☰</i><span>导航与页脚</span>
         </button>
         <button type="button" class="nav-item" data-page="feedback">
           <i class="ico">💬</i><span>反馈</span>
@@ -888,7 +888,7 @@
               <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">v0.1.7</span>
+              <span class="tag tag--blue">v0.1.8</span>
             </div>
           </div>
 
@@ -913,11 +913,11 @@
           <div class="panel-card intro-download" id="skill-download">
             <div class="panel-card__head">
               <h3>下载 DP Design Agent Pack</h3>
-              <span class="tag tag--success">v0.1.7</span>
+              <span class="tag tag--success">v0.1.8</span>
             </div>
             <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（主指令 <code>AGENT.md</code> + Token 速查 + 正反例 + 各工具安装矩阵）。<strong>不含</strong>特定站点落地顺序；适用于当前与后续任意对齐本体系的产品。</p>
             <div class="intro-download__row">
-              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.7.zip" download="dp-design-agent-pack-v0.1.7.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.8.zip" download="dp-design-agent-pack-v0.1.8.zip">下载 Agent Pack（zip）</a>
               <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
             </div>
             <ol class="intro-install muted">
@@ -1441,8 +1441,8 @@
         <section class="page" data-page-panel="navigation">
           <div class="page-head">
             <div>
-              <h1>导航 <span class="status status--done">已锁定</span></h1>
-              <p>2026-08-11 决策：Product 侧栏主导 · Showcase 顶栏一级 · 激活浅蓝底无竖条 · 面包屑 ≥3 层 · Tabs/Steps 不作站级导航。</p>
+              <h1>导航与页脚 <span class="status status--done">已锁定</span></h1>
+              <p>2026-08-16 补全：顶栏 64 · Logo 28–32 · 菜单 14 · 侧栏项高 40；Showcase 站点页脚分区；Product 默认无页脚。</p>
             </div>
           </div>
 
@@ -1460,16 +1460,43 @@
                     <em></em>
                   </div>
                 </div>
-                <p class="muted">Bohrium / fermopt / 报价内页 / Macroflow 壳层</p>
+                <p class="muted">Bohrium / fermopt / 报价内页 / Macroflow 壳层 · 默认无站点页脚</p>
               </article>
               <article class="nav-mode-card">
-                <header><strong>Showcase · 上下</strong><span>顶栏一级</span></header>
+                <header><strong>Showcase · 上下</strong><span>顶栏一级 + 页脚</span></header>
                 <div class="nav-mini nav-mini--showcase" aria-hidden="true">
                   <b><i></i><i class="is-on"></i><i></i><em></em></b>
                   <em></em>
                 </div>
-                <p class="muted">dp.tech / 落地页 · 无侧栏</p>
+                <p class="muted">dp.tech / 落地页 · 无侧栏 · 底部站点页脚</p>
               </article>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>顶栏尺寸标注（Showcase）</h3></div>
+            <div class="nav-header-spec" aria-label="顶栏尺寸示意">
+              <div class="nav-header-spec__bar">
+                <div class="nav-header-spec__brand">
+                  <span class="nav-header-spec__logo" aria-hidden="true"></span>
+                  <strong>产品名</strong>
+                </div>
+                <nav class="nav-header-spec__menu">
+                  <button type="button" class="is-active">能力</button>
+                  <button type="button">文档</button>
+                  <button type="button">定价</button>
+                </nav>
+                <div class="nav-header-spec__actions">
+                  <button type="button" class="btn btn--secondary btn--sm">登录</button>
+                  <button type="button" class="btn btn--primary btn--sm">开始使用</button>
+                </div>
+              </div>
+              <ul class="nav-spec-notes">
+                <li>高度 <strong>64px</strong> · 水平 padding <strong>24</strong> · 底边 1px</li>
+                <li>Logo <strong>28–32</strong> · 名 16/600 · 间距 8 · 菜单距品牌 ≥24</li>
+                <li>一级菜单 14/500 · 热区 ≥40 · 激活 Action 字色、无下划线粗条</li>
+                <li>右侧：一个 Primary CTA + Secondary 登录；图标工具 32×32、间距 8</li>
+              </ul>
             </div>
           </div>
 
@@ -1483,7 +1510,7 @@
                   <button type="button" class="nav-item is-active" aria-current="page"><span class="ico">☰</span><span>导航</span></button>
                   <button type="button" class="nav-item"><span class="ico">◇</span><span>反馈</span></button>
                 </div>
-                <p class="muted">激活：浅蓝底 + Action · Hover：fill-1</p>
+                <p class="muted">项高 40 · 图标 20 · 字 14/Text2 · 激活浅蓝底 + Action</p>
               </div>
               <div class="nav-sider-demo">
                 <p class="subhead" style="margin-top:0">折叠 72（仅图标）</p>
@@ -1492,9 +1519,34 @@
                   <button type="button" class="nav-item is-active" title="导航" aria-current="page"><span class="ico">☰</span></button>
                   <button type="button" class="nav-item" title="反馈"><span class="ico">◇</span></button>
                 </div>
-                <p class="muted">折叠态配合 Tooltip</p>
+                <p class="muted">折叠态配合 Tooltip · 品牌区 Logo 28</p>
               </div>
             </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>站点页脚（Showcase）</h3></div>
+            <footer class="site-footer-demo" aria-label="页脚示意">
+              <div class="site-footer-demo__main">
+                <div>
+                  <strong>产品</strong>
+                  <a href="#">能力概览</a>
+                  <a href="#">定价</a>
+                </div>
+                <div>
+                  <strong>资源</strong>
+                  <a href="#">文档</a>
+                  <a href="#">更新日志</a>
+                </div>
+                <div>
+                  <strong>关于</strong>
+                  <a href="#">团队</a>
+                  <a href="#">联系</a>
+                </div>
+              </div>
+              <div class="site-footer-demo__copy">© 2026 Example · 版权与备案信息 · Text 3</div>
+            </footer>
+            <p class="muted" style="margin:12px 0 0">主区 padding 40–48 · 链接 13–14/Text2 · 版权条 16–20 · Product 控制台默认不用此结构</p>
           </div>
 
           <div class="panel-card">
@@ -1548,15 +1600,17 @@
                 <strong>✅ 推荐</strong>
                 <ul>
                   <li>一组主导航讲清「能去哪」</li>
+                  <li>顶栏 64 · Logo 28–32 · 菜单 14</li>
+                  <li>Showcase 分区页脚；Product 无页脚或单行版权</li>
                   <li>详情用面包屑回列表</li>
-                  <li>流程用 Steps</li>
                 </ul>
               </article>
               <article class="nav-dont">
                 <strong>❌ 避免</strong>
                 <ul>
                   <li>顶栏 + 侧栏 + Tabs 三套一级</li>
-                  <li>只靠浏览器后退</li>
+                  <li>控制台塞满页脚链接矩阵</li>
+                  <li>页脚 Primary 大按钮 / 霓虹装饰</li>
                   <li>用侧栏假装步骤条</li>
                 </ul>
               </article>
@@ -1567,9 +1621,11 @@
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
               <li>Product：侧栏主导；Showcase：顶栏一级；禁止双套一级</li>
-              <li>侧栏 ≤ 2 级；激活 = 浅蓝底 + Action，无竖条</li>
+              <li>顶栏 64 · Logo 28–32 · 侧栏项高 40 · 菜单/入口 14px</li>
+              <li>功能入口无框；模式开关保留 Secondary 边框</li>
+              <li>Showcase 站点页脚：链接 Text2、版权 Text3；Product 默认无</li>
               <li>面包屑 ≥ 3 层或进详情；末级不可点</li>
-              <li>&lt;768 侧栏抽屉；≥768 可折叠 220↔72</li>
+              <li>&lt;768 侧栏抽屉；页脚可单列</li>
             </ul>
           </div>
         </section>
@@ -2417,7 +2473,7 @@
                 <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
                 <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
                 <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
-                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.7</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.8</td></tr>
               </tbody>
             </table>
           </div>
@@ -2432,10 +2488,10 @@
           <div class="page-head">
             <div>
               <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
-              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.7</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.8</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">设计系统 v0.1.7</span>
+              <span class="tag tag--blue">设计系统 v0.1.8</span>
             </div>
           </div>
 
@@ -2448,7 +2504,7 @@
                 <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
                 <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
                 <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
-                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.7.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.8.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
                 <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
                 <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
               </tbody>
@@ -2527,7 +2583,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>当前 <strong>v0.1.7</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>当前 <strong>v0.1.8</strong>；独立 SemVer；Breaking → MAJOR</li>
               <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
               <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
               <li>业务站只消费；例外登记；禁止写死色</li>
