@@ -22,7 +22,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
         <div>
           <strong>DP Design</strong>
-          <em>Bohrium Baseline · v0.1.10</em>
+          <em>Bohrium Baseline · v0.1.11</em>
         </div>
       </div>
 
@@ -888,7 +888,7 @@
               <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">v0.1.10</span>
+              <span class="tag tag--blue">v0.1.11</span>
             </div>
           </div>
 
@@ -913,11 +913,11 @@
           <div class="panel-card intro-download" id="skill-download">
             <div class="panel-card__head">
               <h3>下载 DP Design Agent Pack</h3>
-              <span class="tag tag--success">v0.1.10</span>
+              <span class="tag tag--success">v0.1.11</span>
             </div>
             <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（主指令 <code>AGENT.md</code> + Token 速查 + 正反例 + 各工具安装矩阵）。<strong>不含</strong>特定站点落地顺序；适用于当前与后续任意对齐本体系的产品。</p>
             <div class="intro-download__row">
-              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.10.zip" download="dp-design-agent-pack-v0.1.10.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.11.zip" download="dp-design-agent-pack-v0.1.11.zip">下载 Agent Pack（zip）</a>
               <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
             </div>
             <ol class="intro-install muted">
@@ -1296,9 +1296,10 @@
               <tbody>
                 <tr><td><code>--dp-bg-layout</code></td><td>#f4f6fb</td><td>#12162a</td></tr>
                 <tr><td><code>--dp-bg-white</code></td><td>#ffffff</td><td>#1a1f36</td></tr>
-                <tr><td><code>--dp-text-1</code></td><td>#1d2129</td><td>#f2f3f5</td></tr>
+                <tr><td><code>--dp-text-1</code></td><td>#1d2129</td><td>#f5f6f8（须浅）</td></tr>
+                <tr><td><code>--dp-color-action-fg</code></td><td>同 Action</td><td>#d2d6ff（选中/链接）</td></tr>
                 <tr><td><code>--dp-border</code></td><td>#e5e6eb</td><td>#2e3554</td></tr>
-                <tr><td><code>--dp-color-action</code></td><td>#3c49dd</td><td>#6b74f2</td></tr>
+                <tr><td><code>--dp-color-action</code></td><td>#3c49dd</td><td>#6b74f2（仅填充，不当字色）</td></tr>
                 <tr><td><code>--dp-shadow</code></td><td>蓝味轻阴影</td><td>中性深阴影</td></tr>
               </tbody>
             </table>
@@ -1313,6 +1314,7 @@
               <li>Product 优先提供切换；Showcase 可保留局部深色 Hero（不等于全局 Dark）</li>
               <li>手动切换为主；可选「跟随系统」；存 <code>localStorage.dp-theme</code></li>
               <li>Dark 主色提亮；阴影改中性；正文目标 AA 对比</li>
+              <li>深色底上文字必须浅：text-1/2/3/4；选中/链接用 action-fg；禁写死 Light 深色、禁用 Action 填充当字色</li>
             </ul>
           </div>
         </section>
@@ -2474,7 +2476,7 @@
                 <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
                 <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
                 <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
-                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.10</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.11</td></tr>
               </tbody>
             </table>
           </div>
@@ -2489,10 +2491,10 @@
           <div class="page-head">
             <div>
               <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
-              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.10</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.11</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">设计系统 v0.1.10</span>
+              <span class="tag tag--blue">设计系统 v0.1.11</span>
             </div>
           </div>
 
@@ -2505,7 +2507,7 @@
                 <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
                 <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
                 <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
-                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.10.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.11.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
                 <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
                 <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
               </tbody>
@@ -2584,7 +2586,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>当前 <strong>v0.1.10</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>当前 <strong>v0.1.11</strong>；独立 SemVer；Breaking → MAJOR</li>
               <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
               <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
               <li>业务站只消费；例外登记；禁止写死色</li>

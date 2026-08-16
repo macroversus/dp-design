@@ -183,7 +183,7 @@ html[data-dp-theme='dark'] {
   --dp-text-strong: #ffffff;
   --dp-text-2: #d0d3e0;
   --dp-text-3: #a0a6bb;
-  --dp-text-4: #6e7590;
+  --dp-text-4: #9aa0b5; /* 辅助最弱档仍须浅，禁深灰 */
   --dp-text-secondary-alt: #c2c6e6;
   --dp-text-tertiary-alt: #a0a6bb;
   --dp-text-on-primary: #ffffff;

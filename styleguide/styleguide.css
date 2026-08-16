@@ -3624,7 +3624,16 @@ html[data-reduce-motion='true'] .b1-demo .dp-spin {
 
 
 
-/* ---- Dark text readability ---- */
+/* ---- Dark text readability：深色底上文字必须浅 ---- */
+html[data-dp-theme='dark'] {
+  color: var(--dp-text-1);
+}
+html[data-dp-theme='dark'] .nav-item {
+  color: var(--dp-text-2);
+}
+html[data-dp-theme='dark'] .nav-item:hover {
+  color: var(--dp-text-1);
+}
 html[data-dp-theme='dark'] .nav-item.is-active {
   color: var(--dp-color-action-fg);
   background: color-mix(in srgb, var(--dp-color-action) 28%, var(--dp-fill-2));
@@ -3632,6 +3641,12 @@ html[data-dp-theme='dark'] .nav-item.is-active {
 html[data-dp-theme='dark'] .nav-item.is-active .ico {
   color: inherit;
   opacity: 1;
+}
+html[data-dp-theme='dark'] .muted,
+html[data-dp-theme='dark'] code,
+html[data-dp-theme='dark'] .t4,
+html[data-dp-theme='dark'] .sider__group {
+  color: var(--dp-text-3);
 }
 html[data-dp-theme='dark'] .tag--blue,
 html[data-dp-theme='dark'] .status--wip,
@@ -3650,4 +3665,13 @@ html[data-dp-theme='dark'] a:not(.btn) {
 }
 html[data-dp-theme='dark'] a:not(.btn):hover {
   color: var(--dp-color-primary-hover);
+}
+html[data-dp-theme='dark'] input,
+html[data-dp-theme='dark'] textarea,
+html[data-dp-theme='dark'] select {
+  color: var(--dp-text-1);
+}
+html[data-dp-theme='dark'] input::placeholder,
+html[data-dp-theme='dark'] textarea::placeholder {
+  color: var(--dp-text-3);
 }

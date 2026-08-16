@@ -26,6 +26,7 @@
 | `--dp-text-1` | `#1d2129` | `#f5f6f8` | 主文案 |
 | `--dp-text-2` | `#4e5969` | `#d0d3e0` | 次文案 |
 | `--dp-text-3` | `#86909c` | `#a0a6bb` | 辅助 |
+| `--dp-text-4` | `#c9cdd4` | `#9aa0b5` | 最弱辅助（Dark 仍须浅） |
 | `--dp-bg-page` | `#f4f5f7` | `#0c0f15` | 页面底 |
 | `--dp-bg-layout` | `#f4f6fb` | `#12162a` | 布局底 |
 | `--dp-bg-white` | `#ffffff` | `#1a1f36` | 卡片 |
@@ -33,9 +34,12 @@
 
 ### Dark 文字规则（摘要）
 
-1. 正文只用 `--dp-text-*`，不要写死 Light 色值。  
+深色底（page / layout / 卡片 / 侧栏 / 顶栏）上的字**必须浅色**。
+
+1. 正文只用 `--dp-text-*`，不要写死 Light 色值（`#1d2129` `#4e5969` `#020c1a` `#000`）。  
 2. 选中 / 链接 / 图标字色用 `--dp-color-action-fg`，**不要**用 `--dp-color-action` 当字色。  
 3. 主按钮：`--dp-color-action` 填充 + `--dp-text-on-primary` 白字。  
+4. 例外：浅色浮层上才可用深字。  
 
 ## 圆角与布局（摘要）
 

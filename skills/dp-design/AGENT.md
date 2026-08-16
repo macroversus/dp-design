@@ -59,12 +59,14 @@
 - `zh`：简单词写中文（任务，不要夹 Job）；学科专名用稳定中文译名；品牌名与单位符号可留英  
 - 文案：严谨 · 正式 · 精准 · 简练；错误 = 现象 + 下一步  
 - 暗色用主题 Token 重映射（如 `data-dp-theme`），禁止整页 invert  
-- **Dark 文字必须浅色（可读）**：  
-  - 正文阶梯用 `--dp-text-1/2/3`（Dark 已映射为浅灰/白系），禁写死深色 `#1d2129` 等 Light 字色  
-  - 深色底上的**链接 / 侧栏选中 / 线型图标 / Tabs 激活**用 `--dp-color-action-fg`（或 `--dp-icon-color-active`，约 `#d2d6ff`）  
-  - **禁止**把实心填充色 `--dp-color-action`（Dark `#6b74f2`）直接当选中正文色——会发暗不可读  
-  - 实心主按钮：填充仍用较深 `--dp-color-action`，字用 **白** `--dp-text-on-primary`  
-  - Action 浅底徽章上的字/图标：用近白或 `action-fg`，禁止深蓝叠深蓝  
+- **Dark 文字必须浅色（深色底上禁深字）**：改 Dark 或核对主题时逐项扫一遍  
+  - 正文 / 标题 / 表格 / 面包屑 / muted：只用 `--dp-text-1/2/3/4`（Dark 分别为 `#f5f6f8` / `#d0d3e0` / `#a0a6bb` / `#9aa0b5`）  
+  - **禁写死** Light 深色：`#1d2129` `#4e5969` `#020c1a` `#353966` `#000` `black`  
+  - 链接 / 侧栏选中 / Tabs / 线型图标：`--dp-color-action-fg` 或 `--dp-icon-color-active`（`#d2d6ff`）  
+  - **禁止**用 `--dp-color-action`（Dark `#6b74f2`）当字色  
+  - 实心主按钮：深 Action 填充 + **白** `--dp-text-on-primary`  
+  - 浅底徽章：近白或 `action-fg`，禁止深蓝叠深蓝  
+  - 例外：浅色浮层（如反色 Tooltip）上才可用深字  
 
 ## 验收清单（改前端时勾选）
 

@@ -1,4 +1,4 @@
-DP Design Agent Pack · v0.1.10
+DP Design Agent Pack · v0.1.11
 触发词：dpdesign
-Product 页宽：左右顶满工作区，无 1200 上限
-Showcase 通栏仍 ≤1280；表单字段区仍 720
+Dark：深色底上文字必须浅色（text-1/2/3/4 + action-fg）
+禁写死 #1d2129 等 Light 深色；禁把 Action 填充当字色
