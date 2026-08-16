@@ -10,6 +10,7 @@ html[data-dp-theme='light'] {
   /* Brand */
   --dp-color-primary: #3b45e5;
   --dp-color-action: #3c49dd;
+  --dp-color-action-fg: var(--dp-color-action); /* 文字/图标用；Dark 会单独提亮 */
   --dp-color-primary-hover: #626aea;
   --dp-color-primary-active: #2f37b7;
   --dp-color-primary-bg: #f7fafe;
@@ -122,7 +123,7 @@ html[data-dp-theme='light'] {
   --dp-icon-gap: var(--dp-space-2);
   --dp-icon-color: var(--dp-text-2);
   --dp-icon-color-muted: var(--dp-text-3);
-  --dp-icon-color-active: var(--dp-color-action);
+  --dp-icon-color-active: var(--dp-color-action-fg);
   --dp-icon-color-disabled: var(--dp-text-4);
 
   /* Motion — landed 2026-08-10 (recommended defaults, adjustable) */
@@ -168,6 +169,7 @@ html[data-dp-theme='dark'] {
   /* 实心按钮用较深 Action；选中字/图标用 --dp-icon-color-active 提亮 */
   --dp-color-primary: #6b74f2;
   --dp-color-action: #6b74f2;
+  --dp-color-action-fg: #d2d6ff; /* 深色底上的链接/选中/图标字色，须浅 */
   --dp-color-primary-hover: #858df5;
   --dp-color-primary-active: #545eeb;
   --dp-color-primary-bg: #1e2448;
@@ -222,6 +224,6 @@ html[data-dp-theme='dark'] {
 
   --dp-icon-color: var(--dp-text-2);
   --dp-icon-color-muted: var(--dp-text-3);
-  --dp-icon-color-active: #d2d6ff;
+  --dp-icon-color-active: var(--dp-color-action-fg);
   --dp-icon-color-disabled: var(--dp-text-4);
 }
