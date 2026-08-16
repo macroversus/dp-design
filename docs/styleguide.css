@@ -1028,7 +1028,7 @@ html[data-reduce-motion='true'] .motion-skeleton {
 body[data-btn-shape='pill'] .btn--primary,
 body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pill); }
 
-.btn--primary { background: var(--dp-color-action); color: #fff; }
+.btn--primary { background: var(--dp-color-action); color: var(--dp-text-on-primary); }
 .btn--primary:hover {
   background: var(--dp-color-primary-hover);
   box-shadow: var(--dp-btn-hover-glow), var(--dp-btn-hover-glow-soft);

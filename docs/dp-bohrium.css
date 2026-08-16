@@ -165,13 +165,13 @@ html[data-dp-theme='light'] {
 html[data-dp-theme='dark'] {
   color-scheme: dark;
 
-  /* Action/Primary 再提亮，保证深色底上的选中字与图标可读（≈ WCAG AA） */
-  --dp-color-primary: #a5adff;
-  --dp-color-action: #a5adff;
-  --dp-color-primary-hover: #c0c5ff;
-  --dp-color-primary-active: #8b94f7;
+  /* 实心按钮用较深 Action；选中字/图标用 --dp-icon-color-active 提亮 */
+  --dp-color-primary: #6b74f2;
+  --dp-color-action: #6b74f2;
+  --dp-color-primary-hover: #858df5;
+  --dp-color-primary-active: #545eeb;
   --dp-color-primary-bg: #1e2448;
-  --dp-color-primary-bg-hover: #2a3360;
+  --dp-color-primary-bg-hover: #262d5c;
   --dp-color-action-bg-light: #2f3868;
   --dp-color-action-bg-hover: #3a4478;
   --dp-color-accent-violet: #b18bff;
@@ -184,7 +184,7 @@ html[data-dp-theme='dark'] {
   --dp-text-4: #6e7590;
   --dp-text-secondary-alt: #c2c6e6;
   --dp-text-tertiary-alt: #a0a6bb;
-  --dp-text-on-primary: #0c0f1a;
+  --dp-text-on-primary: #ffffff;
 
   --dp-fill-1: #1e243c;
   --dp-fill-2: #262d48;
@@ -209,7 +209,7 @@ html[data-dp-theme='dark'] {
   --dp-warning: #ff9a2e;
   --dp-warning-bg: #3a2a14;
   --dp-error: #f76560;
-  --dp-info: #a5adff;
+  --dp-info: #6b74f2;
 
   --dp-shadow-none: none;
   --dp-shadow-xs: 0 1px 2px #00000066;
