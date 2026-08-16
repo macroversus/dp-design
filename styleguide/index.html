@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./dp-bohrium.css?v=20260814" />
-  <link rel="stylesheet" href="./styleguide.css?v=20260816theme" />
+  <link rel="stylesheet" href="./styleguide.css?v=20260816modeseg" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 </head>
 <body>
@@ -35,7 +35,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
         <div>
           <strong>DP Design</strong>
-          <em>Bohrium Baseline · v0.1.14</em>
+          <em>Bohrium Baseline · v0.1.15</em>
         </div>
       </div>
 
@@ -143,17 +143,21 @@
             <span>⌕</span>
             <input type="search" placeholder="搜索规范 / 组件…" />
           </div>
-          <button type="button" class="theme-btn theme-btn--cycle" id="themeCycle" data-theme-current="system" title="跟随系统。点击切换到浅色模式" aria-label="跟随系统。点击切换到浅色模式">
-            <svg class="theme-btn__ico theme-btn__ico--system" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2.5" width="12" height="8.5" rx="1.5"/><path d="M5.5 14.5h5M8 11v3.5"/>
-            </svg>
-            <svg class="theme-btn__ico theme-btn__ico--light" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/>
-            </svg>
-            <svg class="theme-btn__ico theme-btn__ico--dark" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13.5 9.2A5.5 5.5 0 0 1 6.8 2.5 5.5 5.5 0 1 0 13.5 9.2z"/>
-            </svg>
-          </button>
+          <div class="dp-segment dp-segment--sm dp-segment--inline" data-theme-segment role="radiogroup" aria-label="颜色模式">
+            <span class="dp-segment__thumb" aria-hidden="true"></span>
+            <button type="button" class="dp-segment__item is-active" role="radio" aria-checked="true" data-theme-mode="system">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2.5" width="12" height="8.5" rx="1.5"/><path d="M5.5 14.5h5M8 11v3.5"/></svg>
+              <span>系统</span>
+            </button>
+            <button type="button" class="dp-segment__item" role="radio" aria-checked="false" data-theme-mode="light">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/></svg>
+              <span>浅色</span>
+            </button>
+            <button type="button" class="dp-segment__item" role="radio" aria-checked="false" data-theme-mode="dark">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 9.2A5.5 5.5 0 0 1 6.8 2.5 5.5 5.5 0 1 0 13.5 9.2z"/></svg>
+              <span>深色</span>
+            </button>
+          </div>
           <button type="button" class="icon-btn" title="通知">🔔<em>3</em></button>
           <div class="user">
             <span class="avatar">DP</span>
@@ -913,7 +917,7 @@
               <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">v0.1.14</span>
+              <span class="tag tag--blue">v0.1.15</span>
             </div>
           </div>
 
@@ -938,11 +942,11 @@
           <div class="panel-card intro-download" id="skill-download">
             <div class="panel-card__head">
               <h3>下载 DP Design Agent Pack</h3>
-              <span class="tag tag--success">v0.1.14</span>
+              <span class="tag tag--success">v0.1.15</span>
             </div>
             <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（主指令 <code>AGENT.md</code> + Token 速查 + 正反例 + 各工具安装矩阵）。<strong>不含</strong>特定站点落地顺序；适用于当前与后续任意对齐本体系的产品。</p>
             <div class="intro-download__row">
-              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.14.zip" download="dp-design-agent-pack-v0.1.14.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.15.zip" download="dp-design-agent-pack-v0.1.15.zip">下载 Agent Pack（zip）</a>
               <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
             </div>
             <ol class="intro-install muted">
@@ -1278,10 +1282,15 @@
           <div class="page-head">
             <div>
               <h1>暗黑模式 <span class="status status--done">已锁定</span></h1>
-              <p>2026-08-16 更新：默认<strong>跟随系统</strong>；顶栏单钮循环 跟随系统 → 浅色 → 深色。Dark 用 token 重映射，禁止 invert。Hero 深色 ≠ 全局 Dark。</p>
+              <p>2026-08-16 更新：默认<strong>跟随系统</strong>；颜色 / 语言等模式切换一律用胶囊。Dark 用 token 重映射，禁止 invert。Hero 深色 ≠ 全局 Dark。</p>
             </div>
             <div class="page-head__actions">
-              <button type="button" class="btn btn--secondary" data-theme-cycle>切换主题</button>
+              <div class="dp-segment dp-segment--sm" data-theme-segment role="radiogroup" aria-label="颜色模式">
+                <span class="dp-segment__thumb" aria-hidden="true"></span>
+                <button type="button" class="dp-segment__item is-active" role="radio" aria-checked="true" data-theme-mode="system">跟随系统</button>
+                <button type="button" class="dp-segment__item" role="radio" aria-checked="false" data-theme-mode="light">浅色</button>
+                <button type="button" class="dp-segment__item" role="radio" aria-checked="false" data-theme-mode="dark">深色</button>
+              </div>
             </div>
           </div>
 
@@ -1336,7 +1345,7 @@
               <li><strong>顶栏 / 侧栏 / 画布必须跟 token</strong>，禁止写死 <code>#fff</code> / <code>rgba(255,255,255,*)</code></li>
               <li>顶栏使用 <code>--dp-bg-header</code>；切换后壳层与内容须同步变色、可回切</li>
               <li>Product 优先提供切换；Showcase 可保留局部深色 Hero（不等于全局 Dark）</li>
-              <li>单钮循环：跟随系统 → 浅色 → 深色；存 <code>localStorage.dp-theme</code></li>
+              <li>模式切换用胶囊：跟随系统 / 浅色 / 深色；存 <code>localStorage.dp-theme</code></li>
               <li>Dark 主色提亮；阴影改中性；正文目标 AA 对比</li>
               <li>深色底上文字必须浅：text-1/2/3/4；选中/链接用 action-fg；禁写死 Light 深色、禁用 Action 填充当字色</li>
             </ul>
@@ -1907,9 +1916,10 @@
 
           <div class="panel-card">
             <div class="panel-card__head"><h3>模式切换示意</h3></div>
-            <div class="i18n-mode-switch" role="tablist" aria-label="语言模式">
-              <button type="button" class="i18n-mode-btn is-active" data-i18n-mode="zh" role="tab" aria-selected="true">zh · 中文</button>
-              <button type="button" class="i18n-mode-btn" data-i18n-mode="en" role="tab" aria-selected="false">en · English</button>
+            <div class="dp-segment dp-segment--sm" data-i18n-segment role="radiogroup" aria-label="语言模式">
+              <span class="dp-segment__thumb" aria-hidden="true"></span>
+              <button type="button" class="dp-segment__item is-active" role="radio" aria-checked="true" data-i18n-mode="zh">中文</button>
+              <button type="button" class="dp-segment__item" role="radio" aria-checked="false" data-i18n-mode="en">English</button>
             </div>
             <article class="i18n-demo-card" id="i18nDemoCard" data-i18n-active="zh" lang="zh-CN">
               <header class="i18n-demo-card__head">
@@ -2500,7 +2510,7 @@
                 <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
                 <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
                 <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
-                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.14</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.15</td></tr>
               </tbody>
             </table>
           </div>
@@ -2515,10 +2525,10 @@
           <div class="page-head">
             <div>
               <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
-              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.14</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.15</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">设计系统 v0.1.14</span>
+              <span class="tag tag--blue">设计系统 v0.1.15</span>
             </div>
           </div>
 
@@ -2531,7 +2541,7 @@
                 <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
                 <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
                 <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
-                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.14.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.15.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
                 <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
                 <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
               </tbody>
@@ -2610,7 +2620,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>当前 <strong>v0.1.14</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>当前 <strong>v0.1.15</strong>；独立 SemVer；Breaking → MAJOR</li>
               <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
               <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
               <li>业务站只消费；例外登记；禁止写死色</li>
@@ -2698,6 +2708,6 @@
     </div>
   </div>
 
-  <script src="./styleguide.js?v=20260816theme"></script>
+  <script src="./styleguide.js?v=20260816modeseg"></script>
 </body>
 </html>

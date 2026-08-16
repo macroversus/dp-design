@@ -702,24 +702,58 @@
   }
 
   const THEME_KEY = 'dp-theme';
-  const THEME_CYCLE = ['system', 'light', 'dark'];
   let themeMode = 'system';
   let systemMq = null;
-
-  function nextThemeMode(mode) {
-    const i = THEME_CYCLE.indexOf(mode);
-    return THEME_CYCLE[(i < 0 ? 0 : i + 1) % THEME_CYCLE.length];
-  }
 
   function themeModeLabel(mode, resolved) {
     if (mode === 'system') return `跟随系统（当前${resolved === 'dark' ? '深色' : '浅色'}）`;
     return mode === 'dark' ? '深色模式' : '浅色模式';
   }
 
-  function themeCycleHint(mode) {
-    const next = nextThemeMode(mode);
-    const nextName = next === 'system' ? '跟随系统' : next === 'dark' ? '深色模式' : '浅色模式';
-    return `${themeModeLabel(mode, resolveTheme(mode))}。点击切换到${nextName}`;
+  function ensureSegmentThumb(group) {
+    let thumb = group.querySelector('.dp-segment__thumb');
+    if (!thumb) {
+      thumb = document.createElement('span');
+      thumb.className = 'dp-segment__thumb';
+      thumb.setAttribute('aria-hidden', 'true');
+      group.prepend(thumb);
+    }
+    return thumb;
+  }
+
+  function applySegmentThumb(group, animate) {
+    const thumb = ensureSegmentThumb(group);
+    const active = group.querySelector('.dp-segment__item.is-active');
+    const commit = () => {
+      if (!active) {
+        thumb.style.width = '0px';
+        thumb.style.opacity = '0';
+        return;
+      }
+      const groupRect = group.getBoundingClientRect();
+      const rect = active.getBoundingClientRect();
+      thumb.style.width = `${rect.width}px`;
+      thumb.style.transform = `translate3d(${rect.left - groupRect.left}px, 0, 0)`;
+      thumb.style.opacity = rect.width > 0 ? '1' : '0';
+    };
+    if (!animate) {
+      thumb.style.transition = 'none';
+      commit();
+      void thumb.offsetWidth;
+      thumb.style.removeProperty('transition');
+      return;
+    }
+    thumb.style.removeProperty('transition');
+    requestAnimationFrame(commit);
+  }
+
+  function setSegmentActive(group, isOn, { animate = true } = {}) {
+    group.querySelectorAll('.dp-segment__item').forEach((btn) => {
+      const on = isOn(btn);
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+    applySegmentThumb(group, animate);
   }
 
   function resolveTheme(mode) {
@@ -737,24 +771,21 @@
     });
   }
 
-  function syncThemeButtons() {
-    const hint = themeCycleHint(themeMode);
-    document.querySelectorAll('#themeCycle, .theme-btn--cycle').forEach((btn) => {
-      btn.dataset.themeCurrent = themeMode;
-      btn.setAttribute('aria-label', hint);
-      btn.title = hint;
-    });
+  function syncThemeButtons({ animate = false } = {}) {
     root.setAttribute('data-dp-theme-mode', themeMode);
+    document.querySelectorAll('[data-theme-segment]').forEach((group) => {
+      setSegmentActive(group, (btn) => btn.getAttribute('data-theme-mode') === themeMode, { animate });
+    });
   }
 
-  function applyResolvedTheme(resolved) {
+  function applyResolvedTheme(resolved, { animateSegment = false } = {}) {
     root.setAttribute('data-dp-theme', resolved);
     document.documentElement.style.colorScheme = resolved;
     const label = document.getElementById('darkThemeLabel');
     if (label) {
       label.textContent = themeModeLabel(themeMode, resolved);
     }
-    syncThemeButtons();
+    syncThemeButtons({ animate: animateSegment });
     try {
       syncColorInputs();
       refreshSwatches();
@@ -772,7 +803,7 @@
     });
   }
 
-  function setThemeMode(mode, { persist = true, notify = false } = {}) {
+  function setThemeMode(mode, { persist = true, notify = false, animateSegment = false } = {}) {
     themeMode = mode === 'dark' || mode === 'system' ? mode : 'light';
     if (persist) {
       try {
@@ -782,7 +813,7 @@
       }
     }
     clearInlineTokenOverrides();
-    applyResolvedTheme(resolveTheme(themeMode));
+    applyResolvedTheme(resolveTheme(themeMode), { animateSegment });
     if (notify) {
       showStatus(`主题：${themeModeLabel(themeMode, resolveTheme(themeMode))}`);
     }
@@ -1009,7 +1040,7 @@
 
   function initI18nDemo() {
     const card = document.getElementById('i18nDemoCard');
-    const switcher = document.querySelector('.i18n-mode-switch');
+    const switcher = document.querySelector('[data-i18n-segment]');
     if (!card || !switcher) return;
 
     const copy = {
@@ -1051,11 +1082,7 @@
         if (val == null) return;
         el.textContent = val;
       });
-      switcher.querySelectorAll('[data-i18n-mode]').forEach((btn) => {
-        const on = btn.getAttribute('data-i18n-mode') === mode;
-        btn.classList.toggle('is-active', on);
-        btn.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
+      setSegmentActive(switcher, (btn) => btn.getAttribute('data-i18n-mode') === mode, { animate: true });
     };
 
     switcher.addEventListener('click', (e) => {
@@ -1146,16 +1173,6 @@
     }
     if (!['light', 'dark', 'system'].includes(saved)) saved = 'system';
 
-    const cycle = () => setThemeMode(nextThemeMode(themeMode), { notify: true });
-    document.getElementById('themeCycle')?.addEventListener('click', cycle);
-    document.querySelectorAll('[data-theme-cycle]').forEach((btn) => {
-      btn.addEventListener('click', cycle);
-    });
-    document.querySelectorAll('[data-theme-mode]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        setThemeMode(btn.getAttribute('data-theme-mode'), { notify: true });
-      });
-    });
     document.querySelectorAll('[data-theme-quick]').forEach((btn) => {
       btn.addEventListener('click', () =>
         setThemeMode(btn.getAttribute('data-theme-quick'), { notify: true }),
@@ -1227,53 +1244,19 @@
       });
     });
     document.querySelectorAll('.dp-segment').forEach((group) => {
-      let thumb = group.querySelector('.dp-segment__thumb');
-      if (!thumb) {
-        thumb = document.createElement('span');
-        thumb.className = 'dp-segment__thumb';
-        thumb.setAttribute('aria-hidden', 'true');
-        group.prepend(thumb);
-      }
-
-      const measure = (active) => {
-        if (!active) return { width: 0, x: 0 };
-        const groupRect = group.getBoundingClientRect();
-        const rect = active.getBoundingClientRect();
-        return { width: rect.width, x: rect.left - groupRect.left };
-      };
-
-      const applyThumb = (animate) => {
-        const active = group.querySelector('.dp-segment__item.is-active');
-        const commit = () => {
-          const { width, x } = measure(active);
-          thumb.style.width = `${width}px`;
-          thumb.style.transform = `translate3d(${x}px, 0, 0)`;
-          thumb.style.opacity = width > 0 ? '1' : '0';
-        };
-        if (!animate) {
-          thumb.style.transition = 'none';
-          commit();
-          void thumb.offsetWidth;
-          thumb.style.removeProperty('transition');
-          return;
-        }
-        thumb.style.removeProperty('transition');
-        requestAnimationFrame(commit);
-      };
-
+      ensureSegmentThumb(group);
       group.querySelectorAll('.dp-segment__item').forEach((btn) => {
         btn.addEventListener('click', () => {
-          group.querySelectorAll('.dp-segment__item').forEach((b) => {
-            const on = b === btn;
-            b.classList.toggle('is-active', on);
-            b.setAttribute('aria-checked', on ? 'true' : 'false');
-          });
-          applyThumb(true);
+          const nextTheme = btn.getAttribute('data-theme-mode');
+          if (nextTheme) {
+            setThemeMode(nextTheme, { notify: true, animateSegment: true });
+            return;
+          }
+          setSegmentActive(group, (b) => b === btn, { animate: true });
         });
       });
-
-      applyThumb(false);
-      const ro = new ResizeObserver(() => applyThumb(false));
+      applySegmentThumb(group, false);
+      const ro = new ResizeObserver(() => applySegmentThumb(group, false));
       ro.observe(group);
     });
     initFeedbackDemos();

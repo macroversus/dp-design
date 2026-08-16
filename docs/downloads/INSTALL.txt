@@ -1,3 +1,4 @@
-DP Design Agent Pack · v0.1.14
+DP Design Agent Pack · v0.1.15
 触发词：dpdesign
-主题：默认跟随系统；单钮循环 跟随系统 → 浅色 → 深色
+模式切换一律用胶囊 .dp-segment（颜色 / 语言等）
+颜色默认跟随系统：跟随系统 / 浅色 / 深色
