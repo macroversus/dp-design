@@ -1,4 +1,3 @@
-DP Design Agent Pack · v0.1.13
+DP Design Agent Pack · v0.1.14
 触发词：dpdesign
-胶囊切换：独立滑动 thumb 承担选中底，按钮透明 + 白字
-实现见 segment.md；禁止给 .is-active 再铺底 / 禁止 Ant Segmented 默认皮
+主题：默认跟随系统；单钮循环 跟随系统 → 浅色 → 深色

@@ -21,42 +21,33 @@ body {
     color var(--dp-transition-medium);
 }
 
-.theme-switch {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px;
-  border: 1px solid var(--dp-border);
-  border-radius: var(--dp-radius);
-  background: var(--dp-fill-1);
-  gap: 2px;
-}
 .theme-btn {
   appearance: none;
   display: inline-grid;
   place-items: center;
   width: 32px;
-  height: 28px;
+  height: 32px;
   margin: 0;
   padding: 0;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--dp-text-3);
+  border: 1px solid var(--dp-border);
+  border-radius: var(--dp-radius);
+  background: var(--dp-bg-white);
+  color: var(--dp-text-1);
   cursor: pointer;
   transition:
     background var(--dp-transition-fast),
-    color var(--dp-transition-fast);
+    color var(--dp-transition-fast),
+    border-color var(--dp-transition-fast);
 }
 .theme-btn:hover {
-  color: var(--dp-text-1);
-  background: var(--dp-bg-white);
-}
-.theme-btn.is-active {
   color: var(--dp-color-action-fg);
-  background: var(--dp-bg-white);
-  box-shadow: var(--dp-shadow-xs);
+  border-color: var(--dp-color-action);
+  background: var(--dp-color-primary-bg);
 }
-.theme-btn svg { display: block; }
+.theme-btn__ico { display: none; }
+.theme-btn[data-theme-current='system'] .theme-btn__ico--system,
+.theme-btn[data-theme-current='light'] .theme-btn__ico--light,
+.theme-btn[data-theme-current='dark'] .theme-btn__ico--dark { display: block; }
 .dark-live-panel {
   margin: 16px;
   min-height: 160px;
@@ -3729,9 +3720,13 @@ html[data-dp-theme='dark'] .status--done {
 html[data-dp-theme='dark'] .nav-header-spec__menu button.is-active,
 html[data-dp-theme='dark'] .dp-tabs__item.is-active,
 html[data-dp-theme='dark'] .dp-steps li.is-current,
-html[data-dp-theme='dark'] .i18n-mode-btn.is-active,
-html[data-dp-theme='dark'] .theme-btn.is-active {
+html[data-dp-theme='dark'] .i18n-mode-btn.is-active {
   color: var(--dp-color-action-fg);
+}
+html[data-dp-theme='dark'] .theme-btn {
+  color: var(--dp-text-1);
+  background: var(--dp-bg-white);
+  border-color: var(--dp-border);
 }
 html[data-dp-theme='dark'] .dp-segment {
   background: var(--dp-fill-2);

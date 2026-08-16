@@ -702,8 +702,25 @@
   }
 
   const THEME_KEY = 'dp-theme';
-  let themeMode = 'light';
+  const THEME_CYCLE = ['system', 'light', 'dark'];
+  let themeMode = 'system';
   let systemMq = null;
+
+  function nextThemeMode(mode) {
+    const i = THEME_CYCLE.indexOf(mode);
+    return THEME_CYCLE[(i < 0 ? 0 : i + 1) % THEME_CYCLE.length];
+  }
+
+  function themeModeLabel(mode, resolved) {
+    if (mode === 'system') return `跟随系统（当前${resolved === 'dark' ? '深色' : '浅色'}）`;
+    return mode === 'dark' ? '深色模式' : '浅色模式';
+  }
+
+  function themeCycleHint(mode) {
+    const next = nextThemeMode(mode);
+    const nextName = next === 'system' ? '跟随系统' : next === 'dark' ? '深色模式' : '浅色模式';
+    return `${themeModeLabel(mode, resolveTheme(mode))}。点击切换到${nextName}`;
+  }
 
   function resolveTheme(mode) {
     if (mode === 'system') {
@@ -721,11 +738,13 @@
   }
 
   function syncThemeButtons() {
-    document.querySelectorAll('[data-theme-mode]').forEach((btn) => {
-      const on = btn.getAttribute('data-theme-mode') === themeMode;
-      btn.classList.toggle('is-active', on);
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    const hint = themeCycleHint(themeMode);
+    document.querySelectorAll('#themeCycle, .theme-btn--cycle').forEach((btn) => {
+      btn.dataset.themeCurrent = themeMode;
+      btn.setAttribute('aria-label', hint);
+      btn.title = hint;
     });
+    root.setAttribute('data-dp-theme-mode', themeMode);
   }
 
   function applyResolvedTheme(resolved) {
@@ -733,8 +752,7 @@
     document.documentElement.style.colorScheme = resolved;
     const label = document.getElementById('darkThemeLabel');
     if (label) {
-      label.textContent =
-        themeMode === 'system' ? `System → ${resolved === 'dark' ? 'Dark' : 'Light'}` : resolved === 'dark' ? 'Dark' : 'Light';
+      label.textContent = themeModeLabel(themeMode, resolved);
     }
     syncThemeButtons();
     try {
@@ -766,13 +784,7 @@
     clearInlineTokenOverrides();
     applyResolvedTheme(resolveTheme(themeMode));
     if (notify) {
-      const label =
-        themeMode === 'system'
-          ? `跟随系统 → ${resolveTheme('system')}`
-          : themeMode === 'dark'
-            ? 'Dark'
-            : 'Light';
-      showStatus(`主题：${label}`);
+      showStatus(`主题：${themeModeLabel(themeMode, resolveTheme(themeMode))}`);
     }
   }
 
@@ -1126,14 +1138,19 @@
   }
 
   function initTheme() {
-    let saved = 'light';
+    let saved = 'system';
     try {
-      saved = localStorage.getItem(THEME_KEY) || 'light';
+      saved = localStorage.getItem(THEME_KEY) || 'system';
     } catch {
-      saved = 'light';
+      saved = 'system';
     }
-    if (!['light', 'dark', 'system'].includes(saved)) saved = 'light';
+    if (!['light', 'dark', 'system'].includes(saved)) saved = 'system';
 
+    const cycle = () => setThemeMode(nextThemeMode(themeMode), { notify: true });
+    document.getElementById('themeCycle')?.addEventListener('click', cycle);
+    document.querySelectorAll('[data-theme-cycle]').forEach((btn) => {
+      btn.addEventListener('click', cycle);
+    });
     document.querySelectorAll('[data-theme-mode]').forEach((btn) => {
       btn.addEventListener('click', () => {
         setThemeMode(btn.getAttribute('data-theme-mode'), { notify: true });

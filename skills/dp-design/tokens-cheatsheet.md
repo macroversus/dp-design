@@ -86,4 +86,4 @@
 <link rel="stylesheet" href="path/to/dp-bohrium.css" />
 ```
 
-主题：`html[data-dp-theme="light|dark"]`。
+主题：默认 `system`（跟随 `prefers-color-scheme`）。偏好存 `localStorage.dp-theme` = `system|light|dark`。解析后写 `html[data-dp-theme="light|dark"]`。顶栏单钮循环：跟随系统 → 浅色 → 深色。
