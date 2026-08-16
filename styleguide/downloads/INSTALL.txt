@@ -1,11 +1,3 @@
-DP Design Agent Pack · 安装说明（v0.1.8）
-
+DP Design Agent Pack · v0.1.9
 触发词：dpdesign
-主指令：AGENT.md
-
-壳层：顶栏 64 · Logo 28–32 · 侧栏项高 40
-页脚：Showcase 分区；Product 默认无
-
-1. 下载 zip 解压
-2. 放到 docs/dp-design/ 或 .cursor/skills/dp-design/
-3. 对话说 dpdesign
+Dark：选中/链接用 --dp-color-action-fg（浅）；主按钮深 Action + 白字

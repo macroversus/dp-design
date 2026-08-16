@@ -11,6 +11,15 @@
 | Action 实心底用 `--dp-text-on-primary` | 深蓝底叠黑色字母（Avatar/Logo） |
 | Avatar 默认浅底 + Action 字，或实心底 + 浅色字 | 实心蓝底 + Text 1 / 黑字 |
 
+## Dark 文字（必须浅）
+
+| ✅ | ❌ |
+|----|----|
+| 正文 `--dp-text-1/2/3`（主题映射） | 暗色下写死 Light 的深灰/黑字 |
+| 侧栏选中 / 链接 / 图标 `--dp-color-action-fg`（`#d2d6ff`） | 选中字用 `--dp-color-action`（`#6b74f2`）发暗 |
+| 主按钮深 Action 填充 + **白字** | 主按钮浅紫底 / 或深蓝字叠深蓝底 |
+| 浅底 Tag/徽章用近白或 `action-fg` | Tag 蓝底 + 同色深蓝字 |
+
 ## 嵌套圆角（同心）
 
 | ✅ | ❌ |

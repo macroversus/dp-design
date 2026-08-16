@@ -7,27 +7,35 @@
 | Token | 典型值 | 用途 |
 |-------|--------|------|
 | `--dp-color-primary` | `#3b45e5` | 主品牌蓝 |
-| `--dp-color-action` | `#3c49dd` | 主按钮 / 链接 |
+| `--dp-color-action` | `#3c49dd`（Dark 填充 `#6b74f2`） | **实心**主按钮 / 边框强调 |
+| `--dp-color-action-fg` | Light=Action；Dark=`#d2d6ff` | **文字/链接/选中/图标**（暗色须浅） |
 | `--dp-color-primary-hover` | `#626aea` | Hover |
 | `--dp-color-primary-active` | `#2f37b7` | Active |
 | `--dp-color-action-bg-light` | `#e8f3ff` | 浅底 / Tag |
 | `--dp-color-accent-violet` | `#5d26ff` | Showcase 辅色（慎用） |
 | `--dp-text-on-primary` | `#ffffff` | **实心** Primary/Action 上的字、Avatar 字母 |
+| `--dp-icon-color-active` | 同 `action-fg` | 激活线型图标 |
 | `--dp-success` | `#0ab268` | 成功 |
 | `--dp-warning` | `#ff7d00` | 警告 |
 | `--dp-error` | `#ff4747` | 错误 |
 
 ## 文本与表面
 
-| Token | 典型值 | 用途 |
-|-------|--------|------|
-| `--dp-text-1` | `#1d2129` | 主文案 |
-| `--dp-text-2` | `#4e5969` | 次文案 |
-| `--dp-text-3` | `#86909c` | 辅助 |
-| `--dp-bg-page` | `#f4f5f7` | 页面灰底 |
-| `--dp-bg-layout` | `#f4f6fb` | 布局底 |
-| `--dp-bg-white` | `#ffffff` | 卡片 |
-| `--dp-border` | `#e5e6eb` | 默认边框 |
+| Token | Light | Dark（须浅） | 用途 |
+|-------|-------|--------------|------|
+| `--dp-text-1` | `#1d2129` | `#f5f6f8` | 主文案 |
+| `--dp-text-2` | `#4e5969` | `#d0d3e0` | 次文案 |
+| `--dp-text-3` | `#86909c` | `#a0a6bb` | 辅助 |
+| `--dp-bg-page` | `#f4f5f7` | `#0c0f15` | 页面底 |
+| `--dp-bg-layout` | `#f4f6fb` | `#12162a` | 布局底 |
+| `--dp-bg-white` | `#ffffff` | `#1a1f36` | 卡片 |
+| `--dp-border` | `#e5e6eb` | `#2e3554` | 默认边框 |
+
+### Dark 文字规则（摘要）
+
+1. 正文只用 `--dp-text-*`，不要写死 Light 色值。  
+2. 选中 / 链接 / 图标字色用 `--dp-color-action-fg`，**不要**用 `--dp-color-action` 当字色。  
+3. 主按钮：`--dp-color-action` 填充 + `--dp-text-on-primary` 白字。  
 
 ## 圆角与布局（摘要）
 
