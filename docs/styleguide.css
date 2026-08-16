@@ -1089,16 +1089,35 @@ body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pil
 .btn--danger:active { filter: brightness(0.95); box-shadow: none; }
 
 .dp-segment {
+  position: relative;
   display: inline-flex;
   align-items: stretch;
   padding: 3px;
-  border: 1px solid var(--dp-border);
+  border: var(--dp-border-width) solid var(--dp-border);
   border-radius: var(--dp-radius-pill);
   background: var(--dp-fill-2);
   gap: 2px;
   max-width: 100%;
 }
+.dp-segment__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  z-index: 0;
+  width: 0;
+  border-radius: var(--dp-radius-pill);
+  background: var(--dp-color-action);
+  pointer-events: none;
+  will-change: transform, width;
+  transition:
+    transform var(--dp-transition-medium),
+    width var(--dp-transition-medium),
+    opacity var(--dp-transition-fast);
+}
 .dp-segment__item {
+  position: relative;
+  z-index: 1;
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -1115,9 +1134,7 @@ body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pil
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    background var(--dp-transition-fast),
-    color var(--dp-transition-fast);
+  transition: color var(--dp-transition-medium);
 }
 .dp-segment--sm .dp-segment__item {
   min-height: 26px;
@@ -1129,7 +1146,6 @@ body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pil
   color: var(--dp-text-1);
 }
 .dp-segment__item.is-active {
-  background: var(--dp-color-action);
   color: var(--dp-text-on-primary);
 }
 .dp-segment__item:focus-visible {
@@ -1139,6 +1155,10 @@ body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pil
 .dp-segment__item:disabled {
   color: var(--dp-text-4);
   cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dp-segment__thumb,
+  .dp-segment__item { transition-duration: 0.01ms !important; }
 }
 
 .btn--icon {
@@ -3718,14 +3738,14 @@ html[data-dp-theme='dark'] .dp-segment {
   border-color: var(--dp-border);
 }
 html[data-dp-theme='dark'] .dp-segment__item {
-  color: var(--dp-text-2);
+  color: var(--dp-text-1);
 }
 html[data-dp-theme='dark'] .dp-segment__item:hover:not(.is-active):not(:disabled) {
   background: var(--dp-fill-3);
   color: var(--dp-text-1);
 }
 html[data-dp-theme='dark'] .dp-segment__item.is-active {
-  background: var(--dp-color-action);
+  background: transparent;
   color: var(--dp-text-on-primary);
 }
 html[data-dp-theme='dark'] a:not(.btn) {

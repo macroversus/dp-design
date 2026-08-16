@@ -22,7 +22,7 @@
 | Changelog | `docs/CHANGELOG.md` |
 | Token | `tokens/dp-bohrium.css` |
 | 样式参考站 | 指南站 `styleguide/`（侧栏各页） |
-| 本包速查 | [tokens-cheatsheet.md](tokens-cheatsheet.md) · [do-dont.md](do-dont.md) |
+| 本包速查 | [tokens-cheatsheet.md](tokens-cheatsheet.md) · [do-dont.md](do-dont.md) · [segment.md](segment.md) |
 
 若仓库不含设计系统路径：以本包 cheatsheet + 用户提供的指南站 URL / Token 文件为准。
 
@@ -51,7 +51,7 @@
   `子圆角 = max(0, 父圆角 − 该侧内边距 P)`，再**就近下取**到阶梯。Product 常见：父容器 **16** + padding 8 → 子 **8**；父 **16** + padding 24 → 子 **0**。禁止内层再写 `--dp-radius-container` / 与父同大。Pill Chip / 开关除外；媒体裁切可不强制。凡「卡套卡 / 卡套结果区」必须过公式  
 - Focus：Action 边 + 3px 半透明环  
 - **对比度**：Action / Primary **实心填充**上的文字与字母必须用 `--dp-text-on-primary`；禁止深蓝底叠黑字 / Text 1（Avatar、Logo 色块、**胶囊切换选中段**尤易踩坑）。若全局有 `color: !important`，须专用类压过继承  
-- **胶囊切换**（`.dp-segment`，§5.1.2）：互斥 2–4 模式；**选中 = Action 高亮底 + 白字**。禁止白底/浅底 + Action 描边 + 深蓝字当选中；不是 Tabs、不是 Switch  
+- **胶囊切换**（`.dp-segment`，§5.1.2）：互斥 2–4 模式。**必须用独立滑动 thumb**（`.dp-segment__thumb`）承担选中 Action 底；按钮保持透明，选中只改 `--dp-text-on-primary` 白字。禁止给 `.is-active` 再铺背景、禁止白底描边当选中、禁止默认用 Ant Design `Segmented`。实现见 [segment.md](segment.md)  
 - **顶栏功能入口**（打开会话/智能体/对话/工作流等）：图标 + 文案、**无边框盒**；14px · 600 · Text 1  
 - **模式开关**（浅色/深色等）：**保留按钮边框**（Secondary / 图标钮 32×32）；用稳定日月 SVG；禁「深/浅」单字；图标坏了修 path，不回退汉字  
 - **壳层尺寸**：顶栏 **64**；Logo **28–32**；侧栏菜单项高 **40**；Showcase 一级菜单 14/500、热区 ≥40  
@@ -76,7 +76,7 @@
 - [ ] 嵌套圆角已按同心公式（子 = max(0, 父 − P) 再下取）；无「内外同 16 / 同 8」挤缝  
 - [ ] 主按钮唯一；表单 Focus / 错误说明齐全  
 - [ ] 实心 Action/Primary 上的字为 on-primary；Avatar/Logo 可读  
-- [ ] 胶囊切换选中为 Action 底 + 白字；未做成白底描边选中  
+- [ ] 胶囊切换：独立 thumb 滑动 + 选中白字；按钮无选中底；未用 Ant Segmented 默认皮  
 - [ ] 主题 / 下载等为图标；无「深/浅」单字钮  
 - [ ] 顶栏 64 · Logo 28–32 · 菜单/入口 14；功能入口无框、模式开关有边框  
 - [ ] Showcase 页脚分区正确；Product 无页脚或单行版权  

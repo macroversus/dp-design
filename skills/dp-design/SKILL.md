@@ -12,7 +12,8 @@ description: >-
 **触发词：`dpdesign`** — 用户说出该词时加载本 skill。
 
 完整、工具无关的指令见同目录 **[AGENT.md](AGENT.md)**。  
-**必须先阅读并遵循 [AGENT.md](AGENT.md)**，以及 [tokens-cheatsheet.md](tokens-cheatsheet.md)、[do-dont.md](do-dont.md)。
+**必须先阅读并遵循 [AGENT.md](AGENT.md)**，以及 [tokens-cheatsheet.md](tokens-cheatsheet.md)、[do-dont.md](do-dont.md)。  
+做胶囊切换时再读 **[segment.md](segment.md)**（独立滑动 thumb，不要给选中按钮铺底）。
 
 ## Cursor 安装
 

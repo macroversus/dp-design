@@ -11,6 +11,7 @@
 | Action 实心底用 `--dp-text-on-primary` | 深蓝底叠黑色字母（Avatar/Logo） |
 | Avatar 默认浅底 + Action 字，或实心底 + 浅色字 | 实心蓝底 + Text 1 / 黑字 |
 | 胶囊切换选中：Action 高亮底 + 白字 | 选中做成白底描边 + 深蓝字 |
+| 选中底由 `.dp-segment__thumb` 滑动承担 | 给 `.is-active` 再铺一层 Action 底 / 用 Ant `Segmented` |
 
 ## Dark 文字（深色底上必须浅）
 

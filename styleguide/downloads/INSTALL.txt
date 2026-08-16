@@ -1,4 +1,4 @@
-DP Design Agent Pack · v0.1.12
+DP Design Agent Pack · v0.1.13
 触发词：dpdesign
-胶囊切换：选中 = Action 高亮底 + 白字（--dp-text-on-primary）
-禁止白底描边 + 深蓝字当选中
+胶囊切换：独立滑动 thumb 承担选中底，按钮透明 + 白字
+实现见 segment.md；禁止给 .is-active 再铺底 / 禁止 Ant Segmented 默认皮

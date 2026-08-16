@@ -9,6 +9,7 @@
 | **接 Token** | 业务站引用 `dp-bohrium.css`，禁止私自改 Primary |
 
 - 主指令：[AGENT.md](AGENT.md)（工具无关）  
+- 胶囊实现：[segment.md](segment.md)  
 - 安装矩阵：[INSTALL.md](INSTALL.md)  
 - Cursor 适配：[SKILL.md](SKILL.md)  
 

@@ -14,4 +14,5 @@ When the user says `dpdesign`, or when changing/creating frontend UI (layout, th
 3. Use Product vs Showcase density rules as stated in AGENT.md.
 4. Do not use archived illustration SVGs; use outlined icons 48–64 for empty states.
 5. For visual reference, use the DP Design styleguide site when available.
+6. Capsule toggles: follow `segment.md` (sliding thumb; do not paint the active item background).
 ```

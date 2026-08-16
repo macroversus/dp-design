@@ -40,7 +40,7 @@
 2. 选中 / 链接 / 图标字色用 `--dp-color-action-fg`，**不要**用 `--dp-color-action` 当字色。  
 3. 主按钮 / **胶囊切换选中段**：`--dp-color-action` 填充 + `--dp-text-on-primary` 白字。  
 4. 例外：浅色浮层上才可用深字。  
-5. 胶囊切换（`.dp-segment`）：2–4 个互斥模式；选中禁止白底描边。规范 §5.1.2。  
+5. 胶囊切换（`.dp-segment`）：2–4 个互斥模式；**独立 thumb 滑动**承担选中底，按钮只改白字。实现见 [segment.md](segment.md)，规范 §5.1.2。  
 
 ## 圆角与布局（摘要）
 

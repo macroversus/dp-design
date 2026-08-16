@@ -44,6 +44,7 @@ your-project/design/dp-design/
 | `AGENT.md` | **主指令**（所有工具共用） |
 | `tokens-cheatsheet.md` | Token / 圆角 / 字体速查 |
 | `do-dont.md` | 正反例 |
+| `segment.md` | 胶囊切换实现（滑动 thumb） |
 | `SKILL.md` | 仅 Cursor 发现用（指向 AGENT.md） |
 | `templates/AGENTS.snippet.md` | 合并进根目录 AGENTS.md 的片段 |
 | `INSTALL.md` / `README.md` | 给人看的安装与说明 |

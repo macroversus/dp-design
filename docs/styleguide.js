@@ -1210,6 +1210,40 @@
       });
     });
     document.querySelectorAll('.dp-segment').forEach((group) => {
+      let thumb = group.querySelector('.dp-segment__thumb');
+      if (!thumb) {
+        thumb = document.createElement('span');
+        thumb.className = 'dp-segment__thumb';
+        thumb.setAttribute('aria-hidden', 'true');
+        group.prepend(thumb);
+      }
+
+      const measure = (active) => {
+        if (!active) return { width: 0, x: 0 };
+        const groupRect = group.getBoundingClientRect();
+        const rect = active.getBoundingClientRect();
+        return { width: rect.width, x: rect.left - groupRect.left };
+      };
+
+      const applyThumb = (animate) => {
+        const active = group.querySelector('.dp-segment__item.is-active');
+        const commit = () => {
+          const { width, x } = measure(active);
+          thumb.style.width = `${width}px`;
+          thumb.style.transform = `translate3d(${x}px, 0, 0)`;
+          thumb.style.opacity = width > 0 ? '1' : '0';
+        };
+        if (!animate) {
+          thumb.style.transition = 'none';
+          commit();
+          void thumb.offsetWidth;
+          thumb.style.removeProperty('transition');
+          return;
+        }
+        thumb.style.removeProperty('transition');
+        requestAnimationFrame(commit);
+      };
+
       group.querySelectorAll('.dp-segment__item').forEach((btn) => {
         btn.addEventListener('click', () => {
           group.querySelectorAll('.dp-segment__item').forEach((b) => {
@@ -1217,8 +1251,13 @@
             b.classList.toggle('is-active', on);
             b.setAttribute('aria-checked', on ? 'true' : 'false');
           });
+          applyThumb(true);
         });
       });
+
+      applyThumb(false);
+      const ro = new ResizeObserver(() => applyThumb(false));
+      ro.observe(group);
     });
     initFeedbackDemos();
     window.addEventListener('resize', () => {
