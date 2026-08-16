@@ -1,4 +1,4 @@
-DP Design Agent Pack · v0.1.11
+DP Design Agent Pack · v0.1.12
 触发词：dpdesign
-Dark：深色底上文字必须浅色（text-1/2/3/4 + action-fg）
-禁写死 #1d2129 等 Light 深色；禁把 Action 填充当字色
+胶囊切换：选中 = Action 高亮底 + 白字（--dp-text-on-primary）
+禁止白底描边 + 深蓝字当选中

@@ -1209,6 +1209,17 @@
         });
       });
     });
+    document.querySelectorAll('.dp-segment').forEach((group) => {
+      group.querySelectorAll('.dp-segment__item').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.dp-segment__item').forEach((b) => {
+            const on = b === btn;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-checked', on ? 'true' : 'false');
+          });
+        });
+      });
+    });
     initFeedbackDemos();
     window.addEventListener('resize', () => {
       charts.forEach((c) => c.resize());

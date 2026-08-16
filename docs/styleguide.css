@@ -1088,6 +1088,59 @@ body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pil
 }
 .btn--danger:active { filter: brightness(0.95); box-shadow: none; }
 
+.dp-segment {
+  display: inline-flex;
+  align-items: stretch;
+  padding: 3px;
+  border: 1px solid var(--dp-border);
+  border-radius: var(--dp-radius-pill);
+  background: var(--dp-fill-2);
+  gap: 2px;
+  max-width: 100%;
+}
+.dp-segment__item {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--dp-radius-pill);
+  background: transparent;
+  color: var(--dp-text-1);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--dp-transition-fast),
+    color var(--dp-transition-fast);
+}
+.dp-segment--sm .dp-segment__item {
+  min-height: 26px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+.dp-segment__item:hover:not(.is-active):not(:disabled) {
+  background: var(--dp-fill-3);
+  color: var(--dp-text-1);
+}
+.dp-segment__item.is-active {
+  background: var(--dp-color-action);
+  color: var(--dp-text-on-primary);
+}
+.dp-segment__item:focus-visible {
+  outline: none;
+  box-shadow: var(--dp-focus-ring);
+}
+.dp-segment__item:disabled {
+  color: var(--dp-text-4);
+  cursor: not-allowed;
+}
+
 .btn--icon {
   width: 36px;
   min-height: 36px;
@@ -3659,6 +3712,21 @@ html[data-dp-theme='dark'] .dp-steps li.is-current,
 html[data-dp-theme='dark'] .i18n-mode-btn.is-active,
 html[data-dp-theme='dark'] .theme-btn.is-active {
   color: var(--dp-color-action-fg);
+}
+html[data-dp-theme='dark'] .dp-segment {
+  background: var(--dp-fill-2);
+  border-color: var(--dp-border);
+}
+html[data-dp-theme='dark'] .dp-segment__item {
+  color: var(--dp-text-2);
+}
+html[data-dp-theme='dark'] .dp-segment__item:hover:not(.is-active):not(:disabled) {
+  background: var(--dp-fill-3);
+  color: var(--dp-text-1);
+}
+html[data-dp-theme='dark'] .dp-segment__item.is-active {
+  background: var(--dp-color-action);
+  color: var(--dp-text-on-primary);
 }
 html[data-dp-theme='dark'] a:not(.btn) {
   color: var(--dp-color-action-fg);
