@@ -103,9 +103,9 @@ html[data-dp-theme='light'] {
   --dp-card-padding-tool-lg: 24px;
   --dp-card-padding-showcase: 24px;
   --dp-card-padding-showcase-lg: 40px;
-  --dp-container-max: 1200px;
+  --dp-container-max: none; /* Product：不锁页宽，顶满工作区 */
   --dp-container-wide-max: 1280px;
-  --dp-container: min(var(--dp-container-max), calc(100vw - 48px));
+  --dp-container: 100%;
   --dp-container-wide: min(var(--dp-container-wide-max), calc(100vw - 48px));
   --dp-bp-xs: 768px;
   --dp-bp-md: 768px;

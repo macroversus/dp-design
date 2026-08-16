@@ -1,3 +1,4 @@
-DP Design Agent Pack · v0.1.9
+DP Design Agent Pack · v0.1.10
 触发词：dpdesign
-Dark：选中/链接用 --dp-color-action-fg（浅）；主按钮深 Action + 白字
+Product 页宽：左右顶满工作区，无 1200 上限
+Showcase 通栏仍 ≤1280；表单字段区仍 720

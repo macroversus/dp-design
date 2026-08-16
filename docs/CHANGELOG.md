@@ -9,6 +9,14 @@
 
 ---
 
+## [0.1.10] — 2026-08-16
+
+### Changed
+
+- **规范 / Token / 资源**：Product **不再锁页宽**——内容区左右顶满工作区（`--dp-container: 100%`，`--dp-container-max: none`），随窗口变宽。Showcase 仍 ≤1280；表单字段区仍 720。同步指南站与 Agent Pack
+
+---
+
 ## [0.1.9] — 2026-08-16
 
 ### Changed

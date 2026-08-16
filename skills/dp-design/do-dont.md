@@ -61,6 +61,7 @@
 
 | ✅ | ❌ |
 |----|----|
+| Product 内容左右顶满工作区 | Product 再套 max-width 1200 / 居中窄栏 |
 | Product：侧栏主导、密度高、克制 | Product 大面积紫蓝渐变 |
 | Showcase：顶栏 + 通栏、可营销辅色 | Showcase 控件也用霓虹主色 |
 | 登记业务例外控件 | 静默 fork 全套色板 |

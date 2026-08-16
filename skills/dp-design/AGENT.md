@@ -45,6 +45,7 @@
 
 - Primary / Action 落在品牌蓝区间（约 `#3b45e5` / `#3c49dd`），禁止青霓虹主色、禁止业务站私自改 Primary  
 - Product：边框优先、**主容器圆角 16px**（`--dp-radius-container`）、控件仍 8/4、一页一个主按钮、卡片克制阴影  
+- **Product 页宽**：内容区**左右顶满工作区**（侧栏后剩余空间），随窗口变宽；`--dp-container` = `100%`，`--dp-container-max` = `none`。**禁止**再套 `max-width: 1200` / 居中窄栏。表单字段区仍可 720 左对齐。Showcase 通栏仍 ≤1280  
 - Showcase：可用更大圆角与蓝味阴影；紫蓝渐变仅展示区块  
 - **嵌套圆角（同心 · S9-A）**：圆角容器内再套圆角容器时，**禁止父子同用一个 radius Token 敷衍**。先算  
   `子圆角 = max(0, 父圆角 − 该侧内边距 P)`，再**就近下取**到阶梯。Product 常见：父容器 **16** + padding 8 → 子 **8**；父 **16** + padding 24 → 子 **0**。禁止内层再写 `--dp-radius-container` / 与父同大。Pill Chip / 开关除外；媒体裁切可不强制。凡「卡套卡 / 卡套结果区」必须过公式  
@@ -68,7 +69,7 @@
 ## 验收清单（改前端时勾选）
 
 - [ ] 已用 `--dp-*` Token，未写死冲突主色  
-- [ ] Product：主容器 16（`--dp-radius-container`）；控件 8/4；Showcase 密度符合场景  
+- [ ] Product：主容器 16（`--dp-radius-container`）；控件 8/4；页宽顶满工作区（无 1200 上限）；Showcase 密度符合场景  
 - [ ] 嵌套圆角已按同心公式（子 = max(0, 父 − P) 再下取）；无「内外同 16 / 同 8」挤缝  
 - [ ] 主按钮唯一；表单 Focus / 错误说明齐全  
 - [ ] 实心 Action/Primary 上的字为 on-primary；Avatar/Logo 可读  
