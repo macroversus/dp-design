@@ -45,12 +45,12 @@ description: >-
 - Dark 链接 / 侧栏选中 / Tabs / 线型图标：`--dp-color-action-fg`；**禁止**用 `--dp-color-action` 当字色。
 
 **Product / Showcase**
-- Product：边框优先；主容器 **16**（`--dp-radius-container`）；控件 **8/4**；内容**顶满工作区**（禁 `max-width: 1200`）；一页一个主按钮。表单字段区仍可 720。  
+- Product：边框优先；壳层 **倒 L**（侧栏通高、Logo 窗口左上角）；主容器 **16**；控件 **8/4**；内容**顶满工作区**（禁 `max-width: 1200`）；一页一个主按钮。表单字段区仍可 720。  
 - Showcase：通栏 ≤1280；大卡可 16–20；紫蓝渐变仅展示区块。
 
 **结构**
 - 嵌套圆角：`子 = max(0, 父 − P)` 再下取阶梯。例外：pill Chip / 开关 / 胶囊 / 媒体裁切。  
-- 顶栏 **64**；Logo **28–32**；侧栏项高 **40**；功能入口（会话/智能体等）图标+文案、**无边框盒**。  
+- 顶栏 **64**；Logo **28–32**，**始终在整个窗口左上角**（Product：侧栏通高、Logo 在侧栏顶；Showcase：顶栏最左）。禁止顶栏通栏把 Logo 压到顶栏下方。侧栏项高 **40**；功能入口无边框盒。  
 - Showcase 分区页脚；Product 默认无页脚或单行版权。  
 - 空态 / Result：线型图标 **48–64** → 标题 → 说明 → 一主按钮；**禁用** `illustrations/*.svg`。  
 - Focus：Action 边 + 3px 环。按钮 Hover：变色 + 发光，禁止位移。
@@ -68,6 +68,7 @@ description: >-
 
 ## 验收
 
+- [ ] Logo 在整个窗口左上角（Product 倒 L / Showcase 顶栏左）  
 - [ ] `--dp-*` Token；未写死冲突主色  
 - [ ] Product 容器 16、控件 8/4、页宽顶满；嵌套圆角已按公式  
 - [ ] 实心填充为 on-primary；Dark 深底无深字  

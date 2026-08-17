@@ -225,9 +225,9 @@ code { font-family: var(--dp-font-mono); font-size: 12px; color: var(--dp-text-3
 .layout-demo__frame--lr { grid-template-columns: 28px 1fr; }
 .layout-demo__frame--lr i { background: var(--dp-color-action); }
 .layout-demo__frame--lr b { background: var(--dp-bg-white); margin: 8px; border-radius: 4px; border: 1px solid var(--dp-border); }
-.layout-demo__frame--t { grid-template-rows: 18px 1fr; grid-template-columns: 28px 1fr; }
-.layout-demo__frame--t i { grid-column: 1 / -1; background: var(--dp-color-primary); }
-.layout-demo__frame--t em { background: var(--dp-color-action); }
+.layout-demo__frame--t { grid-template-columns: 28px 1fr; grid-template-rows: 18px 1fr; }
+.layout-demo__frame--t i { grid-row: 1 / -1; background: var(--dp-color-action); }
+.layout-demo__frame--t em { background: var(--dp-color-primary); }
 .layout-demo__frame--t b { background: var(--dp-bg-white); margin: 8px; border-radius: 4px; border: 1px solid var(--dp-border); }
 
 .dp-icon {

@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./dp-bohrium.css?v=20260814" />
-  <link rel="stylesheet" href="./styleguide.css?v=20260816modeseg" />
+  <link rel="stylesheet" href="./styleguide.css?v=20260817logo" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 </head>
 <body>
@@ -35,7 +35,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
         <div>
           <strong>DP Design</strong>
-          <em>Bohrium Baseline · v0.1.17</em>
+          <em>Bohrium Baseline · v0.1.18</em>
         </div>
       </div>
 
@@ -917,7 +917,7 @@
               <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">v0.1.17</span>
+              <span class="tag tag--blue">v0.1.18</span>
             </div>
           </div>
 
@@ -942,11 +942,11 @@
           <div class="panel-card intro-download" id="skill-download">
             <div class="panel-card__head">
               <h3>下载 DP Design Agent Pack</h3>
-              <span class="tag tag--success">v0.1.17</span>
+              <span class="tag tag--success">v0.1.18</span>
             </div>
             <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（执行指令 <code>SKILL.md</code>，按需打开 Token 速查 / 正反例 / 胶囊实现）。<strong>不含</strong>特定站点落地顺序。</p>
             <div class="intro-download__row">
-              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.17.zip" download="dp-design-agent-pack-v0.1.17.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.18.zip" download="dp-design-agent-pack-v0.1.18.zip">下载 Agent Pack（zip）</a>
               <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
             </div>
             <ol class="intro-install muted">
@@ -1023,7 +1023,7 @@
           <div class="page-head">
             <div>
               <h1>布局与栅格 <span class="status status--done">已锁定</span></h1>
-              <p>2026-08-09 决策：8px 网格 · 24 栏 Gutter 24 · Product T 型 · Showcase 上下 · 侧栏 220/72 · 顶栏 64。</p>
+              <p>2026-08-17 更新：Product **倒 L**（侧栏通高、Logo 窗口左上角）· Showcase 上下 · 侧栏 220/72 · 顶栏 64。</p>
             </div>
           </div>
 
@@ -1039,7 +1039,7 @@
             <div class="layout-demos">
               <div class="layout-demo">
                 <div class="layout-demo__frame layout-demo__frame--t"><i></i><em></em><b></b></div>
-                <strong>T 型 · Product 默认</strong><span>顶栏 64 + 侧栏 220 + 画布</span>
+                <strong>倒 L · Product 默认</strong><span>侧栏通高（Logo 左上角）+ 右侧顶栏 64</span>
               </div>
               <div class="layout-demo">
                 <div class="layout-demo__frame layout-demo__frame--tb"><i></i><b></b></div>
@@ -1120,6 +1120,7 @@
               <li>多列内容用 24 栅格；Gutter 保持 24px</li>
               <li>Product 不默认第三侧栏，用 Drawer 承载辅助信息</li>
               <li>窄屏优先收起侧栏，避免挤压内容区</li>
+              <li>Product 倒 L：侧栏通高、Logo 在窗口左上角；顶栏只在侧栏右侧</li>
               <li>Product 页宽顶满工作区，不锁 1200；Showcase 通栏 ≤1280</li>
             </ul>
           </div>
@@ -1486,7 +1487,7 @@
             <div class="panel-card__head"><h3>模式对照</h3></div>
             <div class="nav-mode-grid">
               <article class="nav-mode-card">
-                <header><strong>Product · T 型</strong><span>侧栏 + 顶栏工具</span></header>
+                <header><strong>Product · 倒 L</strong><span>侧栏通高 · Logo 左上角</span></header>
                 <div class="nav-mini nav-mini--product" aria-hidden="true">
                   <aside>
                     <i class="is-on"></i><i></i><i></i>
@@ -1656,7 +1657,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>Product：侧栏主导；Showcase：顶栏一级；禁止双套一级</li>
+              <li>Product：侧栏主导、倒 L；Logo 始终在窗口左上角；Showcase：顶栏一级</li>
               <li>顶栏 64 · Logo 28–32 · 侧栏项高 40 · 菜单/入口 14px</li>
               <li>功能入口无框；模式开关保留 Secondary 边框</li>
               <li>Showcase 站点页脚：链接 Text2、版权 Text3；Product 默认无</li>
@@ -2510,7 +2511,7 @@
                 <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
                 <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
                 <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
-                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.17</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.18</td></tr>
               </tbody>
             </table>
           </div>
@@ -2525,10 +2526,10 @@
           <div class="page-head">
             <div>
               <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
-              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.17</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.18</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">设计系统 v0.1.17</span>
+              <span class="tag tag--blue">设计系统 v0.1.18</span>
             </div>
           </div>
 
@@ -2541,7 +2542,7 @@
                 <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
                 <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
                 <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
-                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.17.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.18.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
                 <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
                 <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
               </tbody>
@@ -2620,7 +2621,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>当前 <strong>v0.1.17</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>当前 <strong>v0.1.18</strong>；独立 SemVer；Breaking → MAJOR</li>
               <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
               <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
               <li>业务站只消费；例外登记；禁止写死色</li>
