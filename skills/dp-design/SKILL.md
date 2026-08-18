@@ -40,7 +40,7 @@ description: >-
 ## 硬约束
 
 **色**
-- Primary / Action ≈ `#3b45e5` / `#3c49dd`；禁青霓虹；禁业务站改 Primary。  
+- Primary / Action = `#165dff`（Hover `#4080ff` / Active `#0e42d2`）；禁青霓虹；禁业务站另起主色。  
 - 实心填充上的字：`--dp-text-on-primary`。  
 - Dark 链接 / 侧栏选中 / Tabs / 线型图标：`--dp-color-action-fg`；**禁止**用 `--dp-color-action` 当字色。
 
@@ -51,6 +51,7 @@ description: >-
 **结构**
 - 嵌套圆角：`子 = max(0, 父 − P)` 再下取阶梯。例外：pill Chip / 开关 / 胶囊 / 媒体裁切。  
 - 顶栏 **64**；Logo **28–32**，**始终在整个窗口左上角**（Product：侧栏通高、Logo 在侧栏顶；Showcase：顶栏最左）。禁止顶栏通栏把 Logo 压到顶栏下方。侧栏项高 **40**；功能入口无边框盒。  
+- 按钮高度：**大 36 / 中 32（默认）/ 小 28 / 迷你 24**；水平 padding 20 / 16 / 16 / 12；字号大中小 14、迷你 12。圆角仍 **8**（不改公司稿的 2px）。  
 - Showcase 分区页脚；Product 默认无页脚或单行版权。  
 - 空态 / Result：线型图标 **48–64** → 标题 → 说明 → 一主按钮；**禁用** `illustrations/*.svg`。  
 - Focus：Action 边 + 3px 环。按钮 Hover：变色 + 发光，禁止位移。
@@ -69,7 +70,8 @@ description: >-
 ## 验收
 
 - [ ] Logo 在整个窗口左上角（Product 倒 L / Showcase 顶栏左）  
-- [ ] `--dp-*` Token；未写死冲突主色  
+- [ ] `--dp-*` Token；未写死冲突主色；Primary 为 `#165dff`  
+- [ ] 按钮高度用 大36 / 中32 / 小28 / 迷你24  
 - [ ] Product 容器 16、控件 8/4、页宽顶满；嵌套圆角已按公式  
 - [ ] 实心填充为 on-primary；Dark 深底无深字  
 - [ ] 模式切换为胶囊；颜色默认跟随系统  

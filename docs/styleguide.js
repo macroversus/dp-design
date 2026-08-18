@@ -27,8 +27,8 @@
   };
 
   const DEFAULTS = {
-    '--dp-color-primary': '#3b45e5',
-    '--dp-color-action': '#3c49dd',
+    '--dp-color-primary': '#165dff',
+    '--dp-color-action': '#165dff',
     '--dp-color-primary-hover': '#626aea',
     '--dp-color-primary-active': '#2f37b7',
     '--dp-color-accent-violet': '#5d26ff',
@@ -234,8 +234,8 @@
     charts.forEach((c) => c.dispose());
     charts = [];
 
-    const action = cssVar('--dp-color-action') || '#3c49dd';
-    const primary = cssVar('--dp-color-primary') || '#3b45e5';
+    const action = cssVar('--dp-color-action') || '#165dff';
+    const primary = cssVar('--dp-color-primary') || '#165dff';
     const success = cssVar('--dp-success') || '#0ab268';
     const warning = cssVar('--dp-warning') || '#ff7d00';
     const text3 = cssVar('--dp-text-3') || '#86909c';

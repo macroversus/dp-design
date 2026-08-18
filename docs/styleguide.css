@@ -973,8 +973,9 @@ html[data-reduce-motion='true'] .motion-skeleton {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 36px;
-  padding: 0 16px;
+  min-height: var(--dp-btn-height);
+  min-width: var(--dp-btn-min-width);
+  padding: 0 var(--dp-btn-padding-x);
   border-radius: var(--dp-btn-radius, var(--dp-radius));
   border: 1px solid transparent;
   font: inherit;
@@ -988,8 +989,23 @@ html[data-reduce-motion='true'] .motion-skeleton {
     box-shadow var(--dp-transition-fast);
 }
 
-.btn--sm { min-height: 32px; padding: 0 12px; font-size: 13px; }
-.btn--lg { min-height: 44px; padding: 0 22px; }
+.btn--lg {
+  min-height: var(--dp-btn-height-lg);
+  min-width: var(--dp-btn-min-width-lg);
+  padding: 0 var(--dp-btn-padding-x-lg);
+}
+.btn--sm {
+  min-height: var(--dp-btn-height-sm);
+  min-width: var(--dp-btn-min-width);
+  padding: 0 var(--dp-btn-padding-x-sm);
+}
+.btn--mini {
+  min-height: var(--dp-btn-height-mini);
+  min-width: var(--dp-btn-min-width-mini);
+  padding: 0 var(--dp-btn-padding-x-mini);
+  font-size: 12px;
+  font-weight: 400;
+}
 .btn--pill,
 body[data-btn-shape='pill'] .btn--primary,
 body[data-btn-shape='pill'] .btn--secondary { border-radius: var(--dp-radius-pill); }

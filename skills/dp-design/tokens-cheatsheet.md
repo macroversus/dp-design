@@ -6,11 +6,11 @@
 
 | Token | 典型值 | 用途 |
 |-------|--------|------|
-| `--dp-color-primary` | `#3b45e5` | 主品牌蓝 |
-| `--dp-color-action` | `#3c49dd`（Dark 填充 `#6b74f2`） | **实心**主按钮 / 边框强调 |
-| `--dp-color-action-fg` | Light=Action；Dark=`#d2d6ff` | **文字/链接/选中/图标**（暗色须浅） |
-| `--dp-color-primary-hover` | `#626aea` | Hover |
-| `--dp-color-primary-active` | `#2f37b7` | Active |
+| `--dp-color-primary` | `#165dff`（primary-6） | 主品牌蓝 |
+| `--dp-color-action` | 同 Primary；Dark 填充 `#4080ff` | **实心**主按钮 / 边框强调 |
+| `--dp-color-action-fg` | Light=Action；Dark=`#bedaff` | **文字/链接/选中/图标**（暗色须浅） |
+| `--dp-color-primary-hover` | `#4080ff`（primary-5） | Hover |
+| `--dp-color-primary-active` | `#0e42d2`（primary-7） | Active |
 | `--dp-color-action-bg-light` | `#e8f3ff` | 浅底 / Tag |
 | `--dp-color-accent-violet` | `#5d26ff` | Showcase 辅色（慎用） |
 | `--dp-text-on-primary` | `#ffffff` | **实心** Primary/Action 上的字、Avatar 字母 |
@@ -51,6 +51,7 @@
 | Logo | 高 **28–32**；**整个窗口左上角**；名 16·600；间距 8 |
 | Product 壳层 | **倒 L**：侧栏通高含 Logo，顶栏只在侧栏右侧 |
 | 侧栏菜单项 | 高 **40**；字 14；图标 20 |
+| 按钮高度 | **大 36 / 中 32（默认）/ 小 28 / 迷你 24** |
 | Product 内容宽 | **顶满工作区**（`--dp-container: 100%`，无 1200 上限） |
 | Showcase 内容宽 | ≤ `1280px` |
 | 站点页脚 | Showcase 用；Product 默认无；链接 Text2 / 版权 Text3 |
@@ -72,7 +73,8 @@
 
 ## 字体
 
-- 中文 UI：`PingFang SC`, `MiSans`, `Microsoft YaHei`, sans-serif  
+- 中文 UI：`PingFang SC`, `Hiragino Sans GB`, `Microsoft YaHei`, `Noto Sans SC`  
+- 西文：`Nunito Sans`（`--dp-font-sans` / `--dp-font-display`）  
 - 代码：`JetBrains Mono` 等 mono 栈  
 
 ## 接入

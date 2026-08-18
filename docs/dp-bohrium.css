@@ -7,16 +7,23 @@
 html[data-dp-theme='light'] {
   color-scheme: light;
 
-  /* Brand */
-  --dp-color-primary: #3b45e5;
-  --dp-color-action: #3c49dd;
+  /* Brand — 公司色板 primary-6 及色阶（2026-08-18） */
+  --dp-color-primary-1: #e8f3ff;
+  --dp-color-primary-2: #bedaff;
+  --dp-color-primary-3: #94bfff;
+  --dp-color-primary-4: #6aa1ff;
+  --dp-color-primary-5: #4080ff;
+  --dp-color-primary-6: #165dff;
+  --dp-color-primary-7: #0e42d2;
+  --dp-color-primary: var(--dp-color-primary-6);
+  --dp-color-action: var(--dp-color-primary-6);
   --dp-color-action-fg: var(--dp-color-action); /* 文字/图标用；Dark 会单独提亮 */
-  --dp-color-primary-hover: #626aea;
-  --dp-color-primary-active: #2f37b7;
-  --dp-color-primary-bg: #f7fafe;
-  --dp-color-primary-bg-hover: #e9ebf7;
-  --dp-color-action-bg-light: #e8f3ff;
-  --dp-color-action-bg-hover: #bedaff;
+  --dp-color-primary-hover: var(--dp-color-primary-5);
+  --dp-color-primary-active: var(--dp-color-primary-7);
+  --dp-color-primary-bg: var(--dp-color-primary-1);
+  --dp-color-primary-bg-hover: var(--dp-color-primary-2);
+  --dp-color-action-bg-light: var(--dp-color-primary-1);
+  --dp-color-action-bg-hover: var(--dp-color-primary-2);
   --dp-color-accent-violet: #5d26ff;
   --dp-color-accent-blue: #264aff;
 
@@ -46,7 +53,7 @@ html[data-dp-theme='light'] {
   --dp-border: #e5e6eb;
   --dp-border-light: #f2f3f5;
   --dp-border-dark: #c9cdd4;
-  --dp-border-primary-tint: #e9ebf7;
+  --dp-border-primary-tint: var(--dp-color-primary-1);
   --dp-divider: var(--dp-border);
   --dp-divider-width: 1px;
   --dp-focus-ring-width: 3px;
@@ -59,7 +66,7 @@ html[data-dp-theme='light'] {
   --dp-warning: #ff7d00;
   --dp-warning-bg: #fff7e8;
   --dp-error: #ff4747;
-  --dp-info: #3b45e5;
+  --dp-info: var(--dp-color-primary-6);
 
   /* Shape — locked 2026-08-10; container default raised 2026-08-14 */
   --dp-radius-xs: 2px;
@@ -75,7 +82,7 @@ html[data-dp-theme='light'] {
   --dp-shadow-none: none;
   --dp-shadow-xs: 0 1px 2px #0000000a;
   --dp-shadow: 0 4px 10px #9fbadc33;
-  --dp-shadow-emphasis: 0 4px 10px #9fbadc33, 0 6px 10px #3b45e526;
+  --dp-shadow-emphasis: 0 4px 10px #9fbadc33, 0 6px 10px #165dff26;
   --dp-shadow-modal: 0 6px 16px #00000014, 0 3px 6px -4px #0000001f, 0 9px 28px 8px #0000000d;
 
   /* Spacing (8px grid) */
@@ -146,9 +153,22 @@ html[data-dp-theme='light'] {
   --dp-motion-enter-y-showcase: 16px;
   --dp-motion-stagger: 60ms;
 
+  /* Button sizes — 公司矩阵 大/中/小/迷你（圆角仍 8） */
+  --dp-btn-height-lg: 36px;
+  --dp-btn-height: 32px;
+  --dp-btn-height-sm: 28px;
+  --dp-btn-height-mini: 24px;
+  --dp-btn-padding-x-lg: 20px;
+  --dp-btn-padding-x: 16px;
+  --dp-btn-padding-x-sm: 16px;
+  --dp-btn-padding-x-mini: 12px;
+  --dp-btn-min-width-lg: 117px;
+  --dp-btn-min-width: 109px;
+  --dp-btn-min-width-mini: 90px;
+
   /* Typography */
-  --dp-font-sans: "PingFang SC", "MiSans", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --dp-font-display: "Plus Jakarta Sans", "MiSans", var(--dp-font-sans);
+  --dp-font-sans: "Nunito Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --dp-font-display: "Nunito Sans", var(--dp-font-sans);
   --dp-font-serif: "Merriweather", "Source Han Serif CN", "Noto Serif SC", serif;
   --dp-font-mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
 
@@ -166,12 +186,12 @@ html[data-dp-theme='light'] {
 html[data-dp-theme='dark'] {
   color-scheme: dark;
 
-  /* 实心按钮用较深 Action；选中字/图标用 --dp-icon-color-active 提亮 */
-  --dp-color-primary: #6b74f2;
-  --dp-color-action: #6b74f2;
-  --dp-color-action-fg: #d2d6ff; /* 深色底上的链接/选中/图标字色，须浅 */
-  --dp-color-primary-hover: #858df5;
-  --dp-color-primary-active: #545eeb;
+  /* 实心按钮用 primary-5；选中字/图标用更浅的 primary-2 */
+  --dp-color-primary: #4080ff;
+  --dp-color-action: #4080ff;
+  --dp-color-action-fg: #bedaff; /* 深色底上的链接/选中/图标字色，须浅 */
+  --dp-color-primary-hover: #6aa1ff;
+  --dp-color-primary-active: #165dff;
   --dp-color-primary-bg: #1e2448;
   --dp-color-primary-bg-hover: #262d5c;
   --dp-color-action-bg-light: #2f3868;
@@ -211,7 +231,7 @@ html[data-dp-theme='dark'] {
   --dp-warning: #ff9a2e;
   --dp-warning-bg: #3a2a14;
   --dp-error: #f76560;
-  --dp-info: #6b74f2;
+  --dp-info: #4080ff;
 
   --dp-shadow-none: none;
   --dp-shadow-xs: 0 1px 2px #00000066;
