@@ -19,7 +19,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./dp-bohrium.css?v=20260814" />
   <link rel="stylesheet" href="./styleguide.css?v=20260817logo" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
@@ -35,7 +35,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
         <div>
           <strong>DP Design</strong>
-          <em>Bohrium Baseline · v0.1.20</em>
+          <em>Bohrium Baseline · v0.1.21</em>
         </div>
       </div>
 
@@ -322,17 +322,18 @@
           <div class="page-head">
             <div>
               <h1>字体排版</h1>
-              <p>中文 PingFang SC；西文 Nunito Sans；内容强调可用 Merriweather；代码用 JetBrains Mono。</p>
+              <p>一套无衬线：西文 Nunito Sans，中文 PingFang SC。层级是 36 / 24 / 18 / 16 / 14 / 12。标题 600，正文 400。</p>
             </div>
           </div>
           <div class="panel-card type-stack">
-            <article class="type-card"><span class="type-card__meta">Hero · 700</span><p class="type-hero">加速科学发现，释放科学价值</p><code>clamp(2.5rem, 5vw, 3.5rem)</code></article>
-            <article class="type-card"><span class="type-card__meta">Page Title · 600</span><p class="type-page">玻尔 · AI for Science 空间站</p><code>1.75rem / Text 1</code></article>
-            <article class="type-card"><span class="type-card__meta">Section · 600</span><p class="type-section">产品能力与科研工作流</p><code>1.25rem</code></article>
-            <article class="type-card"><span class="type-card__meta">Body · 400</span><p class="type-body">Bohrium 提供算力、应用与协作工具，帮助科研团队更快完成从文献到计算与实验的闭环。</p><code>15–16px / 1.55</code></article>
-            <article class="type-card"><span class="type-card__meta">Caption</span><p class="type-caption">BASELINE · DP TECHNOLOGY · BOHRIUM</p><code>12px · tracking</code></article>
-            <article class="type-card"><span class="type-card__meta">Serif</span><p class="type-serif">Molecule Simulates the Future</p><code>Merriweather</code></article>
-            <article class="type-card"><span class="type-card__meta">Mono</span><p class="type-mono">--dp-color-action: #165dff;</p><code>JetBrains Mono</code></article>
+            <article class="type-card"><span class="type-card__meta">展示标题 · 36 · 600</span><p class="type-hero">加速科学发现</p><code>仅 Showcase</code></article>
+            <article class="type-card"><span class="type-card__meta">页面标题 · 24 · 600</span><p class="type-page">任务列表</p><code>Product 最大标题</code></article>
+            <article class="type-card"><span class="type-card__meta">区块标题 · 18 · 600</span><p class="type-section">筛选条件</p><code>卡片 / 分组</code></article>
+            <article class="type-card"><span class="type-card__meta">界面正文 · 14 · 400</span><p class="type-body">选择酶与反应条件后提交任务。说明文字保持 14，用字色区分主次。</p><code>text-1 · 行高 1.6</code></article>
+            <article class="type-card"><span class="type-card__meta">次文案 · 14 · 400</span><p class="type-secondary">结果保留 7 天，到期后自动清理。</p><code>text-2</code></article>
+            <article class="type-card"><span class="type-card__meta">句中强调 · 14 · 500</span><p class="type-emphasis">提交前请确认<span>反应温度</span>。</p><code>同字号，只提字重</code></article>
+            <article class="type-card"><span class="type-card__meta">辅助 · 12 · 400</span><p class="type-caption">更新于今天 18:00</p><code>text-3 · 字距 0</code></article>
+            <article class="type-card"><span class="type-card__meta">等宽 · 仅代码</span><p class="type-mono">--dp-text-body: 14px;</p><code>JetBrains Mono</code></article>
           </div>
           <div class="panel-card text-levels">
             <p class="t1">Text 1 · 主文案 #1d2129</p>
@@ -936,7 +937,7 @@
               <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">v0.1.20</span>
+              <span class="tag tag--blue">v0.1.21</span>
             </div>
           </div>
 
@@ -961,11 +962,11 @@
           <div class="panel-card intro-download" id="skill-download">
             <div class="panel-card__head">
               <h3>下载 DP Design Agent Pack</h3>
-              <span class="tag tag--success">v0.1.20</span>
+              <span class="tag tag--success">v0.1.21</span>
             </div>
             <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（执行指令 <code>SKILL.md</code>，按需打开 Token 速查 / 正反例 / 胶囊实现）。<strong>不含</strong>特定站点落地顺序。</p>
             <div class="intro-download__row">
-              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.20.zip" download="dp-design-agent-pack-v0.1.20.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.21.zip" download="dp-design-agent-pack-v0.1.21.zip">下载 Agent Pack（zip）</a>
               <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
             </div>
             <ol class="intro-install muted">
@@ -2530,7 +2531,7 @@
                 <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
                 <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
                 <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
-                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.20</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.21</td></tr>
               </tbody>
             </table>
           </div>
@@ -2545,10 +2546,10 @@
           <div class="page-head">
             <div>
               <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
-              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.20</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.21</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">设计系统 v0.1.20</span>
+              <span class="tag tag--blue">设计系统 v0.1.21</span>
             </div>
           </div>
 
@@ -2561,7 +2562,7 @@
                 <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
                 <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
                 <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
-                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.20.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.21.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
                 <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
                 <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
               </tbody>
@@ -2640,7 +2641,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>当前 <strong>v0.1.20</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>当前 <strong>v0.1.21</strong>；独立 SemVer；Breaking → MAJOR</li>
               <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
               <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
               <li>业务站只消费；例外登记；禁止写死色</li>

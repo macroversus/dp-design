@@ -61,6 +61,11 @@ description: >-
 - 颜色 / 语言 / 2–4 项互斥模式 → **`.dp-segment`**（独立滑动 thumb，选中白字）。实现见 [segment.md](segment.md)。  
 - 颜色默认 **`system`**；解析后写 `html[data-dp-theme=light|dark]`。禁止 invert、单钮循环、矩形 tab、「深/浅」单字、Ant `Segmented` 默认皮。
 
+**字**
+- 全站无衬线：Nunito Sans + PingFang SC。禁止衬线体。  
+- 阶梯：**36**（仅 Showcase）/ **24** / **18** / **16** / **14**（Product 正文）/ **12**。标题 600，正文 400，句中强调 500 且不加大字号。  
+- Product 不用 36。字距 0。辅助用 text-3，不用主色充当层级。
+
 **文案**
 - `zh`：简单词写中文（任务，不要夹 Job）；错误 = 现象 + 下一步；按钮用具体动词。
 
@@ -72,6 +77,7 @@ description: >-
 
 - [ ] Logo 在整个窗口左上角（Product 倒 L / Showcase 顶栏左）  
 - [ ] `--dp-*` Token；浅色填充 `#165dff`；深色填充与字色已分开；未用 primary-1/2/3 做深色大面积  
+- [ ] 无衬线；标题 600、正文 14/400；Product 未用 36  
 - [ ] 按钮高度用 大36 / 中32 / 小28 / 迷你24  
 - [ ] Product 容器 16、控件 8/4、页宽顶满；嵌套圆角已按公式  
 - [ ] 实心填充为 on-primary；Dark 深底无深字  

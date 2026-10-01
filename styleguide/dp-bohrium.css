@@ -166,20 +166,23 @@ html[data-dp-theme='light'] {
   --dp-btn-min-width: 109px;
   --dp-btn-min-width-mini: 90px;
 
-  /* Typography */
+  /* Typography — 无衬线阶梯：36 / 24 / 18 / 16 / 14 / 12 */
   --dp-font-sans: "Nunito Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-  --dp-font-display: "Nunito Sans", var(--dp-font-sans);
-  --dp-font-serif: "Merriweather", "Source Han Serif CN", "Noto Serif SC", serif;
+  --dp-font-display: var(--dp-font-sans);
+  --dp-font-serif: var(--dp-font-sans); /* 兼容别名，禁止再指向衬线 */
   --dp-font-mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
+  --dp-font-weight-regular: 400;
+  --dp-font-weight-medium: 500;
+  --dp-font-weight-semibold: 600;
 
-  --dp-text-hero: clamp(2.5rem, 5vw, 3.5rem);
-  --dp-text-page-title: 1.75rem;
-  --dp-text-section: 1.25rem;
-  --dp-text-body: 0.9375rem;
-  --dp-text-body-lg: 1rem;
-  --dp-text-caption: 0.75rem;
-  --dp-leading-tight: 1.25;
-  --dp-leading-body: 1.55;
+  --dp-text-hero: 2.25rem;        /* 36 · 仅 Showcase */
+  --dp-text-page-title: 1.5rem;   /* 24 */
+  --dp-text-section: 1.125rem;    /* 18 */
+  --dp-text-body-lg: 1rem;        /* 16 */
+  --dp-text-body: 0.875rem;       /* 14 · Product 正文 */
+  --dp-text-caption: 0.75rem;     /* 12 */
+  --dp-leading-tight: 1.35;
+  --dp-leading-body: 1.6;
 }
 
 /* Dark — locked 2026-08-11 (D1–D10 recommended defaults) */

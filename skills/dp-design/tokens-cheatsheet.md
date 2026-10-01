@@ -73,9 +73,18 @@
 
 ## 字体
 
-- 中文 UI：`PingFang SC`, `Hiragino Sans GB`, `Microsoft YaHei`, `Noto Sans SC`  
-- 西文：`Nunito Sans`（`--dp-font-sans` / `--dp-font-display`）  
-- 代码：`JetBrains Mono` 等 mono 栈  
+无衬线一套到底。`--dp-font-display` 与 `--dp-font-sans` 相同。禁止衬线。
+
+| 层级 | 字号 | 字重 |
+|------|------|------|
+| Showcase 标题 | 36 | 600 |
+| 页面标题 | 24 | 600 |
+| 区块标题 | 18 | 600 |
+| 长文 | 16 | 400 |
+| 界面正文 | 14 | 400 |
+| 辅助 | 12 | 400 |
+
+句中强调用 500，字号不变。Product 最大 24。字距 0。代码才用 `JetBrains Mono`。  
 
 ## 接入
 
