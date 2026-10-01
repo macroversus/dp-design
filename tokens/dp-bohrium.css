@@ -85,24 +85,28 @@ html[data-dp-theme='light'] {
   --dp-shadow-emphasis: 0 4px 10px #9fbadc33, 0 6px 10px #165dff26;
   --dp-shadow-modal: 0 6px 16px #00000014, 0 3px 6px -4px #0000001f, 0 9px 28px 8px #0000000d;
 
-  /* Spacing (8px grid) */
-  --dp-space-1: 4px;
+  /* Spacing — 图形间距只用 8 的倍数；12 / 20 保留给旧控件，不再用于图形间距 */
+  --dp-space-1: 4px;               /* 光学内边，不是图形间距 */
   --dp-space-2: 8px;
-  --dp-space-3: 12px;
+  --dp-space-3: 12px;              /* 遗留，新间距不要用 */
   --dp-space-4: 16px;
-  --dp-space-5: 20px;
+  --dp-space-5: 20px;              /* 遗留，新间距不要用 */
   --dp-space-6: 24px;
   --dp-space-8: 32px;
   --dp-space-10: 40px;
   --dp-space-12: 48px;
   --dp-space-16: 64px;
+  --dp-gap-inline: 8px;            /* 图标与文字、同一行的图形 */
+  --dp-gap-stack: 16px;            /* 卡片内相关组 */
+  --dp-gap-section: 24px;          /* 卡片之间、页边、栅格 gutter */
 
   /* Layout — locked 2026-08-09 */
   --dp-grid-base: 8px;
   --dp-grid-columns: 24;
   --dp-grid-gutter: 24px;
+  --dp-scroll-step: var(--dp-gap-section); /* 滚轮一格 = 24px */
   --dp-header-height: 64px;
-  --dp-sidebar-width: 220px;
+  --dp-sidebar-width: 224px;       /* 28 × 8 */
   --dp-sidebar-collapsed: 72px;
   --dp-page-padding: 24px;
   --dp-page-padding-sm: 16px;

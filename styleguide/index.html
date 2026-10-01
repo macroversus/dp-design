@@ -35,7 +35,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
         <div>
           <strong>DP Design</strong>
-          <em>Bohrium Baseline · v0.1.21</em>
+          <em>Bohrium Baseline · v0.1.22</em>
         </div>
       </div>
 
@@ -937,7 +937,7 @@
               <p>DP Design 是深势科技面向科研与工业软件的前端设计体系。本站为<strong>可访问的样式参考站</strong>；需要动手改各产品前端时，可在本页下载<strong>跨工具 Agent 指南包</strong>（Cursor / Claude Code / Copilot / 其他均可）。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">v0.1.21</span>
+              <span class="tag tag--blue">v0.1.22</span>
             </div>
           </div>
 
@@ -962,11 +962,11 @@
           <div class="panel-card intro-download" id="skill-download">
             <div class="panel-card__head">
               <h3>下载 DP Design Agent Pack</h3>
-              <span class="tag tag--success">v0.1.21</span>
+              <span class="tag tag--success">v0.1.22</span>
             </div>
             <p class="t2" style="margin:0 0 14px">跨编辑器改站指南（执行指令 <code>SKILL.md</code>，按需打开 Token 速查 / 正反例 / 胶囊实现）。<strong>不含</strong>特定站点落地顺序。</p>
             <div class="intro-download__row">
-              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.21.zip" download="dp-design-agent-pack-v0.1.21.zip">下载 Agent Pack（zip）</a>
+              <a class="btn btn--primary" href="./downloads/dp-design-agent-pack-v0.1.22.zip" download="dp-design-agent-pack-v0.1.22.zip">下载 Agent Pack（zip）</a>
               <a class="btn btn--secondary" href="./downloads/INSTALL.txt" download="DP-Design-Agent-Pack-安装说明.txt">下载安装说明</a>
             </div>
             <ol class="intro-install muted">
@@ -1043,14 +1043,15 @@
           <div class="page-head">
             <div>
               <h1>布局与栅格 <span class="status status--done">已锁定</span></h1>
-              <p>2026-08-17 更新：Product **倒 L**（侧栏通高、Logo 窗口左上角）· Showcase 上下 · 侧栏 220/72 · 顶栏 64。</p>
+              <p>图形间距只有 8 / 16 / 24。侧栏 224。滚轮一格 24，和卡片间距相同。</p>
             </div>
           </div>
 
           <div class="kpi-grid">
             <article class="kpi-card"><div class="kpi-card__top"><span>网格基数</span></div><strong>8px</strong><small>--dp-grid-base</small></article>
             <article class="kpi-card"><div class="kpi-card__top"><span>栅格 / Gutter</span></div><strong>24 / 24</strong><small>栏数可变宽 · Gutter 定值</small></article>
-            <article class="kpi-card"><div class="kpi-card__top"><span>侧栏</span></div><strong>220 / 72</strong><small>展开 / 折叠</small></article>
+            <article class="kpi-card"><div class="kpi-card__top"><span>侧栏</span></div><strong>224 / 72</strong><small>展开对齐 8px 网格</small></article>
+            <article class="kpi-card"><div class="kpi-card__top"><span>滚轮一格</span></div><strong>24px</strong><small>等于区块间距</small></article>
             <article class="kpi-card"><div class="kpi-card__top"><span>内容宽</span></div><strong>顶满 / 1280</strong><small>Product 工作区 / Showcase</small></article>
           </div>
 
@@ -1099,7 +1100,9 @@
               <thead><tr><th>项</th><th>值</th><th>Token</th></tr></thead>
               <tbody>
                 <tr><td>顶栏高度</td><td>64px</td><td>--dp-header-height</td></tr>
-                <tr><td>侧栏展开 / 折叠</td><td>220 / 72px</td><td>--dp-sidebar-width / --dp-sidebar-collapsed</td></tr>
+                <tr><td>侧栏展开 / 折叠</td><td>224 / 72px</td><td>--dp-sidebar-width / --dp-sidebar-collapsed</td></tr>
+                <tr><td>图形间距</td><td>8 / 16 / 24</td><td>--dp-gap-inline / stack / section</td></tr>
+                <tr><td>滚轮一格</td><td>24px</td><td>--dp-scroll-step</td></tr>
                 <tr><td>页面边距</td><td>24px（窄屏 16）</td><td>--dp-page-padding</td></tr>
                 <tr><td>卡片内边距 Tool</td><td>16–24px</td><td>--dp-card-padding-tool*</td></tr>
                 <tr><td>卡片内边距 Showcase</td><td>24–40px</td><td>--dp-card-padding-showcase*</td></tr>
@@ -1123,7 +1126,22 @@
           </div>
 
           <div class="panel-card">
-            <div class="panel-card__head"><h3>间距 Scale</h3></div>
+            <div class="panel-card__head"><h3>图形间距</h3></div>
+            <div class="gap-board">
+              <div class="gap-line"><i></i><b style="width:8px"></b><i></i><span>8 同行</span></div>
+              <div class="gap-line"><i></i><b style="width:16px"></b><i></i><span>16 组内</span></div>
+              <div class="gap-line"><i></i><b style="width:24px"></b><i></i><span>24 区块 · 也是滚轮一格</span></div>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>滚轮步长</h3><span class="muted">在框内滚动，每次正好 24px</span></div>
+            <div class="scroll-step" data-dp-scroll tabindex="0" aria-label="滚轮每次移动 24 像素">
+              <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+              <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div>
+            </div>
+          </div>
+          <div class="panel-card">
+            <div class="panel-card__head"><h3>间距刻度</h3><span class="muted">图形间距只用 8 的倍数；12 与 20 不再用于新布局</span></div>
             <div class="space-row" id="spaceRowLayout"></div>
           </div>
 
@@ -1136,8 +1154,8 @@
               </div>
             </div>
             <ul class="checklist" style="margin-top:14px">
-              <li>间距、尺寸优先落在 8px 网格</li>
-              <li>多列内容用 24 栅格；Gutter 保持 24px</li>
+              <li>图形间距只用 8 / 16 / 24；滚轮一格 24px</li>
+              <li>多列内容用 24 栅格；侧栏 224，对齐 8px 网格</li>
               <li>Product 不默认第三侧栏，用 Drawer 承载辅助信息</li>
               <li>窄屏优先收起侧栏，避免挤压内容区</li>
               <li>Product 倒 L：侧栏通高、Logo 在窗口左上角；顶栏只在侧栏右侧</li>
@@ -2531,7 +2549,7 @@
                 <tr><td>模板</td><td>列表 / 表单 / 详情</td><td><span class="tag tag--success">已锁定</span></td><td>见页面模板页</td></tr>
                 <tr><td>规则</td><td>数据格式 / 数据列表</td><td><span class="tag tag--success">已锁定</span></td><td>§5.10–5.11</td></tr>
                 <tr><td>规则</td><td>无障碍 / 国际化</td><td><span class="tag tag--success">已锁定 · 验收</span></td><td>§5.16 · zh/en</td></tr>
-                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.21</td></tr>
+                <tr><td>工程</td><td>资源与治理</td><td><span class="tag tag--success">已锁定</span></td><td>§13 · v0.1.22</td></tr>
               </tbody>
             </table>
           </div>
@@ -2546,10 +2564,10 @@
           <div class="page-head">
             <div>
               <h1>资源与治理 <span class="status status--done">已锁定 · 验收通过</span></h1>
-              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.21</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
+              <p>2026-08-14 决策并验收：资源清单 · SemVer（当前 <strong>v0.1.22</strong>）· Changelog · 贡献准入 · 业务站只消费 Token（§13）。介绍页提供<strong>跨工具 Agent Pack</strong>；Figma / Logo 源文件为占位。</p>
             </div>
             <div class="page-head__actions">
-              <span class="tag tag--blue">设计系统 v0.1.21</span>
+              <span class="tag tag--blue">设计系统 v0.1.22</span>
             </div>
           </div>
 
@@ -2562,7 +2580,7 @@
                 <tr><td>图标 Sprite / 注册表</td><td><code>styleguide/icons-sprite.svg</code> · <code>icons-registry.json</code></td><td><span class="tag tag--success">约 170</span></td></tr>
                 <tr><td>插画</td><td><code>styleguide/illustrations/</code></td><td><span class="tag tag--warning">暂不使用</span></td></tr>
                 <tr><td>Logo</td><td><code>assets/logo/</code></td><td><span class="tag tag--warning">占位</span></td></tr>
-                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.21.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
+                <tr><td>Agent Pack</td><td>介绍页 · <code>downloads/dp-design-agent-pack-v0.1.22.zip</code></td><td><span class="tag tag--success">跨工具</span></td></tr>
                 <tr><td>规范 / 缺口 / Changelog</td><td><code>docs/</code></td><td><span class="tag tag--success">可用</span></td></tr>
                 <tr><td>Figma</td><td>外链待填</td><td><span class="tag tag--warning">占位</span></td></tr>
               </tbody>
@@ -2641,7 +2659,7 @@
           <div class="panel-card">
             <div class="panel-card__head"><h3>规则摘要</h3></div>
             <ul class="checklist">
-              <li>当前 <strong>v0.1.21</strong>；独立 SemVer；Breaking → MAJOR</li>
+              <li>当前 <strong>v0.1.22</strong>；独立 SemVer；Breaking → MAJOR</li>
               <li>资源路径固定；介绍页下载跨工具 Agent Pack；Logo / Figma 占位待补</li>
               <li>合入 = 预览 + 规范 + Changelog（+ Token 双写）</li>
               <li>业务站只消费；例外登记；禁止写死色</li>

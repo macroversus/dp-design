@@ -16,7 +16,8 @@
 | ✅ | ❌ |
 |----|----|
 | 主按钮用 `--dp-color-action` | 业务站写死另一套蓝 / 青霓虹 |
-| Product 卡片边框 + 轻或无阴影 | 重 glow、多层彩色阴影 |
+| 图形间距 8 / 16 / 24 | 图形之间用 12 或 20 |
+| 滚轮一格 24px | 滚轮停在半格上 |
 | 一页一个 Primary | 一排多个实心主按钮 |
 | Focus = Action 边 + 3px 环 | 去掉焦点样式 |
 | Action 实心底用 `--dp-text-on-primary` | 深蓝底叠黑色字母（Avatar/Logo） |

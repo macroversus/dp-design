@@ -204,10 +204,43 @@ code { font-family: var(--dp-font-mono); font-size: 12px; color: var(--dp-text-3
 .principle-grid strong { display: block; margin-bottom: 6px; font-size: 13px; }
 .principle-grid span { color: var(--dp-text-2); font-size: 12px; }
 
+.gap-board { display: grid; gap: 16px; }
+.gap-line { display: flex; align-items: center; gap: 16px; }
+.gap-line i {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--dp-color-action);
+}
+.gap-line b {
+  height: 32px;
+  background: var(--dp-color-primary-bg);
+  border-radius: 2px;
+}
+.gap-line span { font-size: 14px; color: var(--dp-text-2); }
+.scroll-step {
+  height: 120px;
+  overflow: auto;
+  border: 1px solid var(--dp-border);
+  border-radius: 8px;
+  background: var(--dp-bg-white);
+}
+.scroll-step div {
+  height: 24px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--dp-border);
+  font-size: 12px;
+  color: var(--dp-text-2);
+}
+.scroll-step div:nth-child(odd) { background: var(--dp-fill-1); }
+
 .layout-demos {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
 }
 .layout-demo strong { display: block; margin: 10px 0 4px; font-size: 13px; }
 .layout-demo span { color: var(--dp-text-3); font-size: 12px; }

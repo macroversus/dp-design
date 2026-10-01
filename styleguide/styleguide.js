@@ -1170,6 +1170,27 @@
     });
   }
 
+  function bindGridScroll() {
+    document.querySelectorAll('[data-dp-scroll]').forEach((el) => {
+      let acc = 0;
+      el.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        const step = Number.parseFloat(cssVar('--dp-scroll-step')) || 24;
+        const discrete = event.deltaMode !== 0 || Math.abs(event.deltaY) >= 40;
+        if (discrete) {
+          el.scrollTop += Math.sign(event.deltaY) * step;
+          acc = 0;
+          return;
+        }
+        acc += event.deltaY;
+        const ticks = Math.trunc(acc / step);
+        if (!ticks) return;
+        acc -= ticks * step;
+        el.scrollTop += ticks * step;
+      }, { passive: false });
+    });
+  }
+
   function initTheme() {
     let saved = 'system';
     try {
@@ -1235,6 +1256,7 @@
     bindRadiusControls();
     bindButtonShape();
     bindActions();
+    bindGridScroll();
     initTheme();
     paintCharts();
     initIcons();
