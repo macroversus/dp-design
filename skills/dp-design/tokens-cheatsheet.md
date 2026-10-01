@@ -9,9 +9,9 @@
 | `--dp-color-primary` | `#165dff`（primary-6） | 主品牌蓝 |
 | `--dp-color-action` | 同 Primary；Dark 填充 `#4080ff` | **实心**主按钮 / 边框强调 |
 | `--dp-color-action-fg` | Light=Action；Dark=`#bedaff` | **文字/链接/选中/图标**（暗色须浅） |
-| `--dp-color-primary-hover` | `#4080ff`（primary-5） | Hover |
-| `--dp-color-primary-active` | `#0e42d2`（primary-7） | Active |
-| `--dp-color-action-bg-light` | `#e8f3ff` | 浅底 / Tag |
+| `--dp-color-primary-hover` | Light `#4080ff`；Dark `#6aa1ff` | Hover 填充 |
+| `--dp-color-primary-active` | Light `#0e42d2`；Dark `#165dff` | 按下填充 |
+| `--dp-color-action-bg-light` | Light `#e8f3ff`；Dark `#2f3868` | 浅底 / Tag |
 | `--dp-color-accent-violet` | `#5d26ff` | Showcase 辅色（慎用） |
 | `--dp-text-on-primary` | `#ffffff` | **实心** Primary/Action 上的字、Avatar 字母 |
 | `--dp-icon-color-active` | 同 `action-fg` | 激活线型图标 |
@@ -34,7 +34,7 @@
 
 ### Dark 文字规则（摘要）
 
-深色底上的字必须浅色。正文只用 `--dp-text-*`；链接/选中/图标用 `--dp-color-action-fg`，不要用 `--dp-color-action` 当字色。实心填充与胶囊选中用 `--dp-text-on-primary`。胶囊实现见 [segment.md](segment.md)。  
+深色底上的字必须浅色。正文只用 `--dp-text-*`；链接/选中/图标用 `--dp-color-action-fg`，不要用 `--dp-color-action` 当字色。深色大面积不要用 `primary-1/2/3`。实心填充与胶囊选中用 `--dp-text-on-primary`。胶囊实现见 [segment.md](segment.md)。  
 
 ## 圆角与布局（摘要）
 

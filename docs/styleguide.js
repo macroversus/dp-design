@@ -29,8 +29,8 @@
   const DEFAULTS = {
     '--dp-color-primary': '#165dff',
     '--dp-color-action': '#165dff',
-    '--dp-color-primary-hover': '#626aea',
-    '--dp-color-primary-active': '#2f37b7',
+    '--dp-color-primary-hover': '#4080ff',
+    '--dp-color-primary-active': '#0e42d2',
     '--dp-color-accent-violet': '#5d26ff',
     '--dp-text-1': '#1d2129',
     '--dp-text-2': '#4e5969',
@@ -47,9 +47,10 @@
 
   const brandColors = [
     ['Primary', '--dp-color-primary', '主品牌蓝'],
-    ['Action / CTA', '--dp-color-action', '主按钮 / 链接'],
-    ['Primary Hover', '--dp-color-primary-hover', '悬停'],
-    ['Primary Active', '--dp-color-primary-active', '按下'],
+    ['Action / CTA', '--dp-color-action', '实心填充'],
+    ['Action FG', '--dp-color-action-fg', '链接 / 选中字'],
+    ['Primary Hover', '--dp-color-primary-hover', '悬停填充'],
+    ['Primary Active', '--dp-color-primary-active', '按下填充'],
     ['Primary BG', '--dp-color-primary-bg', '浅蓝底'],
     ['Action BG Light', '--dp-color-action-bg-light', 'Tag / 轻底'],
     ['Accent Violet', '--dp-color-accent-violet', '展示辅色'],

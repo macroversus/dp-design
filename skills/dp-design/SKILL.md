@@ -39,10 +39,11 @@ description: >-
 
 ## 硬约束
 
-**色**
-- Primary / Action = `#165dff`（Hover `#4080ff` / Active `#0e42d2`）；禁青霓虹；禁业务站另起主色。  
-- 实心填充上的字：`--dp-text-on-primary`。  
-- Dark 链接 / 侧栏选中 / Tabs / 线型图标：`--dp-color-action-fg`；**禁止**用 `--dp-color-action` 当字色。
+**色 · 分轨**
+- `primary-1…7` 是公司绝对色，浅色与深色相同，不随模式改写。组件用角色别名。  
+- 浅色（纸面墨色）：填充 = 链接字 = `#165dff`；悬停 `#4080ff`；按下 `#0e42d2`；浅底 `#e8f3ff`。壳层不染色。  
+- 深色（夜色发光）：填充 `#4080ff`；悬停 `#6aa1ff`；按下 `#165dff`；链接 / 选中 / 图标字 `#bedaff`（`--dp-color-action-fg`）。**禁止**用填充色当字色。**禁止**用 primary-1/2/3 做大面积。  
+- 实心填充上的字：`--dp-text-on-primary`。禁青霓虹；禁业务站另起主色。
 
 **Product / Showcase**
 - Product：边框优先；壳层 **倒 L**（侧栏通高、Logo 窗口左上角）；主容器 **16**；控件 **8/4**；内容**顶满工作区**（禁 `max-width: 1200`）；一页一个主按钮。表单字段区仍可 720。  
@@ -70,7 +71,7 @@ description: >-
 ## 验收
 
 - [ ] Logo 在整个窗口左上角（Product 倒 L / Showcase 顶栏左）  
-- [ ] `--dp-*` Token；未写死冲突主色；Primary 为 `#165dff`  
+- [ ] `--dp-*` Token；浅色填充 `#165dff`；深色填充与字色已分开；未用 primary-1/2/3 做深色大面积  
 - [ ] 按钮高度用 大36 / 中32 / 小28 / 迷你24  
 - [ ] Product 容器 16、控件 8/4、页宽顶满；嵌套圆角已按公式  
 - [ ] 实心填充为 on-primary；Dark 深底无深字  

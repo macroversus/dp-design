@@ -7,7 +7,7 @@
 html[data-dp-theme='light'] {
   color-scheme: light;
 
-  /* Brand — 公司色板 primary-6 及色阶（2026-08-18） */
+  /* Brand — 公司绝对色阶 primary-1…7（两种模式相同，不在 Dark 重写） */
   --dp-color-primary-1: #e8f3ff;
   --dp-color-primary-2: #bedaff;
   --dp-color-primary-3: #94bfff;
@@ -186,7 +186,7 @@ html[data-dp-theme='light'] {
 html[data-dp-theme='dark'] {
   color-scheme: dark;
 
-  /* 实心按钮用 primary-5；选中字/图标用更浅的 primary-2 */
+  /* 夜色发光：填充与字色分开。禁止把 primary-1/2/3 当深色表面 */
   --dp-color-primary: #4080ff;
   --dp-color-action: #4080ff;
   --dp-color-action-fg: #bedaff; /* 深色底上的链接/选中/图标字色，须浅 */
